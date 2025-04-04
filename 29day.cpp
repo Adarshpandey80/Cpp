@@ -90,24 +90,23 @@
 
       //               3 april----------
 
+     //       get string and reverse
+     
 
      #include <iostream>
      #include <string>
     using namespace std;
 
-int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str); 
-
-    int n = str.length();
-    for (int i = 0; i < n / 2; i++) {
-      
-        char temp = str[i];
-        str[i] = str[n - i - 1];
-        str[n - i - 1] = temp;
-    }
-
-    cout << "Reversed string: " << str << endl;
+ int main() {
+   string str1 = "hello bhopal", str2;
+   cout <<"string 1 and string 2"<<endl;
+  //  getline(cin , str1);
+  //  getline(cin , str2);
+   reverse(str1.begin(), str1.end());
+    // reverse(str2.begin(), str2.end());
+    // cout<<str1+" "+str2<<endl;
+  cout<<str1;
     return 0;
 }
+
+
