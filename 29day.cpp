@@ -93,20 +93,84 @@
      //       get string and reverse
      
 
-     #include <iostream>
-     #include <string>
-    using namespace std;
+//      #include <iostream>
+//      #include <string>
+//     using namespace std;
 
- int main() {
-   string str1 = "hello bhopal", str2;
-   cout <<"string 1 and string 2"<<endl;
-  //  getline(cin , str1);
-  //  getline(cin , str2);
-   reverse(str1.begin(), str1.end());
-    // reverse(str2.begin(), str2.end());
-    // cout<<str1+" "+str2<<endl;
-  cout<<str1;
-    return 0;
+//  int main() {
+//    string str1 = "hello bhopal", str2;
+//    cout <<"string 1 and string 2"<<endl;
+//   //  getline(cin , str1);
+//   //  getline(cin , str2);
+//    reverse(str1.begin(), str1.end());
+//     // reverse(str2.begin(), str2.end());
+//     // cout<<str1+" "+str2<<endl;
+//   cout<<str1;
+//     return 0;
+// }
+
+
+// 5 april      swap array elements ---------------------
+
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//   int arr[5] = {3,2,5,6,8};
+//   // for (int i=0; i<5; i++){
+//   //   if (arr[i]==2){
+//   //     swap(arr[i], arr[4]);
+//   //   }
+//     // cout<<arr[i];
+//   }
+// }
+
+//                    relational oprator 7 april 
+  
+// #include<iostream>
+// using namespace std;
+// int main(){
+// int x=20,y=20,z;
+// z= x==y; // equlas to
+// cout<<x;
+//  z= x!=y; // not equals to
+//  cout<<z;
+// z = z<=y;
+// cout<<z;  // less then equal to
+// z = z>=y;
+// cout<<z; // grater then equal to
+// z = z>y;
+// cout<<z; 
+// z = z>=y;
+// cout<<z; 
+// }
+
+//wap to chack the given input is childage , teen age , young age , old age,
+
+// #include<iostream>
+// using namespace std;
+// int main (){
+//   int age ;
+//   cout<<"inter your age";
+//   cin>>age;
+//   if(age<=0){
+//     cout<<"child age";
+//   }else if(age<=13){
+//      cout<<"teen age";
+//   }else if(age<=18){
+//     cout<<"young age";
+//     }else if(age>=60){
+//       cout<<"old age";  
+//     }
+  
+// }
+
+// wap to find LCM of three num 
+
+   
+  
+#include<iostream>
+using namespace std;
+int main(){
+
 }
-
-
