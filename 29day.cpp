@@ -167,10 +167,83 @@
 
 // wap to find LCM of three num 
 
-   
-  
+// #include<iostream>
+// using namespace std;
+// int main(){
+//  int a,b,c ;
+//  cout<<"enter the value of a,b,c for lcm"<<endl;
+//  cin>>a>>b>>c;
+//  for(int i = 1; i>0 ; i++){
+//   if(i%b==0&&i%b==0&& i%c==0){
+//     cout<<"lcm is "<<i<<endl;
+//     break; 
+//   }
+//  }
+// }
+
+//wap to find HCF of three num 
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//   int a,b,c , gcf ;
+//   cout<<"enter the value of a,b,c for hcf"<<endl;
+//   cin>>a>>b>>c;
+//   for(int i=0 ; i<=a&&i<=b&&i<=c ; i++){
+//     if(a%i==0&&b%i==0&&c%i==0){
+//       gcf=i;
+//     }
+//   }
+//   cout<<"hcf is"<<gcf<<endl;
+// }
+
+//         8/4/25  find out the max num amoung three input 
+
+// #include<iostream>
+// using namespace std ;
+// int main(){
+//   int a,b,c ;
+//   cout<<"inter three value "<<endl;
+//   cin>>a>>b>>c;
+//   if(a>b && a>c){
+//     cout<<a;
+
+//   }else if (b>a && b>c){
+//     cout<<b;
+    
+//   } else {
+//     cout<<c;
+//   }
+// }
+
+// make a programe take three variable of float ype name phy ,che ,math and show the risult on the following condition 
+// marks should be 0 o 100 ,user can pass on gating marks>=33 , if user can pass show there division , less then 45 third division
+// less then 60 second devision , grater than equl 60 frist div .
+// user can pass only if thry will pass in all subject.
+// if user fell show there failsubject with marks .
+
 #include<iostream>
 using namespace std;
 int main(){
+  float phy,che,math;
+  cout<<"enter the marks of phy,che,math"<<endl;
+  cin>>phy>>che>>math;
+  if(phy>=0 && phy<=100 && che>=0 && che<=100 && math>=0 && math<=100){
+    if(phy>=33 && che>=33 && math>=33){
+      if(phy<45 && che<45 && math<45){
+        cout<<"second division"<<endl;
+        }else if(phy<60 && che<60 && math<60){
+          cout<<"first division"<<endl;
+          }else{
+            cout<<"second division"<<endl;
+            }
+            }else{
+              cout<<"fail in phy "<<phy<<endl;
+              cout<<"fail in che "<<che<<endl;
+              cout<<"fail in math "<<math<<endl;
+              }
+              }else{
+                cout<<"invalid marks"<<endl;
+                }
+}  
 
-}
