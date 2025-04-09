@@ -222,28 +222,58 @@
 // user can pass only if thry will pass in all subject.
 // if user fell show there failsubject with marks .
 
+// #include<iostream>
+// using namespace std;
+// int main(){
+//   float phy,che,math;
+//   cout<<"enter the marks of phy,che,math"<<endl;
+//   cin>>phy>>che>>math;
+//   if(phy<33 && che<33 && math<33){
+//     cout<<"fail"<<endl;
+//     cout<<phy<<" "<<che<<" "<<math<<endl;
+//   } else if(phy<=45 &&che<=45&&math<=45){
+//     cout<<"third"<<endl;
+//   } else if(phy<=60 && che<=60&& math<=60){
+//     cout<<"second"<<endl;
+//   } else if(phy>=60 &&che>=60&&math>=60){
+//     cout<<"first"<<endl;
+//   } else if(phy<33 && che<33 && math<33){
+//     cout<<"fail"<<endl;
+//     cout<<phy<<che<<math;
+//   }
+//   return 0;
+// }  
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//   float phy,che,math;
+//   cout<<"enter the marks of phy,che,math"<<endl;
+//   cin>>phy>>che>>math;
+//   if(phy>0 && phy<33 && che>0 && che<33 && math>0 && math<33){
+//     cout<<"fail"<<endl;
+//     cout<<"your phy num is"<<phy;
+//     cout<<"your che num is"<<che;
+//     cout<<"your math num is"<<math;
+//     } else if(phy>=33 && phy<=45 && che>=33 && che<=45 && math>=33 && math<=45){
+//       cout<<"third division "<<endl;
+//       } else if(phy>=45 && phy<=60 && che>=45 && che<=60 && math>=45 && math<=60){
+//         cout<<"second division "<<endl;
+//       } else if(){
+//          cout<<"first division "<<endl;
+//       }
+// }
+
+
+//                  09/04/25  bitwise oprator
+
 #include<iostream>
 using namespace std;
 int main(){
-  float phy,che,math;
-  cout<<"enter the marks of phy,che,math"<<endl;
-  cin>>phy>>che>>math;
-  if(phy>=0 && phy<=100 && che>=0 && che<=100 && math>=0 && math<=100){
-    if(phy>=33 && che>=33 && math>=33){
-      if(phy<45 && che<45 && math<45){
-        cout<<"second division"<<endl;
-        }else if(phy<60 && che<60 && math<60){
-          cout<<"first division"<<endl;
-          }else{
-            cout<<"second division"<<endl;
-            }
-            }else{
-              cout<<"fail in phy "<<phy<<endl;
-              cout<<"fail in che "<<che<<endl;
-              cout<<"fail in math "<<math<<endl;
-              }
-              }else{
-                cout<<"invalid marks"<<endl;
-                }
-}  
+  int a=12 ,b=13 ,c;
+  c= a&b;
+  cout<<c;
+  
+}
 
+// wap of bill managment system in restorent 
