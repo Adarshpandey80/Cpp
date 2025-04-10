@@ -267,13 +267,128 @@
 
 //                  09/04/25  bitwise oprator
 
-#include<iostream>
-using namespace std;
-int main(){
-  int a=12 ,b=13 ,c;
-  c= a&b;
-  cout<<c;
+// #include<iostream>
+// using namespace std;
+// int main(){
+//   int a=12 ,b=13 ,c;
+//   c= a&b;
+//   cout<<c;
   
-}
+// }
 
 // wap of bill managment system in restorent 
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//   int choice ;
+//   int  smosa =10, kachodi = 15 , jalebi = 20; 
+//   cout<<" choose 1 for smosa , kachodi and jalebi"<<endl;
+//   cout<<" choose 2 for smosa , kachodi"<<endl;
+//   cout<<"choose 3 for smosa and jalebi"<<endl;
+//   cout<<"choose 4 for kachodi and jalebi"<<endl;
+//   cout<<"choose 5 for smosa "<<endl;
+//   cout<<"choose 6 for kachodi "<<endl;
+//   cout<<"choose 7 for jalebi "<<endl;
+//  cin>>choice;
+//  switch(choice){
+//   case 1: 
+//    int n1,n2,n3,bill1;
+//    cout<<"enter the number of smosa , kachodi and jalebi"<<endl;
+//    cin>>n1>>n2>>n3;
+//    bill1 = n1*10 + n2*15 + n3*20;
+//    cout<<"your bill is "<<bill1<<endl;
+//    break;
+//    case 2:
+//    int n4,n5,bill2;
+//    cout<<"enter the number of smosa and kachodi"<<endl;
+//    cin>>n4>>n5;
+//    bill2 = n4*10 + n5*15;
+//    cout<<"your bill is "<<bill2<<endl;
+//    break;
+//    case 3:
+//    int n6,n7,bill3;
+//    cout<<"enter the number of smosa and jalebi"<<endl;
+//    cin>>n6>>n7;
+//    bill3 = n6*10 + n7*20;
+//    cout<<"your bill is "<<bill3<<endl;
+//    break;
+//    case 4:
+//    int n8,n9,bill4;
+//    cout<<"enter the number of kachodi and jalebi"<<endl;
+//    cin>>n8>>n9;
+//    bill4 = n8*15 + n9*20;
+//    cout<<"your bill is "<<bill4<<endl;
+//    break;
+//    case 5:
+//    int num,bill5;
+//    cout<<"enter the number of smosa "<<endl;
+//    cin>>num;
+//    bill5 = num*10;
+//    cout<<"your bill is "<<bill5<<endl;
+//    break;
+//    case 6:
+//    int num1,bill6;
+//    cout<<"enter the number of kachodi "<<endl;
+//    cin>>num1;
+//    bill6 = num1*15;
+//    cout<<"your bill is "<<bill6<<endl;
+//    break;
+//    case 7:
+//    int num2,bill7;
+//    cout<<"enter the number of jalebi "<<endl;
+//    cin>>num2;
+//    bill7 = num2*20;
+//    cout<<"your bill is "<<bill7<<endl;
+//    break;
+//  default:
+//    cout<<"Invalid choice! Please select between 1-7"<<endl;
+//  }
+// }
+
+//                 10/04/25  bitwise op.
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//   int a=12 ,b=13 ,c;
+//   c= a&b; // and
+//   cout<<c<<endl;
+//    c= a|b; //or
+//   cout<<c<<endl;
+//    c= a^b; // xor
+//   cout<<c<<endl;
+//    c= ~a;  //not 
+//   cout<<c<<endl;
+//    c= ~b;  //not
+//   cout<<c<<endl;
+// }
+
+//          loop
+
+#include<iostream>
+// using namespace std;
+// int main(){
+//   int i=0;
+//   while(i<5){
+//     cout<<"hello"<<endl;
+//     i++;
+//   }
+//   cout<<i<<endl;
+// }
+
+//wap to find the sun of frist natural number input taken from user
+// wap to chack the num have four factor or prime num or both not
+//wap to reverse the given input taken from user 
+// wap to find factoreal of a num 
+// wap to sum of factorial of num
+// wap to chack num is palindorm or not 
+// wap to find the num is armstrom or not
+//wap to print the fibonacchi series 0,1,1,2,3,5,8,13........
+// wap to ptint math table
+// wap to find the value of 1-2 +3-4+5-6+7-8+9-10
+//wap to find the sum of factorial f1/1 !+f2/2!+f3/3!+f4/4!+
+// wap to find the lcm and hcm of two given user input num
+// wap to print the series 10,9,8,7....
+// wap to find sum of input digit 
+//wap a prob to chack the given num is perfect or not 
