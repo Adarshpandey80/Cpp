@@ -366,7 +366,7 @@
 
 //          loop
 
-#include<iostream>
+// #include<iostream>
 // using namespace std;
 // int main(){
 //   int i=0;
@@ -392,3 +392,240 @@
 // wap to print the series 10,9,8,7....
 // wap to find sum of input digit 
 //wap a prob to chack the given num is perfect or not 
+
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//   int n, i= 1, sum=0;
+//   cout<<"enter the num"<<endl;
+//   cin>>n;
+//   while(i<=n){
+//     sum=sum+i;
+//     i++;
+//   }
+//   cout<<"sum of first "<<n<<" natural num is "<<sum<<endl;
+// }
+
+
+//wap to chack the num have four factor or prime num or both not
+// #include<iostream>
+//   using namespace std;
+//   int main(){
+//     int n;
+//     cout<<"enter the num"<<endl;
+//     cin>>n;
+//     int i=1;
+//     int count=0;
+//     while(i<=n){
+//       if(n%i==0){
+//         count++;  
+//         }
+//         i++;
+//         }
+//         if(count==4){
+//           cout<<"num have four factor"<<endl;
+//           }
+//           else if(count==0){
+//             cout<<"num is prime num"<<endl;
+//             }
+//             else{
+//               cout<<"num have both not have four factor and not prime num"<<endl;
+//               }
+//               return 0;
+//               }  
+
+// wap to reverse num and chack palindrom
+
+// #include<iostream>
+// using namespace std;
+// int main (){
+//     int n, rev=0, p;
+//     cout<<"enter the num"<<endl;
+//     cin>>n;
+//     p = n; 
+//     while(n>0){
+//         int rem = n%10;
+//         rev = rev*10 + rem;
+//         n = n/10;
+//     }
+    
+//     cout<<"reverse of num is "<<rev<<endl;
+    
+//     if(p == rev){  
+//         cout<<"num is palindrome"<<endl;
+//     }
+//     else{
+//         cout<<"num is not palindrome"<<endl;  
+//     }
+//     return 0;
+// }
+     
+     // wap of factorial and sum of factorial
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int n,fact=1,i=1 , sum=0;
+//     cout<<"enter the num"<<endl;
+//     cin>>n;
+//     while(i<=n){
+//         fact = fact*i;
+//         cout<<fact<<endl;
+//     sum = sum + fact;
+//      i++;
+//     }
+//      cout<<"the sum of factorial is "<<sum<<endl;
+// }
+
+//               armstrom num 
+
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int n , temp , rem = 0;
+//     cout<<"enter the num"<<endl;
+//     cin>>n;
+//     temp = n;
+//     while(n>0){
+//         int num = n%10;
+//         rem = rem + num*num*num;
+//         n = n/10;
+//         }
+//         if(temp == rem){
+//             cout<<"num is armstrong"<<endl;
+//             }
+//             else{
+//                 cout<<"num is not armstrong"<<endl;
+//                 }
+// }
+
+
+//      wap of fibonacci series
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int n ,i =0 ,f1= 0, f2=1 , sum = 0;
+//     cout<<"enter the num"<<endl;
+//     cin>>n;
+//     while(i<=n){
+//          cout<< f1<<endl;
+//         sum = f1 + f2;
+//         f1=f2;
+//         f2=sum;
+//         i++;
+//         }
+//     }
+
+// math table 
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int n,i=0 , t ;
+//     cout<<"enter the num"<<endl;
+//     cin>>n;
+//     while(i<=10){
+//      t = n*i;
+//      cout<<t<<endl;
+//      i++;
+//     }
+// }
+
+
+//wap to find the value of 1-2 +3-4+5-6+7-8+9-10
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int n,i =0, sum = 0;
+//     cout<<"enter the num"<<endl;
+//     cin>>n;
+//     while(i<=n){
+//      if(i%2 == 0){
+//           sum = sum - i;
+//           }
+//            else{
+//                sum = sum + i;
+//                }
+//                i++;
+//                }
+//                cout<<sum<<endl;
+//                return 0;
+//     }
+    
+//wap to find the sum of factorial f1/1 !+f2/2!+f3/3!+f4/4!+
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      int n,i = 1, sum = 0;
+//      cout<<"enter the num"<<endl;
+//      cin>>n;
+//      while(i<=n){
+//           int fact= 1,c;
+//           c = fact*i;
+//           sum = sum + (i*c)/i;
+//           i++;
+//           }
+//           cout<<sum<<endl;
+//           return 0;
+//           }
+
+// wap to print the series 10,9,8,7....
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      int n,i=0;
+//      cout<<"enter the num"<<endl;
+//      cin>>n;
+//      while(i<=n){
+//           cout<<n-i<<endl;
+//           i++;
+//      }
+// }
+
+// wap to find sum of input digit 
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      int n,sum=0;
+//      cout<<"enter the num"<<endl;
+//      cin>>n;
+//      while(n>0){
+//           sum = sum + n%10;
+//           n=n/10;
+//      }
+//      cout<<"the sum of digit is "<<sum<<endl;
+// }
+
+//wap a prob to chack the given num is perfect or not 
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      int n,i=1,sum=0,n1;
+//      cout<<"enter the num"<<endl;
+//      cin>>n;
+//      n1 = n;
+//      while(i<n){
+//           if(n%i==0){
+//                // cout<<i<<endl;
+//             sum = sum + i;
+//           }
+//           i++;
+//          }
+//         if(n1 == sum){
+//             cout << sum<< " is a perfect number" << endl;
+//                     }
+//            else {
+//             cout << sum << " is not a perfect number" << endl;
+//                  }
+//  }
+
+//                11/04/25     
+
