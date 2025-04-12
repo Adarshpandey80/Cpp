@@ -627,5 +627,39 @@
 //                  }
 //  }
 
-//                11/04/25     
+//                12/04/25  nested while loop
 
+#include<iostream>
+using namespace std;
+int main(){
+     int i=5;
+     while(i>0){
+          cout<<i;
+          int j=5;
+          while(j>0){
+               cout<<i;
+               j--;
+          }
+          i--;
+          cout<<endl;
+     }
+}
+
+//wap to peint 5 *4 ,4 *3,3*2,2*1;
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      int i=1;
+//      while(i<=5){
+//           int j = 1;
+//           while(j<=i){
+//                cout<<" *";
+//                j++;
+//                }
+//               cout<<endl;
+//                i++;
+//                }
+//                return 0;
+// }
+ 
