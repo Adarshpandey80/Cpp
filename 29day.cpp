@@ -629,21 +629,21 @@
 
 //                12/04/25  nested while loop
 
-#include<iostream>
-using namespace std;
-int main(){
-     int i=5;
-     while(i>0){
-          cout<<i;
-          int j=5;
-          while(j>0){
-               cout<<i;
-               j--;
-          }
-          i--;
-          cout<<endl;
-     }
-}
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      int i=5;
+//      while(i>0){
+//           cout<<i;
+//           int j=5;
+//           while(j>0){
+//                cout<<i;
+//                j--;
+//           }
+//           i--;
+//           cout<<endl;
+//      }
+// }
 
 //wap to peint 5 *4 ,4 *3,3*2,2*1;
 
@@ -663,3 +663,218 @@ int main(){
 //                return 0;
 // }
  
+
+// 12/04/26      pattern
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int n;
+//     cout<<"enter the num "<<endl;
+//     cin>>n;
+//     for(int i =0 ; i<n;i++){
+//         for(int j=0 ; j<n-i-1; j++){
+//             cout<<"  ";
+//             }
+//          for(int k=0; k<i*2+1;k++){
+//             cout<<"* ";
+//          }
+//          for(int l=0;l<n-i-1;l++){
+//             cout<<"  ";
+//          }
+        
+        
+//         cout<<endl;
+//     }
+//       for(int i =0 ; i<n;i++){
+//         for(int j=0 ; j<i; j++){
+//             cout<<"  ";
+//             }
+//          for(int k=0; k<2*n-(2*i+1);k++){
+//             cout<<"* ";
+//          }
+//          for(int l=0;l<i;l++){
+//             cout<<"  ";
+//          }
+        
+        
+//         cout<<endl;
+//     }
+// }
+
+// * * * *
+// * * *
+// * *
+// *
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      int n;
+//      cout<<"enter the num "<<endl;
+//      cin>>n;
+//      for(int i=0 ; i<n;i++){
+//           for(int j=0 ;j<n-i-1;j++){
+//                cout<<"* ";
+//           }
+//           cout<<endl;
+//      }
+// }
+
+
+// * * * * ****
+// * * *    ***
+// * *       **  
+// *          *
+//
+         
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      int n;
+//      cout<<"enter the num"<<endl;
+//      cin>>n;
+
+//      for(int i=0 ; i<n;i++){
+         
+//           for(int j=1;j<=n-i;j++){
+//                cout<<"* ";
+//           }
+//           for(int j=0;j<i*2;j++){
+//                cout<<" ";
+//           }
+//           for(int j=1; j<=n-i;j++){
+//                cout<<"* ";
+//           }
+        
+//           cout<<endl;
+//      }
+// }
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int n ;
+//     cout<<"enter the num"<<endl;
+//     cin>>n;
+//      for(int i=1 ; i<20;i++){
+//           if(n==1){
+//                cout<<"program of table es"<<endl;
+//                 int n,i=0 , t ;
+//                  cout<<"enter the num"<<endl;
+//                    cin>>n;
+//                   while(i<=10){
+//                   t = n*i;
+//                    cout<<t<<endl;
+//                     i++;
+//                    }  
+//                 break;
+//           }
+//           else if(n==2){
+//                cout<<"program of factorial es"<<endl;
+//                  int n,fact=1,i=1 , sum=0;
+//             cout<<"enter the num"<<endl;
+//              cin>>n;
+//              while(i<=n){
+//             fact = fact*i;
+//             cout<<fact<<endl;
+//             sum = sum + fact;
+//                i++;
+//                }
+//              cout<<"the sum of factorial is "<<sum<<endl;
+//              break;
+             
+
+//           }
+//           else if(n==3){
+//                cout<<"program of fibonacci es"<<endl;
+              
+//                int n ,i =0 ,f1= 0, f2=1 , sum = 0;
+//                     cout<<"enter the num"<<endl;
+//                      cin>>n;
+//                  while(i<=n){
+//                 cout<< f1<<endl;
+//                   sum = f1 + f2;
+//                     f1=f2;
+//                      f2=sum;
+//                     i++;
+//                      }
+//                      cout<<"the sum of fibonacci is "<<sum<<endl;
+//                      break;
+//           }
+//           else if(n==4){
+//                cout<<"program of armstrom"<<endl;
+//                 int n , temp , rem = 0;
+//                cout<<"enter the num"<<endl;
+//               cin>>n;
+//                temp = n;
+//                 while(n>0){
+//                 int num = n%10;
+//                 rem = rem + num*num*num;
+//                 n = n/10;
+//                   }
+//                  if(temp == rem){
+//                cout<<"num is armstrong"<<endl;
+//             }
+//             else{
+//                 cout<<"num is not armstrong"<<endl;
+//                 }
+//                 break;
+//           }
+//           else if(n==5){
+//                cout<<"program of prime and four facror"<<endl;
+//                 int n;
+//                  cout<<"enter the num"<<endl;
+//                  cin>>n;
+//                 int i=1;
+//                    int count=0;
+//             while(i<=n){
+//                  if(n%i==0){
+//                    count++;  
+//                  }
+//                   i++;
+//                    }
+//                 if(count==4){
+//                 cout<<"num have four factor"<<endl;
+//                }
+//                else if(count==0){
+//             cout<<"num is prime num"<<endl;
+//             }
+//             else{
+//               cout<<"num have both not have four factor and not prime num"<<endl;
+//               }
+//               break;     
+
+//           }
+//           else if(n==6){
+//                cout<<"wap to find the sum of factorial f1/1 !+f2/2!+f3/3!+f4/4!+"<<endl;
+//                    int n,i = 1, sum = 0;
+//                    cout<<"enter the num"<<endl;
+//                    cin>>n;
+//                  while(i<=n){
+//                   int fact= 1,c;
+//                   c = fact*i;
+//                   sum = sum + (i*c)/i;
+//                    i++;
+//                  }
+//                  cout<<sum<<endl;
+//                  break;
+
+//           }else {
+//                cout<<"invalid choice"<<endl;
+//           }
+
+//      }
+// }
+
+#include<iostream>
+using namespace std;
+int main(){
+     int n1,n2,rem;
+     cout<<"inter the value of n1 and n2"<<endl;
+     cin>>n1>>n2;
+     for(int i=0 ; i<=n1&&i<=n2 ; i++){
+          rem = n%10; 
+
+     }
+}
