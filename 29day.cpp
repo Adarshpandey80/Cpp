@@ -867,14 +867,48 @@
 //      }
 // }
 
-#include<iostream>
-using namespace std;
-int main(){
-     int n1,n2,rem;
-     cout<<"inter the value of n1 and n2"<<endl;
-     cin>>n1>>n2;
-     for(int i=0 ; i<=n1&&i<=n2 ; i++){
-          rem = n%10; 
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      int n1,n2,n3,i=1;
+//      cout<<"enter the value of n1 and n2"<<endl;
+//      cin>>n1;
+//      cin>>n2;
+//      n3 = n1+1;
+//     while(i<=n2){
+//      int temp = n3, rem =0 , r;
+//      while(temp>0){
+//           r = temp%10;
+//           rem = rem*10+r;
+//           temp = temp/10;
+//            }
+//           if(rem == n3){
+//                cout<<rem<<endl;
+//                i+=1;
+//           }
+//           n3+=1;
+     
+//     }
+// }
 
-     }
-}
+// 
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      int n ,count=0;
+//      cout<<"enter the value of n"<<endl;
+//      cin>>n;
+     
+//      for(int i = 1 ;i<=n;i++){
+//           if(n%i==0){
+//                count++;
+//                }
+//                 }
+//                 if(count==2){
+//                     cout<<"prime"<<endl;
+//                     }else{
+//                          cout<<"not prime"<<endl;
+//                          }
+//   }
+     
