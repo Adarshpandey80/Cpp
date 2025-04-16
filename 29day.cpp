@@ -1,27 +1,4 @@
-// # include <iostream>
-// using namespace std;
-// int main (){
-//     int x = 10;
-//     cout<<"the value of x is ="<<x<<endl;
-//     x+=10;
-//      cout<<"the value of x is ="<<x<<endl;
-//      x-=2;
-//       cout<<"the value of x is ="<<x<<endl;
-//       x/=2;
-//     cout<<"the value of x is ="<<x<<endl;
-//       x%=2;
-//     cout<<"the value of x is ="<<x<<endl;
 
-// }
-
-
-
-    //  31march----------------------------------
-
-
-    // #include<iostream>
-    // using namespace std;
-    // int main(){
     //  int a=6 ,b=3 ,c;
     //  c=a+b;
     //  cout<<"the sum of a and b is \n"<<c<<endl;
@@ -664,92 +641,6 @@
 // }
  
 
-// 12/04/26      pattern
-// #include<iostream>
-// using namespace std;
-// int main(){
-//     int n;
-//     cout<<"enter the num "<<endl;
-//     cin>>n;
-//     for(int i =0 ; i<n;i++){
-//         for(int j=0 ; j<n-i-1; j++){
-//             cout<<"  ";
-//             }
-//          for(int k=0; k<i*2+1;k++){
-//             cout<<"* ";
-//          }
-//          for(int l=0;l<n-i-1;l++){
-//             cout<<"  ";
-//          }
-        
-        
-//         cout<<endl;
-//     }
-//       for(int i =0 ; i<n;i++){
-//         for(int j=0 ; j<i; j++){
-//             cout<<"  ";
-//             }
-//          for(int k=0; k<2*n-(2*i+1);k++){
-//             cout<<"* ";
-//          }
-//          for(int l=0;l<i;l++){
-//             cout<<"  ";
-//          }
-        
-        
-//         cout<<endl;
-//     }
-// }
-
-// * * * *
-// * * *
-// * *
-// *
-
-// #include<iostream>
-// using namespace std;
-// int main(){
-//      int n;
-//      cout<<"enter the num "<<endl;
-//      cin>>n;
-//      for(int i=0 ; i<n;i++){
-//           for(int j=0 ;j<n-i-1;j++){
-//                cout<<"* ";
-//           }
-//           cout<<endl;
-//      }
-// }
-
-
-// * * * * ****
-// * * *    ***
-// * *       **  
-// *          *
-//
-         
-
-// #include<iostream>
-// using namespace std;
-// int main(){
-//      int n;
-//      cout<<"enter the num"<<endl;
-//      cin>>n;
-
-//      for(int i=0 ; i<n;i++){
-         
-//           for(int j=1;j<=n-i;j++){
-//                cout<<"* ";
-//           }
-//           for(int j=0;j<i*2;j++){
-//                cout<<" ";
-//           }
-//           for(int j=1; j<=n-i;j++){
-//                cout<<"* ";
-//           }
-        
-//           cout<<endl;
-//      }
-// }
 
 // #include<iostream>
 // using namespace std;
@@ -867,6 +758,9 @@
 //      }
 // }
 
+// wap taking two input from user n1 and n2 .
+// when the user input n2 find out all the palindrom num n1 and num of n2
+
 // #include<iostream>
 // using namespace std;
 // int main(){
@@ -911,4 +805,62 @@
 //                          cout<<"not prime"<<endl;
 //                          }
 //   }
-     
+
+//wap to find prime num btn  two num n1 and n2
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      int n1,n2;
+//      cout<<"enter the num n1 and n2"<<endl;
+//      cin>>n1>>n2;
+//      for(int i=n1;i<=n2;i++){
+//         int cnt = 0;
+//         for(int j=1;j<=i;j++){
+//             if(i%j==0){
+//                 cnt++;
+//             }
+//         }
+//         if(cnt==2){
+//             cout<<"prime num ="<<i<<endl;
+//             }
+//      }
+// }
+       
+          //  16/04/25  comma saprate oprator;
+
+//   #include<iostream>
+//   using namespace std;
+//   int main(){
+//      int a=(1,2,3,4,5);
+//      cout<<a<<endl;
+//   }        
+
+//pree/post increment 
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      int a=10,b=4;
+//      cout<<++a<<endl;
+//      cout<<a++<<endl;
+//      cout<<--b<<endl;
+//      cout<<b--<<endl;
+//      cout<<b<<endl;
+// }
+
+// add 10 num using do while loop
+
+#include<iostream>
+using namespace std;
+int main(){
+     int i = 1 ,sum =0 ;
+     do{
+          sum  = sum +i;
+          cout<<sum<<endl;
+          i++;
+
+     }
+     while(i<=10);
+}
+
