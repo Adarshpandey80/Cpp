@@ -851,16 +851,17 @@
 
 // add 10 num using do while loop
 
-#include<iostream>
-using namespace std;
-int main(){
-     int i = 1 ,sum =0 ;
-     do{
-          sum  = sum +i;
-          cout<<sum<<endl;
-          i++;
+//#include<iostream>
+// using namespace std;
+// int main(){
+//      int i = 1 ,sum =0 ;
+//      do{
+//           sum  = sum +i;
+//           cout<<sum<<endl;
+//           i++;
 
-     }
-     while(i<=10);
-}
+//      }
+//      while(i<=10);
+// }
 
+//                   17/04/25
