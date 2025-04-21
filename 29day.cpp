@@ -151,7 +151,7 @@
 //  cout<<"enter the value of a,b,c for lcm"<<endl;
 //  cin>>a>>b>>c;
 //  for(int i = 1; i>0 ; i++){
-//   if(i%b==0&&i%b==0&& i%c==0){
+//   if(i%a==0&&i%b==0&& i%c==0){
 //     cout<<"lcm is "<<i<<endl;
 //     break; 
 //   }
@@ -403,7 +403,7 @@
 //         if(count==4){
 //           cout<<"num have four factor"<<endl;
 //           }
-//           else if(count==0){
+//           else if(count==2){
 //             cout<<"num is prime num"<<endl;
 //             }
 //             else{
