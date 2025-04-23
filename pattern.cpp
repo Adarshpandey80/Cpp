@@ -152,7 +152,7 @@
 // int main(){
 //     for(int i= 1;i<=5;i++){
 //         for(int j=1;j<=5;j++){
-//             if(i==1 or j==1 or i==5 or j==5 or j==i or j==i or j==6-i ) {
+//             if(i==1 or j==1 or i==5 or j==5 or  j==i or j==6-i ) {
 //                 cout<<"* ";
 //             }
 //            else {
@@ -180,3 +180,49 @@
 //     }
     
 // }
+
+// *   * * * 
+// *   *     
+// * * * * * 
+//     *   * 
+// * * *   * 
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+   
+//     for(int i = 0; i<5;i++){
+//       for (int j=0;j<5;j++){
+//            if((i==2  || j==2)||
+//            (i==0&& j>2) || 
+//            (i==4 && j<2) ||
+//             (j==0 && i<2) ||
+//            (j == 4 && i >2)){
+//             cout<<"* ";
+//            }  else {
+//             cout << "  ";  
+      
+//            }
+//       }
+//       cout<<endl;
+//     }
+//     return 0;
+//     }
+
+
+
+#include<iostream>
+using namespace std;
+int main(){
+      for(int i=0; i< 5; i++){
+            for( int j=0 ;j< 5; j++) {
+                  if ( i==0 || j== 1 || j==3){
+                        cout<<"* ";
+                  }else {
+                        cout << "  ";
+                  }
+
+            }
+            cout << endl;
+      }
+}

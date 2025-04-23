@@ -167,13 +167,13 @@
 
 // wap to swap to string 
 
-#include<iostream>
-using namespace std;
-int main(){
-    string str1 = "welcome";
-    string str2 = "bhopal";
-    string str3 = str1.append(" "+str2);
-    cout<<str3<<endl;
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     string str1 = "welcome";
+//     string str2 = "bhopal";
+//     string str3 = str1.append(" "+str2);
+//     cout<<str3<<endl;
     // cout<<"before swapping"<<endl;
     // cout<<"str1 = "<<str1<<endl;
     // cout<<"str2 = "<<str2<<endl;
@@ -183,6 +183,18 @@ int main(){
     // cout<<"after swapping"<<endl;
     // cout<<str1<<str2<<endl;
     
-}
+// }
 
 // wap to swap a string in assending abd desending order
+
+// #include <algorithm>
+// #include <iostream>
+// using namespace std;
+// int main(){
+//     string str = "welcome bhopal";
+//     sort(str.begin(), str.end());
+//     cout << str << endl;
+//     reverse(str.begin(), str.end());
+//     cout << str << endl;
+   
+// }
