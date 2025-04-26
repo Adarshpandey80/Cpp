@@ -152,20 +152,73 @@
 
 // }
 
+// #include<iostream>
+// using namespace std;
+// int main(){
+//   int arr[6] = {22,44,55,66,77,88};
+//   for(int i = 1 ;i<=6;i++){
+//     cout<<"enter your choice"<<i<<endl;
+//     int ch;
+//     cin>>ch;
+//     int j = rand()%6;
+//     cout<<j<<endl;
+//     if(ch == arr[j]){
+//         cout<<"you are correct"<<i<<endl;
+//     } else {
+//         cout<<"you are wrong"<<i<<endl;
+//     }
+//   }
+// }
+
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//   int arr[5] = {6,4,6,3,7};
+// for(int i=4;i>=0;i--){
+//   cout<<arr[i]<<endl;
+// }
+//   return 0 ;
+// }
+
 #include<iostream>
 using namespace std;
 int main(){
-  int arr[6] = {22,44,55,66,77,88};
-  for(int i = 1 ;i<=6;i++){
-    cout<<"enter your choice"<<i<<endl;
-    int ch;
-    cin>>ch;
-    int j = rand()%6;
-    cout<<j<<endl;
-    if(ch == arr[j]){
-        cout<<"you are correct"<<i<<endl;
-    } else {
-        cout<<"you are wrong"<<i<<endl;
+  cout<<"enter the size of array"<<endl;
+  int n;
+  cin>>n;
+  int arr[n];
+  for(int i=0;i<n;i++){
+    cout<<"enter the elements of array" <<i+1 <<endl;
+    int data;
+    cin>>data;
+    arr[i] = data;
+  }
+  for(int i=0;i<n;i++){
+    cout<<arr[i]<<endl;
+  }
+  cout<<"enter the element to be update"<<endl;
+  int data;
+  cin>>data;
+  cout<<"enter the index to be update"<<endl;
+  int index;
+  cin>>index;
+  arr[index] = data;
+  cout<<"update array is"<<endl;
+  for(int i=0;i<n;i++){
+    cout<<arr[i]<<endl;
+  }
+  cout<<"enter the element to be delete"<<endl;
+  int del;
+  cin>>del;
+  for(int i=0;i<n;i++){
+    if(arr[i] == del){
+      arr[i] = arr[i+1];
     }
   }
+  for(int i=0;i<n;i++){
+    cout<<arr[i]<<endl;
+  }
+  return 0;
+
 }
