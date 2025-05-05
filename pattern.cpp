@@ -211,18 +211,110 @@
 
 
 
+// #include<iostream>
+// using namespace std;
+// int main(){
+//       for(int i=0; i< 5; i++){
+//             for( int j=0 ;j< 5; j++) {
+//                   if ( i==0 || j== 1 || j==3){
+//                         cout<<"* ";
+//                   }else {
+//                         cout << "  ";
+//                   }
+
+//             }
+//             cout << endl;
+//       }
+// }
+
+//      1
+//     22
+//    333
+//   4444 
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      for(int i=1;i<=5;i++){
+//       for(int j=1;j<5-i;j++)
+//       cout<<" ";
+//       for(int j=1;j<=i;j++){
+//             cout<<i;
+//       }
+//         cout<<endl;
+//      }
+     
+// }
+
+
+//  11111
+//   2222
+//    333
+//     44
+//      5
+
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//      for(int i=1;i<=5;i++){
+//       for(int j=1;j<i+1;j++)
+//       cout<<" ";
+//       for(int j=1;j<=5-i+1;j++){
+//             cout<<i;
+//       }
+//         cout<<endl;
+//      }
+     
+// }
+
+// a
+// bb
+// ccc
+// dddd
+// eeeee
+
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+   
+//     for(int i=97 ; i<=101;i++){
+//         for(int j=97 ; j<=i;j++){
+//             cout<<char(i) ;
+//         }
+//         cout<<endl;
+//     }
+// }
+
+// a
+// ab
+// abc
+// abcd
+// abcde
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+   
+//     for(int i=97 ; i<=101;i++){
+//         for(int j=97 ; j<=i;j++){
+//             cout<<char(j) ;
+//         }
+//         cout<<endl;
+//     }
+// }
+
 #include<iostream>
 using namespace std;
 int main(){
-      for(int i=0; i< 5; i++){
-            for( int j=0 ;j< 5; j++) {
-                  if ( i==0 || j== 1 || j==3){
-                        cout<<"* ";
-                  }else {
-                        cout << "  ";
-                  }
-
-            }
-            cout << endl;
+     for(int i=1;i<=5;i++){
+      for(int j=1;j<5-i-1;j++)
+      cout<<" ";
+      for(int j=1;j<=i;j++){
+            cout<<*"";
       }
+        cout<<endl;
+     }
+     
 }
