@@ -181,44 +181,44 @@
 //   return 0 ;
 // }
 
-#include<iostream>
-using namespace std;
-int main(){
-  cout<<"enter the size of array"<<endl;
-  int n;
-  cin>>n;
-  int arr[n];
-  for(int i=0;i<n;i++){
-    cout<<"enter the elements of array" <<i+1 <<endl;
-    int data;
-    cin>>data;
-    arr[i] = data;
-  }
-  for(int i=0;i<n;i++){
-    cout<<arr[i]<<endl;
-  }
-  cout<<"enter the element to be update"<<endl;
-  int data;
-  cin>>data;
-  cout<<"enter the index to be update"<<endl;
-  int index;
-  cin>>index;
-  arr[index] = data;
-  cout<<"update array is"<<endl;
-  for(int i=0;i<n;i++){
-    cout<<arr[i]<<endl;
-  }
-  cout<<"enter the element to be delete"<<endl;
-  int del;
-  cin>>del;
-  for(int i=0;i<n;i++){
-    if(arr[i] == del){
-      arr[i] = arr[i+1];
-    }
-  }
-  for(int i=0;i<n;i++){
-    cout<<arr[i]<<endl;
-  }
-  return 0;
+// #include<iostream>
+// using namespace std;
+// int main(){
+//   cout<<"enter the size of array"<<endl;
+//   int n;
+//   cin>>n;
+//   int arr[n];
+//   for(int i=0;i<n;i++){
+//     cout<<"enter the elements of array" <<i+1 <<endl;
+//     int data;
+//     cin>>data;
+//     arr[i] = data;
+//   }
+//   for(int i=0;i<n;i++){
+//     cout<<arr[i]<<endl;
+//   }
+//   cout<<"enter the element to be update"<<endl;
+//   int data;
+//   cin>>data;
+//   cout<<"enter the index to be update"<<endl;
+//   int index;
+//   cin>>index;
+//   arr[index] = data;
+//   cout<<"update array is"<<endl;
+//   for(int i=0;i<n;i++){
+//     cout<<arr[i]<<endl;
+//   }
+//   cout<<"enter the element to be delete"<<endl;
+//   int del;
+//   cin>>del;
+//   for(int i=0;i<n;i++){
+//     if(arr[i] == del){
+//       arr[i] = arr[i+1];
+//     }
+//   }
+//   for(int i=0;i<n;i++){
+//     cout<<arr[i]<<endl;
+//   }
+//   return 0;
 
-}
+// }

@@ -113,23 +113,47 @@
 //  cout<<hello(5);
 // }
 
-#include<iostream>
-using namespace std;
-int hello(int n ,int f1=0, int f2=1){
-    if(n==0){
-        return 0;
-    }
+// #include<iostream>
+// using namespace std;
+// int hello(int n ,int f1=0, int f2=1){
+//     if(n==0){
+//         return 0;
+//     }
    
-    int sum=0 ,f1=0,f2=1;
-    return f1;
-   sum = f1+f2;
-   f1 = f2;
-   f2 = sum;
+//     int sum=0 ,f1=0,f2=1;
+//     return f1;
+//    sum = f1+f2;
+//    f1 = f2;
+//    f2 = sum;
   
-  hello(n-1);
+//   hello(n-1);
+// }
+
+// int main(){
+// hello(5);
+
+// }
+
+#include <iostream>
+using namespace std;
+
+// Function to count trailing zeros in n!
+int countTrailingZerosInFactorial(int n) {
+    int count = 0;
+    
+    // Keep dividing n by powers of 5 and update count
+    for (int i = 5; n / i >= 1; i *= 5) {
+        count += n / i;
+    }
+    
+    return count;
 }
 
-int main(){
-hello(5);
-
+int main() {
+    int number = 720;
+    int zeros = countTrailingZerosInFactorial(number);
+    
+    cout << "Number of trailing zeros in " << number << "! is: " << zeros <<endl;
+    
+    return 0;
 }
