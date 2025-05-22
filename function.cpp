@@ -134,26 +134,69 @@
 
 // }
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-// Function to count trailing zeros in n!
-int countTrailingZerosInFactorial(int n) {
-    int count = 0;
+// // Function to count trailing zeros in n!
+// int countTrailingZerosInFactorial(int n) {
+//     int count = 0;
     
-    // Keep dividing n by powers of 5 and update count
-    for (int i = 5; n / i >= 1; i *= 5) {
-        count += n / i;
-    }
+//     // Keep dividing n by powers of 5 and update count
+//     for (int i = 5; n / i >= 1; i *= 5) {
+//         count += n / i;
+//     }
     
-    return count;
-}
+//     return count;
+// }
 
-int main() {
-    int number = 720;
-    int zeros = countTrailingZerosInFactorial(number);
+// int main() {
+//     int number = 720;
+//     int zeros = countTrailingZerosInFactorial(number);
     
-    cout << "Number of trailing zeros in " << number << "! is: " << zeros <<endl;
+//     cout << "Number of trailing zeros in " << number << "! is: " << zeros <<endl;
     
-    return 0;
-}
+//     return 0;
+// }
+
+
+// function no argument no return 
+
+// #include<iostream>
+// using namespace std;
+
+// void add();
+// void add(){
+//     int n1,n2,n3;
+//     cout<<"enter the value of n1 ,n2 ";
+//     cin>>n1>>n2;
+//     n3 = n1+n2;
+//     cout<<n3;
+// }
+// int main(){
+//     add();
+
+//     return 0;
+// }
+
+// argument with no return
+
+// #include<iostream>
+// using namespace std;
+// void ispositive(int n);
+// void ispositive(int n){
+    
+   
+//   if(n>0){
+//     cout<<"positive num"<<endl;
+//   }else{
+//     cout<<"negative num";
+//   }
+// }
+// int main(){
+//     int x ;
+//     cout<<"enter the value of x";
+//     cin>>x;
+//     ispositive(x);
+
+//     return 0;
+// }
