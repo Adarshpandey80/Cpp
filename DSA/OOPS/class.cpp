@@ -185,39 +185,105 @@
 
 // define member function out side the class
 
+// #include <iostream>
+// using namespace std;
+// class rectangel {
+//  public:
+//   int l;
+//   int b;
+//   // function declaration
+//   void getdata();
+//   void showdata();
+//   void area();
+//    void pira();
+// };
+// // define the function outside the class
+//  void  rectangel::getdata(){
+//     cout<<"enter the lingth and b "<<endl;
+//     cin>>l>>b;
+//   }
+//   void  rectangel::showdata(){
+//       cout<<"\n l is"<<l;
+//       cout<<"\n b is"<<b;
+//     }
+//   void  rectangel::area(){
+//       cout<<"\n area is"<<(l*b);
+//     }
+//     void  rectangel::pira(){
+//       cout<<"\n pira is"<<2*(l+b);
+//     }
+
+// int main(){
+//   rectangel obj;
+//   obj.getdata();
+//   obj.showdata();
+//   obj.area();
+//   obj.pira();
+//   return 0;
+// }
+
+
+
+//  ==========================30/05/25 (constructor)=================================
+
+// Example of default constructor
+//  #include <iostream>
+// using namespace std;
+// class point{
+//   public:
+//   int x;
+//   int y;
+// public:
+// point(){
+//   x = 10;
+//   y = 20;
+//   cout<<"\n default constructor called";
+// }
+// void showDate(){
+//   cout<<"\n X is "<<x;
+//   cout<<"\n Y is "<<y;
+// }
+// };
+
+// int main(){
+//   point obj1;
+//   point obj2;
+//   point obj3;
+//   obj1.x=40;
+//   obj2.y=50;
+//   obj1.showDate();
+//   obj2.showDate();
+//   obj3.showDate();
+// }
+
+// Example of parameterized constructor
+
 #include <iostream>
 using namespace std;
-class rectangel {
- public:
-  int l;
-  int b;
-  // function declaration
-  void getdata();
-  void showdata();
-  void area();
-   void pira();
+class point{
+  public:
+  int x;
+  int y;
+public:
+point( int a, int b){
+  x = a;
+  y = b;
+  cout<<"\n parametrise constructor called";
+}
+void showDate(){
+  cout<<"\n X is "<<x;
+  cout<<"\n Y is "<<y;
+}
 };
-// define the function outside the class
- void  rectangel::getdata(){
-    cout<<"enter the lingth and b "<<endl;
-    cin>>l>>b;
-  }
-  void  rectangel::showdata(){
-      cout<<"\n l is"<<l;
-      cout<<"\n b is"<<b;
-    }
-  void  rectangel::area(){
-      cout<<"\n area is"<<(l*b);
-    }
-    void  rectangel::pira(){
-      cout<<"\n pira is"<<2*(l+b);
-    }
 
 int main(){
-  rectangel obj;
-  obj.getdata();
-  obj.showdata();
-  obj.area();
-  obj.pira();
-  return 0;
+  point obj1(30, 40); // parameterized constructor called
+  point obj2(22,44); // parameterized constructor called
+  point obj3(44,55);
+  cout<<"\n obj1 value";
+  obj1.showDate();
+   cout<<"\n obj2 value";
+  obj2.showDate();
+   cout<<"\n obj3 value";
+  obj3.showDate();
 }
