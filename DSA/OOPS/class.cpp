@@ -258,32 +258,175 @@
 
 // Example of parameterized constructor
 
+// #include <iostream>
+// using namespace std;
+// class point{
+//   public:
+//   int x;
+//   int y;
+// public:
+// point( int a, int b){
+//   x = a;
+//   y = b;
+//   cout<<"\n parametrise constructor called";
+// }
+// void showDate(){
+//   cout<<"\n X is "<<x;
+//   cout<<"\n Y is "<<y;
+// }
+// };
+
+// int main(){
+//   point obj1(30, 40); // parameterized constructor called
+//   point obj2(22,44); // parameterized constructor called
+//   point obj3(44,55);
+//   cout<<"\n obj1 value";
+//   obj1.showDate();
+//    cout<<"\n obj2 value";
+//   obj2.showDate();
+//    cout<<"\n obj3 value";
+//   obj3.showDate();
+// }
+
+//  ==========================31/05/25 (constructor)=================================
+
+
+// parametrise constructor
+
+// #include <iostream>
+// using namespace std;
+
+// class student {
+// string name;
+// string enroll;
+// char sec;
+// int p;
+// int c;
+// int m;
+// int h;
+// int e;
+
+// public:
+//   student (){
+//     cout<<"\n this is a default constructor";
+//   }
+//   student ( string a , string b , char c , int v1,int v2,int v3,int v4,int v5){
+//    name = a;
+//    enroll = b;
+//    sec = c;
+//    p=v1;
+//    c=v2;
+//    m=v3;
+//    h=v4;
+//    e=v5;
+//    cout<<"\n this is parametrise constructor called";
+
+//   }
+//   ~student(){
+//     cout<<"\n this is destructor called";
+//   }
+
+
+// };
+
+// int main(){
+//   student obj ;
+//   student obj1("adarsh","12sc",'a', 23,44,55,66,77);
+//   return 0;
+// }
+
+//  ========================== (Encapsulation)=================================
+// getter 
+// setter
+// getName()// use to take data from user
+// setName()// use to edit data or show method 
+
+
 #include <iostream>
 using namespace std;
-class point{
-  public:
-  int x;
-  int y;
+
+class student {
+string name;
+string enroll;
+char sec;
+int p;
+int c;
+int m;
+int h;
+int e;
+
 public:
-point( int a, int b){
-  x = a;
-  y = b;
-  cout<<"\n parametrise constructor called";
-}
-void showDate(){
-  cout<<"\n X is "<<x;
-  cout<<"\n Y is "<<y;
-}
+  string getName(){
+    return name;
+  }
+  string getEnroll(){
+    return enroll;
+  }
+  char getSec(){
+    return sec;
+  }
+  int getP(){
+    return p;
+  }
+  int getC(){
+    return c;
+  }
+  int getM(){
+    return m;
+  }
+  int getH(){
+    return h;
+  }
+  int getE(){
+    return e;
+  }
+
+  void setName( string name){
+    this->name = name;
+  }
+  void setEnroll(string enroll){
+    this->enroll =  enroll;
+  }
+  void setSec(char sec){
+    this->sec=sec;
+  }
+  void setP(int p){
+    this->p=p;
+  }
+  void setC(int c){
+    this->c=c;
+  }
+  void setM(int m){
+    this->m=m;
+  }
+  void setH(int h){
+    this->h=h;
+  }
+  void setE(int e){
+    this->e=e;
+  }
+
 };
 
 int main(){
-  point obj1(30, 40); // parameterized constructor called
-  point obj2(22,44); // parameterized constructor called
-  point obj3(44,55);
-  cout<<"\n obj1 value";
-  obj1.showDate();
-   cout<<"\n obj2 value";
-  obj2.showDate();
-   cout<<"\n obj3 value";
-  obj3.showDate();
+student s;
+s.setName("adarsh");
+s.setEnroll("CS124");
+s.setSec('A');
+s.setP(11);
+s.setC(22);
+s.setM(33);
+s.setH(44);
+s.setE(55);
+
+cout<<"\n Nme:"<<s.getName();
+cout<<"\n Enroll:"<<s.getEnroll();
+cout<<"\n Sec:"<<s.getSec();
+cout<<"\n P:"<<s.getP();
+cout<<"\n C:"<<s.getC();
+cout<<"\n M:"<<s.getM();
+cout<<"\n H:"<<s.getH();
+cout<<"\n E:"<<s.getE();
+
+  return 0;
 }
