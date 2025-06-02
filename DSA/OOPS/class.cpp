@@ -342,91 +342,152 @@
 // setName()// use to edit data or show method 
 
 
-#include <iostream>
+// #include <iostream>
+// using namespace std;
+
+// class student {
+// string name;
+// string enroll;
+// char sec;
+// int p;
+// int c;
+// int m;
+// int h;
+// int e;
+
+// public:
+//   string getName(){
+//     return name;
+//   }
+//   string getEnroll(){
+//     return enroll;
+//   }
+//   char getSec(){
+//     return sec;
+//   }
+//   int getP(){
+//     return p;
+//   }
+//   int getC(){
+//     return c;
+//   }
+//   int getM(){
+//     return m;
+//   }
+//   int getH(){
+//     return h;
+//   }
+//   int getE(){
+//     return e;
+//   }
+
+//   void setName( string name){
+//     this->name = name;
+//   }
+//   void setEnroll(string enroll){
+//     this->enroll =  enroll;
+//   }
+//   void setSec(char sec){
+//     this->sec=sec;
+//   }
+//   void setP(int p){
+//     this->p=p;
+//   }
+//   void setC(int c){
+//     this->c=c;
+//   }
+//   void setM(int m){
+//     this->m=m;
+//   }
+//   void setH(int h){
+//     this->h=h;
+//   }
+//   void setE(int e){
+//     this->e=e;
+//   }
+
+// };
+
+// int main(){
+// student s;
+// s.setName("adarsh");
+// s.setEnroll("CS124");
+// s.setSec('A');
+// s.setP(11);
+// s.setC(22);
+// s.setM(33);
+// s.setH(44);
+// s.setE(55);
+
+// cout<<"\n Nme:"<<s.getName();
+// cout<<"\n Enroll:"<<s.getEnroll();
+// cout<<"\n Sec:"<<s.getSec();
+// cout<<"\n P:"<<s.getP();
+// cout<<"\n C:"<<s.getC();
+// cout<<"\n M:"<<s.getM();
+// cout<<"\n H:"<<s.getH();
+// cout<<"\n E:"<<s.getE();
+
+//   return 0;
+// }
+
+//  ========================== 2/06/25 (Incapsulation)====================================
+
+//single inheritance==================
+#include<iostream>
 using namespace std;
+class rgpv{
+  public:
+  string uname;
+  int ucode;
 
-class student {
-string name;
-string enroll;
-char sec;
-int p;
-int c;
-int m;
-int h;
-int e;
-
-public:
-  string getName(){
-    return name;
+  void getdata(){
+    cout<<"enter the university name";
+    cin>>uname;
+    cout<<"enter the univercity code";
+    cin>>ucode;
   }
-  string getEnroll(){
-    return enroll;
+  rgpv(){
+    cout<<"\n this is default univercity constructor called ";
   }
-  char getSec(){
-    return sec;
-  }
-  int getP(){
-    return p;
-  }
-  int getC(){
-    return c;
-  }
-  int getM(){
-    return m;
-  }
-  int getH(){
-    return h;
-  }
-  int getE(){
-    return e;
+  ~rgpv(){
+    cout<<"\n this is default univercity destroctor called ";
   }
 
-  void setName( string name){
-    this->name = name;
+
+};
+
+class collage :public rgpv{
+ 
+  public:
+  string cname;
+  int ccode;
+  void acceptdata(){
+    getdata();
+    cout<<"\n enter the collage name : ";
+    cin>>cname;
+    cout<<"\n enter the collage code ::";
+    cin>>ccode;
   }
-  void setEnroll(string enroll){
-    this->enroll =  enroll;
+  void showdata(){
+    cout<<"\n univercity name is:"<<uname;
+    cout<<"\n univercity code is:"<<ucode;
+    cout<<"\n collage name is:"<<cname;
+    cout<<"\n collage code is :"<<ccode;
   }
-  void setSec(char sec){
-    this->sec=sec;
+
+   collage(){
+    cout<<"\n this is default collage constructor called ";
   }
-  void setP(int p){
-    this->p=p;
-  }
-  void setC(int c){
-    this->c=c;
-  }
-  void setM(int m){
-    this->m=m;
-  }
-  void setH(int h){
-    this->h=h;
-  }
-  void setE(int e){
-    this->e=e;
+  ~collage(){
+    cout<<"\n this is default collage destroctor called ";
   }
 
 };
 
 int main(){
-student s;
-s.setName("adarsh");
-s.setEnroll("CS124");
-s.setSec('A');
-s.setP(11);
-s.setC(22);
-s.setM(33);
-s.setH(44);
-s.setE(55);
-
-cout<<"\n Nme:"<<s.getName();
-cout<<"\n Enroll:"<<s.getEnroll();
-cout<<"\n Sec:"<<s.getSec();
-cout<<"\n P:"<<s.getP();
-cout<<"\n C:"<<s.getC();
-cout<<"\n M:"<<s.getM();
-cout<<"\n H:"<<s.getH();
-cout<<"\n E:"<<s.getE();
-
-  return 0;
+  collage obj;
+  obj.acceptdata();
+  obj.showdata();
+  
 }
