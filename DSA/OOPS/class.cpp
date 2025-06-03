@@ -431,63 +431,222 @@
 //   return 0;
 // }
 
-//  ========================== 2/06/25 (Incapsulation)====================================
+//  ========================== 2/06/25 (Inheritance)====================================
 
 //single inheritance==================
+// #include<iostream>
+// using namespace std;
+// class rgpv{
+//   public:
+//   string uname;
+//   int ucode;
+
+//   void getdata(){
+//     cout<<"enter the university name";
+//     cin>>uname;
+//     cout<<"enter the univercity code";
+//     cin>>ucode;
+//   }
+//   rgpv(){
+//     cout<<"\n this is default univercity constructor called ";
+//   }
+//   ~rgpv(){
+//     cout<<"\n this is default univercity destroctor called ";
+//   }
+
+
+// };
+
+// class collage :public rgpv{
+ 
+//   public:
+//   string cname;
+//   int ccode;
+//   void acceptdata(){
+//     getdata();
+//     cout<<"\n enter the collage name : ";
+//     cin>>cname;
+//     cout<<"\n enter the collage code ::";
+//     cin>>ccode;
+//   }
+//   void showdata(){
+//     cout<<"\n univercity name is:"<<uname;
+//     cout<<"\n univercity code is:"<<ucode;
+//     cout<<"\n collage name is:"<<cname;
+//     cout<<"\n collage code is :"<<ccode;
+//   }
+
+//    collage(){
+//     cout<<"\n this is default collage constructor called ";
+//   }
+//   ~collage(){
+//     cout<<"\n this is default collage destroctor called ";
+//   }
+
+// };
+
+// int main(){
+//   collage obj;
+//   obj.acceptdata();
+//   obj.showdata();
+  
+// }
+
+
+//  ========================== 3/06/25 (MultiplInheritance)====================================
+
+// #include <iostream>
+// using namespace std;
+
+// class M {
+//   public:
+//   int m;
+//   M(){
+//     cout<<"\n this is M default constructor call";
+//   }
+//   M( int m){
+//     cout<<"\n this is M parametrized constructor call";
+//     this->m = m;
+//   }
+//   ~M(){
+//     cout<<"\n this is M destructor call";
+//   }
+
+// };
+// class N {
+//   public:
+//   int n;
+//   N(){
+//     cout<<"\n this is N default constructor call";
+//   }
+//   N( int n){
+//     cout<<"\n this is N parametrized constructor call";
+//     this->n = n;
+//   }
+//   ~N(){
+//     cout<<"\n this is N destructor call";
+//   }
+
+// };
+ 
+// class P : public M, public N {
+//   public:
+ 
+//   P(){
+//     cout<<"\n this is P default constructor call";
+//   }
+//   P(int m, int n) : M(m), N(n) {
+//     cout<<"\n this is P parametrized constructor call";
+    
+//   }
+//   ~P(){
+//     cout<<"\n this is P destructor call";
+//   }
+//   void total(){
+//     int total;
+//     total = m+n;
+//     cout<<"\n m is:"<<m;
+//     cout<<"\n n is:"<<n;
+//     cout<<"\n total is:"<<total;
+//   }
+
+// };
+
+// int main(){
+//   P obj(10,29);
+//   obj.total();
+//   return 0;
+
+// }
+
+
+
+// ========================= (MultiplInheritance)====================================
+
 #include<iostream>
-using namespace std;
-class rgpv{
+ using namespace std;
+  class student {
+    protected:
+  string name;
+  string enroll;
   public:
-  string uname;
-  int ucode;
+  student(){
+    cout<<"\n this is student default constructor";
+  }
+  ~student(){
+    cout<<"\n this is student destructor";
+  } 
 
   void getdata(){
-    cout<<"enter the university name";
-    cin>>uname;
-    cout<<"enter the univercity code";
-    cin>>ucode;
-  }
-  rgpv(){
-    cout<<"\n this is default univercity constructor called ";
-  }
-  ~rgpv(){
-    cout<<"\n this is default univercity destroctor called ";
+    cout<<" enter the name od student : ";
+    cin>>name;
+    cout<<" enter the enroll of student : ";
+    cin>>enroll;
   }
 
+  };
 
-};
-
-class collage :public rgpv{
- 
+  class subject : public student{
+    protected:
+  int sub1;
+  int sub2;
   public:
-  string cname;
-  int ccode;
-  void acceptdata(){
-    getdata();
-    cout<<"\n enter the collage name : ";
-    cin>>cname;
-    cout<<"\n enter the collage code ::";
-    cin>>ccode;
+  subject(){
+    cout<<"\n this is subject default constructor";
   }
-  void showdata(){
-    cout<<"\n univercity name is:"<<uname;
-    cout<<"\n univercity code is:"<<ucode;
-    cout<<"\n collage name is:"<<cname;
-    cout<<"\n collage code is :"<<ccode;
+  ~subject(){
+    cout<<"\n this is subject  destructor";
   }
+  void getmarks(){
+    cout<<"\n enter the subj1 marks : ";
+    cin>>sub1;
+    cout<<"\n enter the subj2 marks : ";
+    cin>>sub2;
+    
+  }
+  };
 
-   collage(){
-    cout<<"\n this is default collage constructor called ";
-  }
-  ~collage(){
-    cout<<"\n this is default collage destroctor called ";
-  }
+  class sports {
+    public : 
+    int marks;
+    sports(){
+      cout<<"\n this is sport default constructor";
+    }
+    ~sports(){
+      cout<<"\n this is sport destructor";
+    }
+     void sportmark(){
+      cout<<"\n enter the marks in sports :";
+      cin>>marks;
+     }
 
-};
+  };
 
-int main(){
-  collage obj;
-  obj.acceptdata();
-  obj.showdata();
-  
-}
+  class info:public subject,public sports{
+   int total;
+   public:
+   info(){
+    cout<<"\n this is info default constructor";
+   }
+   ~info(){
+    cout<<"\n this is info desrtuctor";
+   }
+   void infostd(){
+    total = sub1+sub2+marks;
+    cout<<"\n the name of the student : "<<name;
+    cout<<"\n the enroll of the student :"<<enroll;
+    cout<<"\n markes in sub1 is :"<<sub1;
+    cout<<"\n markes in sub2 is :"<<sub2;
+    cout<<"\n marks in sports is :"<<marks;
+    cout<<"\n the total marks is :"<<total;
+   }
+  };
+  int main(){
+
+    info obj;
+    obj.getdata(); 
+    obj.getmarks();
+    obj.sportmark();
+    obj.infostd();
+    return 0;
+  }
