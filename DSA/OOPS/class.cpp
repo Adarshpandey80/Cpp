@@ -563,90 +563,177 @@
 
 // ========================= (MultiplInheritance)====================================
 
-#include<iostream>
- using namespace std;
-  class student {
-    protected:
-  string name;
-  string enroll;
-  public:
-  student(){
-    cout<<"\n this is student default constructor";
-  }
-  ~student(){
-    cout<<"\n this is student destructor";
-  } 
+// #include<iostream>
+//  using namespace std;
+//   class student {
+//     protected:
+//   string name;
+//   string enroll;
+//   public:
+//   student(){
+//     cout<<"\n this is student default constructor";
+//   }
+//   ~student(){
+//     cout<<"\n this is student destructor";
+//   } 
 
-  void getdata(){
-    cout<<" enter the name od student : ";
-    cin>>name;
-    cout<<" enter the enroll of student : ";
-    cin>>enroll;
-  }
+//   void getdata(){
+//     cout<<" enter the name od student : ";
+//     cin>>name;
+//     cout<<" enter the enroll of student : ";
+//     cin>>enroll;
+//   }
 
-  };
+//   };
 
-  class subject : public student{
-    protected:
-  int sub1;
-  int sub2;
-  public:
-  subject(){
-    cout<<"\n this is subject default constructor";
-  }
-  ~subject(){
-    cout<<"\n this is subject  destructor";
-  }
-  void getmarks(){
-    cout<<"\n enter the subj1 marks : ";
-    cin>>sub1;
-    cout<<"\n enter the subj2 marks : ";
-    cin>>sub2;
+//   class subject : public student{
+//     protected:
+//   int sub1;
+//   int sub2;
+//   public:
+//   subject(){
+//     cout<<"\n this is subject default constructor";
+//   }
+//   ~subject(){
+//     cout<<"\n this is subject  destructor";
+//   }
+//   void getmarks(){
+//     cout<<"\n enter the subj1 marks : ";
+//     cin>>sub1;
+//     cout<<"\n enter the subj2 marks : ";
+//     cin>>sub2;
     
-  }
-  };
+//   }
+//   };
 
-  class sports {
-    public : 
-    int marks;
-    sports(){
-      cout<<"\n this is sport default constructor";
+//   class sports {
+//     public : 
+//     int marks;
+//     sports(){
+//       cout<<"\n this is sport default constructor";
+//     }
+//     ~sports(){
+//       cout<<"\n this is sport destructor";
+//     }
+//      void sportmark(){
+//       cout<<"\n enter the marks in sports :";
+//       cin>>marks;
+//      }
+
+//   };
+
+//   class info:public subject,public sports{
+//    int total;
+//    public:
+//    info(){
+//     cout<<"\n this is info default constructor";
+//    }
+//    ~info(){
+//     cout<<"\n this is info desrtuctor";
+//    }
+//    void infostd(){
+//     total = sub1+sub2+marks;
+//     cout<<"\n the name of the student : "<<name;
+//     cout<<"\n the enroll of the student :"<<enroll;
+//     cout<<"\n markes in sub1 is :"<<sub1;
+//     cout<<"\n markes in sub2 is :"<<sub2;
+//     cout<<"\n marks in sports is :"<<marks;
+//     cout<<"\n the total marks is :"<<total;
+//    }
+//   };
+//   int main(){
+
+//     info obj;
+//     obj.getdata(); 
+//     obj.getmarks();
+//     obj.sportmark();
+//     obj.infostd();
+//     return 0;
+//   }
+
+//  ========================= (hierachicalInheritance)====================================
+
+// #include <iostream>
+// using namespace std;
+// class number{
+//   public:
+//   int num;
+//   number(){
+//     cout<<"\n this is a number default constructor is called";
+//   }
+//   ~number(){
+//     cout<<"\n this is a number destructor is called";
+//   }
+//    void  getnum (){
+//     cout<<"\n enter the number";
+//     cin>>num;
+//   }
+// };
+// class square : public number{
+//  public:
+//   square(){
+//     cout<<"\n this is a squre default constructor is called";
+//   }
+//   ~square(){
+//     cout<<"\n this is a squre destructor is called";
+//   }
+//    void  getsquare(){
+//     int sq = num*num;
+//     cout<<"Square of num : "<<sq;
+    
+//   }
+// };
+// class cube : public number{
+//   public:
+
+// cube(){
+//     cout<<"\n this is a cube default constructor is called";
+//   }
+//   ~cube(){
+//     cout<<"\n this is a cube destructor is called";
+//   }
+//   void  getcube (){
+//     int cub = num*num*num;
+//     cout<<"Square of num : "<<cub;
+    
+//   }
+// };
+
+// int main(){
+// square obj;
+// obj.getnum();
+// obj.getsquare();
+// cube obj1;
+// obj1.getnum();
+// obj1.getcube();
+
+// }
+
+// ===================================friend function=====================================
+
+#include<iostream>
+using namespace std;
+class student{
+    private:
+    int mark1;
+    int mark2;
+    public:
+    void getdata(int m,int m2){
+        mark1 = m;
+        mark2 = m2;
+    
     }
-    ~sports(){
-      cout<<"\n this is sport destructor";
-    }
-     void sportmark(){
-      cout<<"\n enter the marks in sports :";
-      cin>>marks;
-     }
+    friend void show(student);
+};
 
-  };
+void show( student obj){
+    cout<<"\n marks frist : "<<obj.mark1;
+    cout<<"\n marks sec : "<<obj.mark2;
+}
 
-  class info:public subject,public sports{
-   int total;
-   public:
-   info(){
-    cout<<"\n this is info default constructor";
-   }
-   ~info(){
-    cout<<"\n this is info desrtuctor";
-   }
-   void infostd(){
-    total = sub1+sub2+marks;
-    cout<<"\n the name of the student : "<<name;
-    cout<<"\n the enroll of the student :"<<enroll;
-    cout<<"\n markes in sub1 is :"<<sub1;
-    cout<<"\n markes in sub2 is :"<<sub2;
-    cout<<"\n marks in sports is :"<<marks;
-    cout<<"\n the total marks is :"<<total;
-   }
-  };
-  int main(){
-
-    info obj;
-    obj.getdata(); 
-    obj.getmarks();
-    obj.sportmark();
-    obj.infostd();
+int main(){
+    student ob;
+    ob.getdata(22,33);
+    show(ob);
     return 0;
-  }
+}
