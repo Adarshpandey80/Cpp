@@ -434,6 +434,7 @@
 //  ========================== 2/06/25 (Inheritance)====================================
 
 //single inheritance==================
+
 // #include<iostream>
 // using namespace std;
 // class rgpv{
@@ -561,7 +562,7 @@
 
 
 
-// ========================= (MultiplInheritance)====================================
+// ========================= (Hybrid)====================================
 
 // #include<iostream>
 //  using namespace std;
@@ -711,29 +712,88 @@
 
 // ===================================friend function=====================================
 
-#include<iostream>
-using namespace std;
-class student{
-    private:
-    int mark1;
-    int mark2;
-    public:
-    void getdata(int m,int m2){
-        mark1 = m;
-        mark2 = m2;
+// #include<iostream>
+// using namespace std;
+// class student{
+//     private:
+//     int mark1;
+//     int mark2;
+//     public:
+//     void getdata(int m,int m2){
+//         mark1 = m;
+//         mark2 = m2;
+//     }
+//     friend void show(student);
+// };
+
+// void show( student obj){
+//     cout<<"\n marks frist : "<<obj.mark1;
+//     cout<<"\n marks sec : "<<obj.mark2;
+// }
+
+// int main(){
+//     student ob;
+//     ob.getdata(22,33);
+//     show(ob);
+//     return 0;
+// }
+
+
+// ===================================static methid(use to count the number of objects created)=====================================
+
+// #include <iostream>
+// using namespace std;
+
+// class point {
+//     int x;
+//     int y ;
+//     public:
+//     static int count ;
+//     point(){
+//         cout<<"this is default constructor";
+//         count++;
+//     }
+//     point(int X,int Y){
+//         cout<<"this is parametrized  constructor";
+//         count++;
+//     }
+//     static int getctr(){
+//         return count;
+//     }
+// };
+// int point::count=0  ;
+
+// int main() {
+//     point obj1;
+//     point obj2(30,40);
+//     point obj3;
     
-    }
-    friend void show(student);
+//     // Display the count of objects created
+//     cout << "\nNumber of objects created: " << point::getctr() ;
+//     cout << "\nNumber of objects created: " << point::count ;
+//     cout << "\nNumber of objects created: " << obj3.getctr() ;
+    
+    
+//     return 0;
+// }
+
+// =============================================================================
+
+#include <iostream> 
+using namespace std;
+
+class test {
+ public:
+ void add ( int a =0,int b=0 , int e=0, int d=0, int z=0){
+    int c ;
+    c = a+b+e+d+z;
+    cout<<"\n addition is :" <<c;
+
+ }
 };
-
-void show( student obj){
-    cout<<"\n marks frist : "<<obj.mark1;
-    cout<<"\n marks sec : "<<obj.mark2;
-}
-
 int main(){
-    student ob;
-    ob.getdata(22,33);
-    show(ob);
-    return 0;
+    test obj ;
+    obj.add(11,22);
+    obj.add(11,22,33);
+    obj.add(11,22,44,5);
 }
