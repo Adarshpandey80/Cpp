@@ -779,21 +779,86 @@
 
 // =============================================================================
 
-#include <iostream> 
+// #include <iostream> 
+// using namespace std;
+
+// class test {
+//  public:
+//  void add ( int a =0,int b=0 , int e=0, int d=0, int z=0){
+//     int c ;
+//     c = a+b+e+d+z;
+//     cout<<"\n addition is :" <<c;
+
+//  }
+// };
+// int main(){
+//     test obj ;
+//     obj.add(11,22);
+//     obj.add(11,22,33);
+//     obj.add(11,22,44,5);
+// }
+
+// ======================================= 16/06/25(method overloding)=================================
+
+// #include<iostream>
+// using namespace std;
+// class Test {
+//     public:
+//     void add(){
+//         int a=10;
+//         int b=20;
+//         int c=a+b;
+//         cout<<"\naddition is "<<c;
+//     }
+//     void add(int a,int b){
+//         cout<<"\n additon with 2 argument"<<(a+b);
+//     }
+//     void add(int a,int b,int c){
+//         cout<<"\n additon with 3 argument"<<(a+b+c);
+//     }
+//     void add(float a,int b,int c){
+//         cout<<"\n additon with float and int argument"<<(a+b+c);
+//     }
+
+// };
+
+// int main(){
+//     Test ob;
+//     ob.add();
+//     ob.add(11,22);
+//     ob.add(33,44,55);
+//     ob.add(33.4f,44,55);
+//     return 0;
+
+// }
+
+
+// ======================================= 16/06/25(operetor overloding)=================================
+
+#include<iostream>
 using namespace std;
+class Point{
+    public:
+    int x;
+    int y;
+    public:
+    Point(int a,int b){
+        x=a;
+        y=b;
+    }
+    bool operator ==(Point p2){
+     return x==p2.x && y == p2.y;
+    }
 
-class test {
- public:
- void add ( int a =0,int b=0 , int e=0, int d=0, int z=0){
-    int c ;
-    c = a+b+e+d+z;
-    cout<<"\n addition is :" <<c;
-
- }
 };
+
 int main(){
-    test obj ;
-    obj.add(11,22);
-    obj.add(11,22,33);
-    obj.add(11,22,44,5);
+    Point p1(10,20);
+    Point p2(10,20);
+    if(p1==p2){
+        cout<<"both p1 and p2 are equal";
+    }else {
+        cout<<"not equal";
+    }
+    return 0;
 }
