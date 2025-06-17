@@ -835,30 +835,66 @@
 
 // ======================================= 16/06/25(operetor overloding)=================================
 
-#include<iostream>
-using namespace std;
-class Point{
-    public:
-    int x;
-    int y;
-    public:
-    Point(int a,int b){
-        x=a;
-        y=b;
-    }
-    bool operator ==(Point p2){
-     return x==p2.x && y == p2.y;
-    }
+// #include<iostream>
+// using namespace std;
+// class Point{
+//     public:
+//     int x;
+//     int y;
+//     public:
+//     Point(int a,int b){
+//         x=a;
+//         y=b;
+//     }
+//     bool operator ==(Point p2){
+//      return x==p2.x && y == p2.y;
+//     }
 
+// };
+
+// int main(){
+//     Point p1(10,20);
+//     Point p2(10,20);
+//     if(p1==p2){
+//         cout<<"both p1 and p2 are equal";
+//     }else {
+//         cout<<"not equal";
+//     }
+//     return 0;
+// }
+
+// ======================================= 17/06/25(Abstraction (pure virtual function))=================================
+
+#include <iostream>
+using namespace std;
+
+class Rgpv {
+    public:
+    void copychack(){
+        cout<<"\n this is Rgpv class copycheck method";
+    }
+    virtual void cctv() = 0; // pure virtual function , abstract method;
+};
+class collage :public Rgpv {
+    public:
+    void staff(){
+        cout<<"\n this is collage staff methid";
+    }
+    void cctv (){
+        cout<<"\n this is rgpv class method own by collage class mthod";
+    }
 };
 
 int main(){
-    Point p1(10,20);
-    Point p2(10,20);
-    if(p1==p2){
-        cout<<"both p1 and p2 are equal";
-    }else {
-        cout<<"not equal";
-    }
+    collage c;
+    c.copychack();
+    c.staff();
+    c.cctv();
+    // Rgpv ob ;  We can not create abstract class object
+    Rgpv *r; // in this method we call only abstract class method 
+    collage c1;
+    r=&c1;
+    r->cctv();
+    r->copychack();
     return 0;
 }
