@@ -222,3 +222,128 @@
 //   return 0;
 
 // }
+
+
+// #include<iostream>
+// using namespace std;
+// int largest(int arr[],int n){
+//     int max = arr[0];
+//     for(int i=1;i<n; i++){
+//         if(arr[i]>max){
+//             max = arr[i];
+//         }
+//     }
+//     return max;
+// }
+// int smolest (int arr[], int n){
+//     int min = arr[0];
+//     for(int i=1;i<n;i++){
+//         if(arr[i]<min){
+//             min = arr[i];
+//         }
+//     }
+//     return min;
+// }
+// int main(){
+//     int num;
+//     cout<<"enter the sixz of the array"<<endl;
+//     cin>>num;
+//     int arr[num];
+//     for(int i=0;i<num;i++){
+//         cout<<"enter the element of the array" <<i<<endl;   
+//         int data;
+//         cin>>data;
+//         arr[i] =data;
+
+//      }
+//      int max = largest(arr,num);
+//      cout<<"the largest element is "<<max<<endl;
+//      int min = smolest (arr,num);
+//      cout<<"the smallest element is "<<min<<endl;
+//      return 0;
+// }
+
+// 
+
+// #include<iostream>
+// using namespace std;
+// int lisearch (int arr[],int size, int element){
+//     for(int i=0;i<size;i++){
+//         if(arr[i]==element){
+//             return i;
+//         } 
+//     }
+//     return -1; // return -1 if the element is not found
+// }
+// void swaparraya(int arr[],int sz){
+//     int start = 0, end = sz-1;
+//     while(start<end){
+//       swap(arr[start], arr[end]); 
+//         start++;
+//         end--;
+//     }
+    
+// }
+
+// int main(){
+    // int size;
+    // cout<<"eneter the size of the array"<<endl;
+    // cin>>size;
+    // int arr[size];
+    // for(int i=0;i<size;i++){
+    //     int data;
+    //     cout<<"enter the element of the array;"<<i<<endl;
+    //     cin>>data;
+    //     arr[i]= data;
+    // }
+    // int element ;
+    // cout<<"enter the element to be search"<<endl;   
+    // cin>>element;
+    // cout<<"the element is found at index "<<lisearch(arr,size,element)<<endl;
+
+    // int arr[5] = {1,2,3,4,5};
+    // int sz=5;
+    // swaparraya(arr,sz);
+    // cout<<"the array after swapping is"<<endl;
+    // for(int i=0;i<sz;i++){
+    //     cout<<arr[i]<<" ";
+    //     }
+
+// }
+
+#include<iostream>
+using namespace std;
+
+int uniqe (int arr[],int sz){
+    int ans;
+    for(int i=0;i<sz;i++){
+        int count =0;
+        for(int j=0;j<sz;j++){
+            if(arr[i]==arr[j] && i!=j){
+                count++;
+
+            }
+       
+        }
+        ans= arr[i];
+     
+    }
+
+    return ans;
+}
+
+int main(){
+    int size;
+    cout<<"enter the size of the array"<<endl;
+    cin>>size;
+    int arr[size];
+    for(int i=0;i<size;i++){
+        cout<<"enter the element of the array"<<i+1<<endl;
+        int data;
+        cin>>data;
+        arr[i]= data;
+    }
+    cout<<"the unique element is "<<uniqe(arr,size)<<endl;
+    return 0;
+
+}
