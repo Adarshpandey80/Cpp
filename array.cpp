@@ -311,39 +311,39 @@
 
 // }
 
-#include<iostream>
-using namespace std;
+// #include<iostream>
+// using namespace std;
 
-int uniqe (int arr[],int sz){
-    int ans;
-    for(int i=0;i<sz;i++){
-        int count =0;
-        for(int j=0;j<sz;j++){
-            if(arr[i]==arr[j] && i!=j){
-                count++;
+// int uniqe (int arr[],int sz){
+//     int ans;
+//     for(int i=0;i<sz;i++){
+//         int count =0;
+//         for(int j=0;j<sz;j++){
+//             if(arr[i]==arr[j] && i!=j){
+//                 count++;
 
-            }
+//             }
        
-        }
-        ans= arr[i];
+//         }
+//         ans= arr[i];
      
-    }
+//     }
 
-    return ans;
-}
+//     return ans;
+// }
 
-int main(){
-    int size;
-    cout<<"enter the size of the array"<<endl;
-    cin>>size;
-    int arr[size];
-    for(int i=0;i<size;i++){
-        cout<<"enter the element of the array"<<i+1<<endl;
-        int data;
-        cin>>data;
-        arr[i]= data;
-    }
-    cout<<"the unique element is "<<uniqe(arr,size)<<endl;
-    return 0;
+// int main(){
+//     int size;
+//     cout<<"enter the size of the array"<<endl;
+//     cin>>size;
+//     int arr[size];
+//     for(int i=0;i<size;i++){
+//         cout<<"enter the element of the array"<<i+1<<endl;
+//         int data;
+//         cin>>data;
+//         arr[i]= data;
+//     }
+//     cout<<"the unique element is "<<uniqe(arr,size)<<endl;
+//     return 0;
 
-}
+// }
