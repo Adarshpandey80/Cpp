@@ -168,44 +168,44 @@
 // Given n stalls and c cows, find the maximum distance that can be maintained between any two cows
 // placed in the stalls. The goal is to maximize the minimum distance between any two cows
 
-#include <iostream>
-#include <vector>
-using namespace std;
+// #include <iostream>
+// #include <vector>
+// using namespace std;
 
-bool isPossible(vector<int> &arr , int n,int c, int minAllowedDist){
-    int cows =1, lastStandPossition = arr[0]; // Place the first cow at the first position
-    for(int i=1;i<n;i++){
-        if(arr[i]-lastStandPossition >= minAllowedDist){
-            cows++; // Place a cow at the current position
-            lastStandPossition = arr[i]; // Update the last position where a cow was placed
-        } 
-        if(cows == c){ // If all cows are placed, return true
-            return true;
-        }
-    }
-    return false; // If not all cows could be placed, return false 
-}
+// bool isPossible(vector<int> &arr , int n,int c, int minAllowedDist){
+//     int cows =1, lastStandPossition = arr[0]; // Place the first cow at the first position
+//     for(int i=1;i<n;i++){
+//         if(arr[i]-lastStandPossition >= minAllowedDist){
+//             cows++; // Place a cow at the current position
+//             lastStandPossition = arr[i]; // Update the last position where a cow was placed
+//         } 
+//         if(cows == c){ // If all cows are placed, return true
+//             return true;
+//         }
+//     }
+//     return false; // If not all cows could be placed, return false 
+// }
 
-int getDistance(vector<int> &arr, int N, int C){
-    sort(arr.begin(), arr.end()); // Sort the array of positions
-    int st =1 , end = arr[N-1]-arr[0]; // Set search range for distance
-    int ans = -1;
-    while(st<=end){
-        int mid = st+ (end-st)/2; // Midpoint of current range
-        if(isPossible(arr,N,C,mid)){
-            ans = mid;  // If a valid distance is found, update answer
-            st =mid+1; // Try for a larger distance
-        } else {
-            end = mid-1; // Reduce the distance
-        }
-    } 
-    return ans; // Return the maximum distance that can be maintained
-}
+// int getDistance(vector<int> &arr, int N, int C){
+//     sort(arr.begin(), arr.end()); // Sort the array of positions
+//     int st =1 , end = arr[N-1]-arr[0]; // Set search range for distance
+//     int ans = -1;
+//     while(st<=end){
+//         int mid = st+ (end-st)/2; // Midpoint of current range
+//         if(isPossible(arr,N,C,mid)){
+//             ans = mid;  // If a valid distance is found, update answer
+//             st =mid+1; // Try for a larger distance
+//         } else {
+//             end = mid-1; // Reduce the distance
+//         }
+//     } 
+//     return ans; // Return the maximum distance that can be maintained
+// }
 
-int main(){
-    vector<int> arr = {1,2,4,8,9}; // Positions of the stalls
-    int N = arr.size(); // Number of stalls
-    int C = 3; // Number of cows to place
-    cout << "Maximum distance between cows: " << getDistance(arr, N, C) << endl;
-    return 0;
-}
+// int main(){
+//     vector<int> arr = {1,2,4,8,9}; // Positions of the stalls
+//     int N = arr.size(); // Number of stalls
+//     int C = 3; // Number of cows to place
+//     cout << "Maximum distance between cows: " << getDistance(arr, N, C) << endl;
+//     return 0;
+// }
