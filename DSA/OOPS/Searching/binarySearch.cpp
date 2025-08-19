@@ -51,7 +51,7 @@
 // }
 
 
-
+// =======================================================================
 
 
 //  Book Allocation Problem
@@ -107,6 +107,8 @@
 //     return 0;
 // }
 
+
+// =======================================================================
 
 
 // Painter's Partition Problem
@@ -164,6 +166,8 @@
 //     return 0;
 // } 
 
+// =======================================================================
+
 // Aggressive Cows Problem
 // Given n stalls and c cows, find the maximum distance that can be maintained between any two cows
 // placed in the stalls. The goal is to maximize the minimum distance between any two cows
@@ -209,3 +213,34 @@
 //     cout << "Maximum distance between cows: " << getDistance(arr, N, C) << endl;
 //     return 0;
 // }
+// =======================================================================
+
+
+// Minimum Scalar Product Problem
+// Given two arrays, find the minimum scalar product of the two arrays.
+// The scalar product is defined as the sum of the products of corresponding elements in the two arrays
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int minimumScalarProduct(vector<int> arr1, vector<int> arr2) {
+    sort(arr1.begin(), arr1.end());
+    sort(arr2.begin(), arr2.end(), greater<int>());
+
+    int n = arr1.size();
+    int product = 0;
+
+    for (int i = 0; i < n; i++) {
+        product += arr1[i] * arr2[i];
+    }
+    return product;
+}
+
+int main() {
+    vector<int> arr1 = {1, 3, -5};
+    vector<int> arr2 = {-2, 4, 1};
+    cout << "Minimum product is " << minimumScalarProduct(arr1, arr2);
+    return 0;
+}
