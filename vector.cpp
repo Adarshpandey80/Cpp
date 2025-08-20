@@ -28,25 +28,41 @@
 //     cout << "Pair with sum " << result[0] << result[1] << ": ";
 // }
 
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+// using namespace std;
+
+// int maxProfit(vector<int> prices) {
+//     int bestbuy = prices[0];
+//     int maxprofit = 0;
+
+//     for (int i = 1; i < prices.size(); i++) {
+//         maxprofit = max(maxprofit, prices[i] - bestbuy);
+//         bestbuy = min(bestbuy, prices[i]);
+//     }
+//     return maxprofit;
+// }
+
+// int main() {
+//     vector<int> prices = {7,1,5,3,6,4};
+//     int result = maxProfit(prices);
+//     cout << "Maximum profit: " << result << endl;
+//     return 0;
+// }
+
+
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
-
-int maxProfit(vector<int> prices) {
-    int bestbuy = prices[0];
-    int maxprofit = 0;
-
-    for (int i = 1; i < prices.size(); i++) {
-        maxprofit = max(maxprofit, prices[i] - bestbuy);
-        bestbuy = min(bestbuy, prices[i]);
+int main(){
+     vector<int> vec = {1,8,3,4,5};
+    // vector<int> :: iterator it;
+    // for(it = vec.begin() ; it!=vec.end(); it++){
+    //     cout<<*(it)<<" ";
+    // } 
+    
+    for( auto it = vec.rbegin() ; it!=vec.rend(); it++){
+        cout<<*(it)<<" ";
     }
-    return maxprofit;
-}
-
-int main() {
-    vector<int> prices = {7,1,5,3,6,4};
-    int result = maxProfit(prices);
-    cout << "Maximum profit: " << result << endl;
-    return 0;
 }
