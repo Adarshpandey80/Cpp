@@ -347,3 +347,78 @@
 //     return 0;
 
 // }
+
+
+//// 2D arraya ;
+
+#include<iostream>
+#include <utility>
+using namespace std;
+
+pair<int ,int> isLinear(int arr[][3],int rows, int cols, int key){
+
+   
+      for(int i=0;i<rows ;i++){
+        for(int j=0;j<cols;j++){
+            if(arr[i][j]==key){
+                return {i,j};
+            }
+        }
+      }
+      return {-1,-1};
+}
+
+int rowSum(int arr[][3] ,int rows,int cols){
+    int maxSumRow = INT_MIN;
+    for(int i=0;i<rows;i++){
+        int sumRow = 0;
+        for(int j=0;j<cols ;j++){
+            sumRow += arr[i][j];
+        }
+        maxSumRow = max( maxSumRow ,  sumRow );
+    }
+    return maxSumRow;
+}
+
+int colSum (int arr[][3] ,int rows,int cols){
+    int maxColsum = INT_MIN;
+    for(int i=0;i<rows;i++){
+        int colsSum = 0;
+        for(int j=0 ;j<cols ;j++){
+            colsSum += arr[j][i];
+        }
+        maxColsum = max(maxColsum , colsSum);
+    }
+    return maxColsum;
+}
+
+int digSum (int mat[][3] ,int n){
+     int sum =0;
+    for(int i=0;i<n;i++){
+       
+        for(int j =0 ;j<n ;j++){
+            if(i==j){
+                sum += mat[i][j];
+            } else if(j== n-i-1) {
+               sum += mat[i][j];
+            }
+        }
+    }
+    return sum ;
+}
+int main(){
+    int arr [3][3] = {{1 ,2,3} ,{4,5,6},{6,7,8} };
+    int rows = 3;
+    int cols = 3;
+    // int key = 8;
+    // pair <int ,int> result = isLinear(arr ,rows,cols,key);
+    // if(result.first == -1){
+    //     cout<<"key not found";
+    // }  else {cout << "Key found at: (" << result.first << ", " << result.second << ")" << endl;
+    // }
+    //  cout<<rowSum(arr,rows,cols);
+    //  cout<<colSum(arr,rows,cols);
+     cout<<digSum(arr,3);
+    }
+   
+    
