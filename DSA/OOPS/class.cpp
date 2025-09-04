@@ -865,36 +865,58 @@
 
 // ======================================= 17/06/25(Abstraction (pure virtual function))=================================
 
+// #include <iostream>
+// using namespace std;
+
+// class Rgpv {
+//     public:
+//     void copychack(){
+//         cout<<"\n this is Rgpv class copycheck method";
+//     }
+//     virtual void cctv() = 0; // pure virtual function , abstract method;
+// };
+// class collage :public Rgpv {
+//     public:
+//     void staff(){
+//         cout<<"\n this is collage staff methid";
+//     }
+//     void cctv (){
+//         cout<<"\n this is rgpv class method own by collage class mthod";
+//     }
+// };
+
+// int main(){
+//     collage c;
+//     c.copychack();
+//     c.staff();
+//     c.cctv();
+//     // Rgpv ob ;  We can not create abstract class object
+//     Rgpv *r; // in this method we call only abstract class method 
+//     collage c1;
+//     r=&c1;
+//     r->cctv();
+//     r->copychack();
+//     return 0;
+// }
+
+
+// counting frog problem
+
 #include <iostream>
 using namespace std;
-
-class Rgpv {
-    public:
-    void copychack(){
-        cout<<"\n this is Rgpv class copycheck method";
-    }
-    virtual void cctv() = 0; // pure virtual function , abstract method;
-};
-class collage :public Rgpv {
-    public:
-    void staff(){
-        cout<<"\n this is collage staff methid";
-    }
-    void cctv (){
-        cout<<"\n this is rgpv class method own by collage class mthod";
-    }
-};
-
 int main(){
-    collage c;
-    c.copychack();
-    c.staff();
-    c.cctv();
-    // Rgpv ob ;  We can not create abstract class object
-    Rgpv *r; // in this method we call only abstract class method 
-    collage c1;
-    r=&c1;
-    r->cctv();
-    r->copychack();
+    int X,Y,s,T;
+    cout<<"enter the value of X , Y , s , T"<<endl;
+    cin>>X>>Y>>s>>T;
+    int count=0;
+    for(int i=X ; i<=X+s ; i++){
+        for(int j=Y ; j<=Y+s ; j++){
+            if(i+j <= T){
+                count++;
+            }
+        }
+    }
+    cout<<count<<endl;
     return 0;
+
 }
