@@ -868,42 +868,95 @@
 
 // Rate in a Maze Problem
 
+// #include<iostream>
+// #include<vector>
+// using namespace std;
+
+// void helper(vector<vector<int>> &mat , int r, int c, string path, vector<string> &ans , vector<vector<bool>> &vis){
+//      int n = mat.size();
+//      if(r<0 || c<0 || r>=n || c>=n || vis[r][c] == true || mat[r][c] == 0){
+//           return;
+//      }
+//      if(r == n-1 && c == n-1){
+//           ans.push_back(path);
+//           return;
+//      }
+//      vis[r][c] = true;
+//      helper(mat , r-1 , c , path + 'U' , ans , vis);
+//      helper(mat , r+1 , c , path + 'D' , ans , vis);
+//      helper(mat , r , c-1 , path + 'L' , ans , vis);
+//      helper(mat , r , c+1 , path + 'R' , ans , vis);
+//      vis[r][c] = false;
+// }
+// // complete this function
+// vector<string> findPath(vector<vector<int>> &mat) {
+//      int n = mat.size();
+//      vector<string> ans;
+//      string path = "";
+//      vector<vector<bool>> vis(n , vector<bool>(n , false));
+//      helper(mat , 0 , 0 , path , ans , vis);
+//      return ans;
+// }
+
+// int main(){
+//      vector<vector<int>> mat = {{1,0,0,0},{1,1,0,1},{1,1,0,0},{0,1,1,1}};
+//      int n = mat.size();
+//      vector<string> ans = findPath(mat );
+//      for(auto i : ans){
+//           cout<<i<<endl;
+//      }
+//      return 0;
+// }
+
+// palindrome partioning 
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
 
-void helper(vector<vector<int>> &mat , int r, int c, string path, vector<string> &ans , vector<vector<bool>> &vis){
-     int n = mat.size();
-     if(r<0 || c<0 || r>=n || c>=n || vis[r][c] == true || mat[r][c] == 0){
-          return;
-     }
-     if(r == n-1 && c == n-1){
-          ans.push_back(path);
-          return;
-     }
-     vis[r][c] = true;
-     helper(mat , r-1 , c , path + 'U' , ans , vis);
-     helper(mat , r+1 , c , path + 'D' , ans , vis);
-     helper(mat , r , c-1 , path + 'L' , ans , vis);
-     helper(mat , r , c+1 , path + 'R' , ans , vis);
-     vis[r][c] = false;
-}
-// complete this function
-vector<string> findPath(vector<vector<int>> &mat) {
-     int n = mat.size();
-     vector<string> ans;
-     string path = "";
-     vector<vector<bool>> vis(n , vector<bool>(n , false));
-     helper(mat , 0 , 0 , path , ans , vis);
-     return ans;
-}
+class Solution {
+public:
+   bool isPalion(string s){
+    string s2 = s;
+    reverse(s2.begin() , s2.end());
+    return s == s2;
+   }
+
+
+   void getAllParts(string s ,vector<string>  &partitions ,vector<vector<string>> &ans){
+    if(s.size()==0){
+        ans.push_back(partitions);
+        return ;
+    }
+    for(int i=0; i<s.size(); i++){
+        string part = s.substr(0,i+1);
+
+        if(isPalion(part)){
+            partitions.push_back(part);
+            getAllParts(s.substr(i+1) , partitions , ans);
+            partitions.pop_back();
+        }
+    }
+   }
+
+
+    vector<vector<string>> partition(string s) {
+        vector<vector<string>> ans;
+        vector<string>  partitions ;
+        getAllParts(s, partitions , ans);
+        return ans;
+    }
+};
 
 int main(){
-     vector<vector<int>> mat = {{1,0,0,0},{1,1,0,1},{1,1,0,0},{0,1,1,1}};
-     int n = mat.size();
-     vector<string> ans = findPath(mat );
-     for(auto i : ans){
-          cout<<i<<endl;
-     }
-     return 0;
+    Solution obj;
+    string s = "aab";
+    vector<vector<string>> ans = obj.partition(s);
+    for(auto i : ans){
+        for(auto j : i){
+            cout<<j<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
 }
