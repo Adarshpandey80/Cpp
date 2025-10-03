@@ -982,18 +982,36 @@
 
 // takeoff problem 
 
-#include<iostream>
-using namespace std;
-int main(){
-    int arr[7] = {3,4,7,6,7,2,2};
-    int x =6 ;  
-    int count=0;
-    for(int i=0 ;i<=7;i++){
-      if(arr[i]<=x){
-        count++;
-      } else {
-        break;
-      }
-    } 
-    cout<<count;
-  }
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int arr[7] = {3,4,7,6,7,2,2};
+//     int x =6 ;  
+//     int count=0;
+//     for(int i=0 ;i<=7;i++){
+//       if(arr[i]<=x){
+//         count++;
+//       } else {
+//         break;
+//       }
+//     } 
+//     cout<<count;
+//   }
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int arr[7] = {3,4,7,6,7,2,2};
+//     int x =6 ;  
+//     int count=0;
+//     for(int i=0 ;i<=7;i++){
+//       if(arr[i]<=x){
+//         count++;
+//       } else {
+//         break;
+//       }
+//     } 
+//     cout<<count;
+//   }
+
+ 
