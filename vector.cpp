@@ -52,17 +52,39 @@
 // }
 
 
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+// int main(){
+//      vector<int> vec = {1,8,3,4,5};
+//     // vector<int> :: iterator it;
+//     // for(it = vec.begin() ; it!=vec.end(); it++){
+//     //     cout<<*(it)<<" ";
+//     // } 
+    
+//     for( auto it = vec.rbegin() ; it!=vec.rend(); it++){
+//         cout<<*(it)<<" ";
+//     }
+// }
+
+
 #include <iostream>
 #include <vector>
 using namespace std;
 int main(){
-     vector<int> vec = {1,8,3,4,5};
-    // vector<int> :: iterator it;
-    // for(it = vec.begin() ; it!=vec.end(); it++){
-    //     cout<<*(it)<<" ";
-    // } 
-    
-    for( auto it = vec.rbegin() ; it!=vec.rend(); it++){
-        cout<<*(it)<<" ";
+    vector<int> arr = {-2,1,-3,4,-1,2,1,-5,4};
+    int n = arr.size();
+    int maxSum = INT_MIN;
+    int currSum = 0;
+    for(int i=0; i<n; i++){
+        currSum += arr[i];
+        if(currSum > maxSum){
+            maxSum = currSum;
+        }
+        if(currSum < 0){
+            currSum = 0;
+        }
     }
+    cout << "Maximum Subarray Sum is: " << maxSum << endl;
+    return 0;
 }
