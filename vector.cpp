@@ -68,23 +68,45 @@
 // }
 
 
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+// int main(){
+//     vector<int> arr = {-2,1,-3,4,-1,2,1,-5,4};
+//     int n = arr.size();
+//     int maxSum = INT_MIN;
+//     int currSum = 0;
+//     for(int i=0; i<n; i++){
+//         currSum += arr[i];
+//         if(currSum > maxSum){
+//             maxSum = currSum;
+//         }
+//         if(currSum < 0){
+//             currSum = 0;
+//         }
+//     }
+//     cout << "Maximum Subarray Sum is: " << maxSum << endl;
+//     return 0;
+// }
+
+// Jump Game II  (Minimum number of jumps to reach the end of the array)
+
 #include <iostream>
 #include <vector>
 using namespace std;
 int main(){
-    vector<int> arr = {-2,1,-3,4,-1,2,1,-5,4};
+    vector<int> arr = {2,3,1,1,4};
     int n = arr.size();
-    int maxSum = INT_MIN;
-    int currSum = 0;
-    for(int i=0; i<n; i++){
-        currSum += arr[i];
-        if(currSum > maxSum){
-            maxSum = currSum;
-        }
-        if(currSum < 0){
-            currSum = 0;
+    int jumps = 0;
+    int currEnd = 0;
+    int farthest = 0;   
+    for(int i=0; i<n-1; i++){
+        farthest = max(farthest, i + arr[i]);
+        if(i == currEnd){
+            jumps++;
+            currEnd = farthest;
         }
     }
-    cout << "Maximum Subarray Sum is: " << maxSum << endl;
+    cout << "Minimum number of jumps to reach the end: " << jumps << endl;
     return 0;
 }
