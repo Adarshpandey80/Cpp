@@ -91,22 +91,45 @@
 
 // Jump Game II  (Minimum number of jumps to reach the end of the array)
 
-#include <iostream>
-#include <vector>
-using namespace std;
-int main(){
-    vector<int> arr = {2,3,1,1,4};
-    int n = arr.size();
-    int jumps = 0;
-    int currEnd = 0;
-    int farthest = 0;   
-    for(int i=0; i<n-1; i++){
-        farthest = max(farthest, i + arr[i]);
-        if(i == currEnd){
-            jumps++;
-            currEnd = farthest;
-        }
-    }
-    cout << "Minimum number of jumps to reach the end: " << jumps << endl;
-    return 0;
-}
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+// int main(){
+//     vector<int> arr = {2,3,1,1,4};
+//     int n = arr.size();
+//     int jumps = 0;
+//     int currEnd = 0;
+//     int farthest = 0;   
+//     for(int i=0; i<n-1; i++){
+//         farthest = max(farthest, i + arr[i]);
+//         if(i == currEnd){
+//             jumps++;
+//             currEnd = farthest;
+//         }
+//     }
+//     cout << "Minimum number of jumps to reach the end: " << jumps << endl;
+//     return 0;
+// }
+
+// Move Zeros to the end of the array (Leetcode 283)
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+// int main(){
+//     vector<int> arr = {0,1,0,3,12};
+//     int n = arr.size();
+//     int j = 0;
+//     for(int i=0; i<n; i++){
+//         if(arr[i] != 0){
+//             swap(arr[i], arr[j]);
+//             j++;
+//         }
+//     }
+//     cout << "Array after moving zeros to the end: ";
+//     for(int i=0; i<n; i++){
+//         cout << arr[i] << " ";
+//     }
+//     cout << endl;
+//     return 0;
+// }
