@@ -136,35 +136,49 @@
 
 // Pair Sum in a sorted array using two-pointer technique (Leetcode 167)
 
-#include <iostream>
-#include <vector>
-using namespace std;
-int main() {
-    vector<int> arr = {1, 2, 3, 4, 5};
-    int n = arr.size();
-    int target = 5;
-    vector<int> ans;
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+// int main() {
+//     vector<int> arr = {1, 2, 3, 4, 5};
+//     int n = arr.size();
+//     int target = 5;
+//     vector<int> ans;
     
-    int i = 0, j = n - 1;
-    while (i < j) {
-        int sum = arr[i] + arr[j];
-        if (sum > target) {
-            j--;
-        } else if (sum < target) {
-            i++;
-        } else {
-            ans.push_back(arr[i]);
-            ans.push_back(arr[j]);
-            break; // Found the pair, exit the loop
+//     int i = 0, j = n - 1;
+//     while (i < j) {
+//         int sum = arr[i] + arr[j];
+//         if (sum > target) {
+//             j--;
+//         } else if (sum < target) {
+//             i++;
+//         } else {
+//             ans.push_back(arr[i]);
+//             ans.push_back(arr[j]);
+//             break; // Found the pair, exit the loop
+//         }
+//     }
+    
+//     if (!ans.empty()) {
+//         cout << "Pair with sum " << target << ": " << ans[0] << ", " << ans[1] << endl;
+//     } else {
+//         cout << "No pair found with sum " << target << endl;
+//     }
+    
+//     return 0;
+// }
+
+// Containe duplicate
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> s;
+        for(int n : nums){
+            if(s.count(n)) return true;
+            s.insert(n);
         }
+        return false;
     }
-    
-    if (!ans.empty()) {
-        cout << "Pair with sum " << target << ": " << ans[0] << ", " << ans[1] << endl;
-    } else {
-        cout << "No pair found with sum " << target << endl;
-    }
-    
-    return 0;
-}
-// This code finds a pair of numbers in a sorted array that sum up to a given target value using the two-pointer technique. 
+};
+

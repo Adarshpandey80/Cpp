@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "*.ejs": "html",
-        "iostream": "cpp"
-    }
+        "iostream": "cpp",
+        "typeinfo": "cpp"
+    },
+    "github.copilot.nextEditSuggestions.enabled": false
 }
