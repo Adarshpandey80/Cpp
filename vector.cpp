@@ -170,15 +170,27 @@
 
 // Containe duplicate
 
+// class Solution {
+// public:
+//     bool containsDuplicate(vector<int>& nums) {
+//         unordered_set<int> s;
+//         for(int n : nums){
+//             if(s.count(n)) return true;
+//             s.insert(n);
+//         }
+//         return false;
+//     }
+// };
+
+// maxSubArray
 class Solution {
 public:
-    bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> s;
-        for(int n : nums){
-            if(s.count(n)) return true;
-            s.insert(n);
+    int maxSubArray(vector<int>& nums) {
+        int current = nums[0], best = nums[0];
+        for(int i = 1; i < nums.size(); i++){
+            current = max(nums[i], current + nums[i]);
+            best = max(best, current);
         }
-        return false;
+        return best;
     }
 };
-
