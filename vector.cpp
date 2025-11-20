@@ -183,14 +183,28 @@
 // };
 
 // maxSubArray
+// class Solution {
+// public:
+//     int maxSubArray(vector<int>& nums) {
+//         int current = nums[0], best = nums[0];
+//         for(int i = 1; i < nums.size(); i++){
+//             current = max(nums[i], current + nums[i]);
+//             best = max(best, current);
+//         }
+//         return best;
+//     }
+// };
+
+
 class Solution {
 public:
-    int maxSubArray(vector<int>& nums) {
-        int current = nums[0], best = nums[0];
-        for(int i = 1; i < nums.size(); i++){
-            current = max(nums[i], current + nums[i]);
-            best = max(best, current);
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int,int> mp;
+        for(int i = 0; i < nums.size(); i++){
+            int need = target - nums[i];
+            if(mp.count(need)) return {mp[need], i};
+            mp[nums[i]] = i;
         }
-        return best;
+        return {};
     }
 };
