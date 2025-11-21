@@ -196,15 +196,27 @@
 // };
 
 
+// class Solution {
+// public:
+//     vector<int> twoSum(vector<int>& nums, int target) {
+//         unordered_map<int,int> mp;
+//         for(int i = 0; i < nums.size(); i++){
+//             int need = target - nums[i];
+//             if(mp.count(need)) return {mp[need], i};
+//             mp[nums[i]] = i;
+//         }
+//         return {};
+//     }
+// };
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int,int> mp;
-        for(int i = 0; i < nums.size(); i++){
-            int need = target - nums[i];
-            if(mp.count(need)) return {mp[need], i};
-            mp[nums[i]] = i;
+    int maxProfit(vector<int>& prices) {
+        int minPrice = INT_MAX, profit = 0;
+        for(int p : prices){
+            minPrice = min(minPrice, p);
+            profit = max(profit, p - minPrice);
         }
-        return {};
+        return profit;
     }
 };
