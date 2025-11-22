@@ -209,14 +209,27 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     int maxProfit(vector<int>& prices) {
+//         int minPrice = INT_MAX, profit = 0;
+//         for(int p : prices){
+//             minPrice = min(minPrice, p);
+//             profit = max(profit, p - minPrice);
+//         }
+//         return profit;
+//     }
+// };
+
 class Solution {
 public:
-    int maxProfit(vector<int>& prices) {
-        int minPrice = INT_MAX, profit = 0;
-        for(int p : prices){
-            minPrice = min(minPrice, p);
-            profit = max(profit, p - minPrice);
+    void moveZeroes(vector<int>& nums) {
+        int j = 0;
+        for(int i = 0; i < nums.size(); i++){
+            if(nums[i] != 0){
+                swap(nums[i], nums[j]);
+                j++;
+            }
         }
-        return profit;
     }
 };
