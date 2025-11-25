@@ -258,16 +258,28 @@
 
 
 
+// class Solution {
+// public:
+//     int majorityElement(vector<int>& nums) {
+//         int candidate = 0, count = 0;
+//         for(int n : nums){
+//             if(count == 0){
+//                 candidate = n;
+//             }
+//             count += (n == candidate) ? 1 : -1;
+//         }
+//         return candidate;
+//     }
+// };
+
+
 class Solution {
 public:
-    int majorityElement(vector<int>& nums) {
-        int candidate = 0, count = 0;
-        for(int n : nums){
-            if(count == 0){
-                candidate = n;
-            }
-            count += (n == candidate) ? 1 : -1;
+    int missingNumber(vector<int>& nums) {
+        int x = nums.size();
+        for(int i = 0; i < nums.size(); i++){
+            x ^= i ^ nums[i];
         }
-        return candidate;
+        return x;
     }
 };
