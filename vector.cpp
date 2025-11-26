@@ -273,13 +273,25 @@
 // };
 
 
+// class Solution {
+// public:
+//     int missingNumber(vector<int>& nums) {
+//         int x = nums.size();
+//         for(int i = 0; i < nums.size(); i++){
+//             x ^= i ^ nums[i];
+//         }
+//         return x;
+//     }
+// };
+
+
+
 class Solution {
 public:
-    int missingNumber(vector<int>& nums) {
-        int x = nums.size();
-        for(int i = 0; i < nums.size(); i++){
-            x ^= i ^ nums[i];
-        }
-        return x;
+    void rotate(vector<int>& nums, int k) {
+        k %= nums.size();
+        reverse(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.begin() + k);
+        reverse(nums.begin() + k, nums.end());
     }
 };
