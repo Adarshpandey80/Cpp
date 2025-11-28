@@ -298,16 +298,28 @@
 
 
 
+// class Solution {
+// public:
+//     void merge(vector<int>& A, int m, vector<int>& B, int n) {
+//         int i = m - 1, j = n - 1, k = m + n - 1;
+
+//         while(j >= 0){
+//             if(i >= 0 && A[i] > B[j])
+//                 A[k--] = A[i--];
+//             else
+//                 A[k--] = B[j--];
+//         }
+//     }
+// };
+
+
 class Solution {
 public:
-    void merge(vector<int>& A, int m, vector<int>& B, int n) {
-        int i = m - 1, j = n - 1, k = m + n - 1;
-
-        while(j >= 0){
-            if(i >= 0 && A[i] > B[j])
-                A[k--] = A[i--];
-            else
-                A[k--] = B[j--];
+    int removeDuplicates(vector<int>& nums) {
+        int j = 1;
+        for(int i = 1; i < nums.size(); i++){
+            if(nums[i] != nums[i-1]) nums[j++] = nums[i];
         }
+        return j;
     }
 };
