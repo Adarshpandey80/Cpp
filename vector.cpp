@@ -313,13 +313,31 @@
 // };
 
 
+// class Solution {
+// public:
+//     int removeDuplicates(vector<int>& nums) {
+//         int j = 1;
+//         for(int i = 1; i < nums.size(); i++){
+//             if(nums[i] != nums[i-1]) nums[j++] = nums[i];
+//         }
+//         return j;
+//     }
+// };
+
+
 class Solution {
 public:
-    int removeDuplicates(vector<int>& nums) {
-        int j = 1;
-        for(int i = 1; i < nums.size(); i++){
-            if(nums[i] != nums[i-1]) nums[j++] = nums[i];
+    int longestConsecutive(vector<int>& nums) {
+        unordered_set<int> s(nums.begin(), nums.end());
+        int longest = 0;
+
+        for(int n : s){
+            if(!s.count(n - 1)){  // start of sequence
+                int len = 1;
+                while(s.count(n + len)) len++;
+                longest = max(longest, len);
+            }
         }
-        return j;
+        return longest;
     }
 };
