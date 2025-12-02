@@ -362,29 +362,56 @@
 // };
 
 
+// class Solution {
+// public:
+//     vector<vector<int>> threeSum(vector<int>& nums) {
+//         vector<vector<int>> ans;
+//         sort(nums.begin(), nums.end());
+
+//         for(int i = 0; i < nums.size(); i++){
+//             if(i > 0 && nums[i] == nums[i-1]) continue;
+
+//             int l = i + 1, r = nums.size() - 1;
+
+//             while(l < r){
+//                 int sum = nums[i] + nums[l] + nums[r];
+//                 if(sum < 0) l++;
+//                 else if(sum > 0) r--;
+//                 else{
+//                     ans.push_back({nums[i], nums[l], nums[r]});
+//                     while(l < r && nums[l] == nums[l+1]) l++;
+//                     while(l < r && nums[r] == nums[r-1]) r--;
+//                     l++; r--;
+//                 }
+//             }
+//         }
+//         return ans;
+//     }
+// };
+
+
 class Solution {
 public:
-    vector<vector<int>> threeSum(vector<int>& nums) {
-        vector<vector<int>> ans;
-        sort(nums.begin(), nums.end());
+    void setZeroes(vector<vector<int>>& m) {
+        int r = m.size(), c = m[0].size();
+        bool col0 = false;
 
-        for(int i = 0; i < nums.size(); i++){
-            if(i > 0 && nums[i] == nums[i-1]) continue;
-
-            int l = i + 1, r = nums.size() - 1;
-
-            while(l < r){
-                int sum = nums[i] + nums[l] + nums[r];
-                if(sum < 0) l++;
-                else if(sum > 0) r--;
-                else{
-                    ans.push_back({nums[i], nums[l], nums[r]});
-                    while(l < r && nums[l] == nums[l+1]) l++;
-                    while(l < r && nums[r] == nums[r-1]) r--;
-                    l++; r--;
+        for(int i = 0; i < r; i++){
+            if(m[i][0] == 0) col0 = true;
+            for(int j = 1; j < c; j++){
+                if(m[i][j] == 0){
+                    m[i][0] = m[0][j] = 0;
                 }
             }
         }
-        return ans;
+
+        for(int i = r - 1; i >= 0; i--){
+            for(int j = c - 1; j >= 1; j--){
+                if(m[i][0] == 0 || m[0][j] == 0)
+                    m[i][j] = 0;
+            }
+            if(col0) m[i][0] = 0;
+        }
     }
 };
+
