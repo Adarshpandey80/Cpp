@@ -390,28 +390,56 @@
 // };
 
 
+// class Solution {
+// public:
+//     void setZeroes(vector<vector<int>>& m) {
+//         int r = m.size(), c = m[0].size();
+//         bool col0 = false;
+
+//         for(int i = 0; i < r; i++){
+//             if(m[i][0] == 0) col0 = true;
+//             for(int j = 1; j < c; j++){
+//                 if(m[i][j] == 0){
+//                     m[i][0] = m[0][j] = 0;
+//                 }
+//             }
+//         }
+
+//         for(int i = r - 1; i >= 0; i--){
+//             for(int j = c - 1; j >= 1; j--){
+//                 if(m[i][0] == 0 || m[0][j] == 0)
+//                     m[i][j] = 0;
+//             }
+//             if(col0) m[i][0] = 0;
+//         }
+//     }
+// };
+
+
 class Solution {
 public:
-    void setZeroes(vector<vector<int>>& m) {
-        int r = m.size(), c = m[0].size();
-        bool col0 = false;
+    vector<int> spiralOrder(vector<vector<int>>& m) {
+        vector<int> ans;
+        int top = 0, bottom = m.size() - 1;
+        int left = 0, right = m[0].size() - 1;
 
-        for(int i = 0; i < r; i++){
-            if(m[i][0] == 0) col0 = true;
-            for(int j = 1; j < c; j++){
-                if(m[i][j] == 0){
-                    m[i][0] = m[0][j] = 0;
-                }
+        while(top <= bottom && left <= right){
+            for(int j = left; j <= right; j++) ans.push_back(m[top][j]);
+            top++;
+
+            for(int i = top; i <= bottom; i++) ans.push_back(m[i][right]);
+            right--;
+
+            if(top <= bottom){
+                for(int j = right; j >= left; j--) ans.push_back(m[bottom][j]);
+                bottom--;
+            }
+
+            if(left <= right){
+                for(int i = bottom; i >= top; i--) ans.push_back(m[i][left]);
+                left++;
             }
         }
-
-        for(int i = r - 1; i >= 0; i--){
-            for(int j = c - 1; j >= 1; j--){
-                if(m[i][0] == 0 || m[0][j] == 0)
-                    m[i][j] = 0;
-            }
-            if(col0) m[i][0] = 0;
-        }
+        return ans;
     }
 };
-
