@@ -444,26 +444,55 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     int search(vector<int>& nums, int target) {
+//         int l = 0, r = nums.size() - 1;
+
+//         while(l <= r){
+//             int mid = (l + r) / 2;
+
+//             if(nums[mid] == target) return mid;
+
+//             // Left part sorted
+//             if(nums[l] <= nums[mid]){
+//                 if(nums[l] <= target && target < nums[mid]) r = mid - 1;
+//                 else l = mid + 1;
+//             }
+//             else{ // right part sorted
+//                 if(nums[mid] < target && target <= nums[r]) l = mid + 1;
+//                 else r = mid - 1;
+//             }
+//         }
+//         return -1;
+//     }
+// };
+
+
 class Solution {
 public:
-    int search(vector<int>& nums, int target) {
-        int l = 0, r = nums.size() - 1;
+    vector<int> spiralOrder(vector<vector<int>>& m) {
+        vector<int> ans;
+        int top = 0, bottom = m.size() - 1;
+        int left = 0, right = m[0].size() - 1;
 
-        while(l <= r){
-            int mid = (l + r) / 2;
+        while(top <= bottom && left <= right){
+            for(int j = left; j <= right; j++) ans.push_back(m[top][j]);
+            top++;
 
-            if(nums[mid] == target) return mid;
+            for(int i = top; i <= bottom; i++) ans.push_back(m[i][right]);
+            right--;
 
-            // Left part sorted
-            if(nums[l] <= nums[mid]){
-                if(nums[l] <= target && target < nums[mid]) r = mid - 1;
-                else l = mid + 1;
+            if(top <= bottom){
+                for(int j = right; j >= left; j--) ans.push_back(m[bottom][j]);
+                bottom--;
             }
-            else{ // right part sorted
-                if(nums[mid] < target && target <= nums[r]) l = mid + 1;
-                else r = mid - 1;
+
+            if(left <= right){
+                for(int i = bottom; i >= top; i--) ans.push_back(m[i][left]);
+                left++;
             }
         }
-        return -1;
+        return ans;
     }
 };
