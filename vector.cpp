@@ -469,30 +469,55 @@
 // };
 
 
+// class Solution {
+// public:
+//     vector<int> spiralOrder(vector<vector<int>>& m) {
+//         vector<int> ans;
+//         int top = 0, bottom = m.size() - 1;
+//         int left = 0, right = m[0].size() - 1;
+
+//         while(top <= bottom && left <= right){
+//             for(int j = left; j <= right; j++) ans.push_back(m[top][j]);
+//             top++;
+
+//             for(int i = top; i <= bottom; i++) ans.push_back(m[i][right]);
+//             right--;
+
+//             if(top <= bottom){
+//                 for(int j = right; j >= left; j--) ans.push_back(m[bottom][j]);
+//                 bottom--;
+//             }
+
+//             if(left <= right){
+//                 for(int i = bottom; i >= top; i--) ans.push_back(m[i][left]);
+//                 left++;
+//             }
+//         }
+//         return ans;
+//     }
+// };
+
+
 class Solution {
 public:
-    vector<int> spiralOrder(vector<vector<int>>& m) {
-        vector<int> ans;
-        int top = 0, bottom = m.size() - 1;
-        int left = 0, right = m[0].size() - 1;
+    int search(vector<int>& nums, int target) {
+        int l = 0, r = nums.size() - 1;
 
-        while(top <= bottom && left <= right){
-            for(int j = left; j <= right; j++) ans.push_back(m[top][j]);
-            top++;
+        while(l <= r){
+            int mid = (l + r) / 2;
 
-            for(int i = top; i <= bottom; i++) ans.push_back(m[i][right]);
-            right--;
+            if(nums[mid] == target) return mid;
 
-            if(top <= bottom){
-                for(int j = right; j >= left; j--) ans.push_back(m[bottom][j]);
-                bottom--;
+            // Left part sorted
+            if(nums[l] <= nums[mid]){
+                if(nums[l] <= target && target < nums[mid]) r = mid - 1;
+                else l = mid + 1;
             }
-
-            if(left <= right){
-                for(int i = bottom; i >= top; i--) ans.push_back(m[i][left]);
-                left++;
+            else{ // right part sorted
+                if(nums[mid] < target && target <= nums[r]) l = mid + 1;
+                else r = mid - 1;
             }
         }
-        return ans;
+        return -1;
     }
 };
