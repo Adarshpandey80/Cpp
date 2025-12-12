@@ -563,18 +563,32 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     int subarraySum(vector<int>& nums, int k) {
+//         unordered_map<int,int> mp;
+//         mp[0] = 1;
+//         int sum = 0, count = 0;
+
+//         for(int n : nums){
+//             sum += n;
+//             if(mp.count(sum - k)) count += mp[sum - k];
+//             mp[sum]++;
+//         }
+//         return count;
+//     }
+// };
+
 class Solution {
 public:
-    int subarraySum(vector<int>& nums, int k) {
-        unordered_map<int,int> mp;
-        mp[0] = 1;
-        int sum = 0, count = 0;
+    int maxArea(vector<int>& h) {
+        int l = 0, r = h.size() - 1, ans = 0;
 
-        for(int n : nums){
-            sum += n;
-            if(mp.count(sum - k)) count += mp[sum - k];
-            mp[sum]++;
+        while(l < r){
+            ans = max(ans, min(h[l], h[r]) * (r - l));
+            if(h[l] < h[r]) l++;
+            else r--;
         }
-        return count;
+        return ans;
     }
 };
