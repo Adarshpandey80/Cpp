@@ -579,16 +579,34 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     int maxArea(vector<int>& h) {
+//         int l = 0, r = h.size() - 1, ans = 0;
+
+//         while(l < r){
+//             ans = max(ans, min(h[l], h[r]) * (r - l));
+//             if(h[l] < h[r]) l++;
+//             else r--;
+//         }
+//         return ans;
+//     }
+// };
+
+
 class Solution {
 public:
-    int maxArea(vector<int>& h) {
-        int l = 0, r = h.size() - 1, ans = 0;
+    void nextPermutation(vector<int>& nums) {
+        int n = nums.size(), i = n - 2;
 
-        while(l < r){
-            ans = max(ans, min(h[l], h[r]) * (r - l));
-            if(h[l] < h[r]) l++;
-            else r--;
+        while(i >= 0 && nums[i] >= nums[i+1]) i--;
+
+        if(i >= 0){
+            int j = n - 1;
+            while(nums[j] <= nums[i]) j--;
+            swap(nums[i], nums[j]);
         }
-        return ans;
+
+        reverse(nums.begin() + i + 1, nums.end());
     }
 };
