@@ -594,19 +594,42 @@
 // };
 
 
+// class Solution {
+// public:
+//     void nextPermutation(vector<int>& nums) {
+//         int n = nums.size(), i = n - 2;
+
+//         while(i >= 0 && nums[i] >= nums[i+1]) i--;
+
+//         if(i >= 0){
+//             int j = n - 1;
+//             while(nums[j] <= nums[i]) j--;
+//             swap(nums[i], nums[j]);
+//         }
+
+//         reverse(nums.begin() + i + 1, nums.end());
+//     }
+// };
+
+
 class Solution {
 public:
-    void nextPermutation(vector<int>& nums) {
-        int n = nums.size(), i = n - 2;
+    int trap(vector<int>& h) {
+        int l = 0, r = h.size() - 1;
+        int leftMax = 0, rightMax = 0, water = 0;
 
-        while(i >= 0 && nums[i] >= nums[i+1]) i--;
-
-        if(i >= 0){
-            int j = n - 1;
-            while(nums[j] <= nums[i]) j--;
-            swap(nums[i], nums[j]);
+        while(l < r){
+            if(h[l] < h[r]){
+                if(h[l] >= leftMax) leftMax = h[l];
+                else water += leftMax - h[l];
+                l++;
+            }
+            else{
+                if(h[r] >= rightMax) rightMax = h[r];
+                else water += rightMax - h[r];
+                r--;
+            }
         }
-
-        reverse(nums.begin() + i + 1, nums.end());
+        return water;
     }
 };
