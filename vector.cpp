@@ -612,24 +612,34 @@
 // };
 
 
+// class Solution {
+// public:
+//     int trap(vector<int>& h) {
+//         int l = 0, r = h.size() - 1;
+//         int leftMax = 0, rightMax = 0, water = 0;
+
+//         while(l < r){
+//             if(h[l] < h[r]){
+//                 if(h[l] >= leftMax) leftMax = h[l];
+//                 else water += leftMax - h[l];
+//                 l++;
+//             }
+//             else{
+//                 if(h[r] >= rightMax) rightMax = h[r];
+//                 else water += rightMax - h[r];
+//                 r--;
+//             }
+//         }
+//         return water;
+//     }
+// };
+
+
 class Solution {
 public:
-    int trap(vector<int>& h) {
-        int l = 0, r = h.size() - 1;
-        int leftMax = 0, rightMax = 0, water = 0;
-
-        while(l < r){
-            if(h[l] < h[r]){
-                if(h[l] >= leftMax) leftMax = h[l];
-                else water += leftMax - h[l];
-                l++;
-            }
-            else{
-                if(h[r] >= rightMax) rightMax = h[r];
-                else water += rightMax - h[r];
-                r--;
-            }
-        }
-        return water;
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int> pq(nums.begin(), nums.end());
+        while(--k) pq.pop();
+        return pq.top();
     }
 };
