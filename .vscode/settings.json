@@ -4,5 +4,5 @@
         "iostream": "cpp",
         "typeinfo": "cpp"
     },
-    "github.copilot.nextEditSuggestions.enabled": false
+    "github.copilot.nextEditSuggestions.enabled": true
 }
