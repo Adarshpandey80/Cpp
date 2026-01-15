@@ -198,68 +198,6 @@
 
 // class Solution {
 // public:
-//     vector<int> twoSum(vector<int>& nums, int target) {
-//         unordered_map<int,int> mp;
-//         for(int i = 0; i < nums.size(); i++){
-//             int need = target - nums[i];
-//             if(mp.count(need)) return {mp[need], i};
-//             mp[nums[i]] = i;
-//         }
-//         return {};
-//     }
-// };
-
-// class Solution {
-// public:
-//     int maxProfit(vector<int>& prices) {
-//         int minPrice = INT_MAX, profit = 0;
-//         for(int p : prices){
-//             minPrice = min(minPrice, p);
-//             profit = max(profit, p - minPrice);
-//         }
-//         return profit;
-//     }
-// };
-
-// class Solution {
-// public:
-//     void moveZeroes(vector<int>& nums) {
-//         int j = 0;
-//         for(int i = 0; i < nums.size(); i++){
-//             if(nums[i] != 0){
-//                 swap(nums[i], nums[j]);
-//                 j++;
-//             }
-//         }
-//     }
-// };
-
-
-// class Solution {
-// public:
-//     vector<int> productExceptSelf(vector<int>& nums) {
-//         int n = nums.size();
-//         vector<int> ans(n, 1);
-
-//         int prefix = 1;
-//         for(int i = 0; i < n; i++){
-//             ans[i] = prefix;
-//             prefix *= nums[i];
-//         }
-
-//         int suffix = 1;
-//         for(int i = n-1; i >= 0; i--){
-//             ans[i] *= suffix;
-//             suffix *= nums[i];
-//         }
-//         return ans;
-//     }
-// };
-
-
-
-// class Solution {
-// public:
 //     int majorityElement(vector<int>& nums) {
 //         int candidate = 0, count = 0;
 //         for(int n : nums){
@@ -657,13 +595,27 @@
 //     }
 // };
      
+// class Solution {
+// public:
+//     void wiggleSort(vector<int>& nums) {
+//         for(int i = 1; i < nums.size(); i++){
+//             if((i % 2 == 1 && nums[i] < nums[i-1]) ||
+//                (i % 2 == 0 && nums[i] > nums[i-1]))
+//                 swap(nums[i], nums[i-1]);
+//         }
+//     }
+// };
+
+
 class Solution {
 public:
-    void wiggleSort(vector<int>& nums) {
-        for(int i = 1; i < nums.size(); i++){
-            if((i % 2 == 1 && nums[i] < nums[i-1]) ||
-               (i % 2 == 0 && nums[i] > nums[i-1]))
-                swap(nums[i], nums[i-1]);
+    int pivotIndex(vector<int>& nums) {
+        int total = accumulate(nums.begin(), nums.end(), 0);
+        int left = 0;
+        for(int i = 0; i < nums.size(); i++){
+            if(left == total - left - nums[i]) return i;
+            left += nums[i];
         }
+        return -1;
     }
 };
