@@ -607,15 +607,32 @@
 // };
 
 
+// class Solution {
+// public:
+//     int pivotIndex(vector<int>& nums) {
+//         int total = accumulate(nums.begin(), nums.end(), 0);
+//         int left = 0;
+//         for(int i = 0; i < nums.size(); i++){
+//             if(left == total - left - nums[i]) return i;
+//             left += nums[i];
+//         }
+//         return -1;
+//     }
+// };
+
 class Solution {
 public:
-    int pivotIndex(vector<int>& nums) {
-        int total = accumulate(nums.begin(), nums.end(), 0);
-        int left = 0;
-        for(int i = 0; i < nums.size(); i++){
-            if(left == total - left - nums[i]) return i;
-            left += nums[i];
+    vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+        unordered_map<int,int> mp;
+        for(int x : arr1) mp[x]++;
+        vector<int> ans;
+        for(int x : arr2){
+            while(mp[x]-- > 0) ans.push_back(x);
         }
-        return -1;
+        for(auto &p : mp){
+            while(p.second-- > 0) ans.push_back(p.first);
+        }
+        sort(ans.begin() + arr2.size(), ans.end());
+        return ans;
     }
 };
