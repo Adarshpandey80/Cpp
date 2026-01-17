@@ -620,19 +620,40 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+//         unordered_map<int,int> mp;
+//         for(int x : arr1) mp[x]++;
+//         vector<int> ans;
+//         for(int x : arr2){
+//             while(mp[x]-- > 0) ans.push_back(x);
+//         }
+//         for(auto &p : mp){
+//             while(p.second-- > 0) ans.push_back(p.first);
+//         }
+//         sort(ans.begin() + arr2.size(), ans.end());
+//         return ans;
+//     }
+// };
+
 class Solution {
 public:
-    vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
-        unordered_map<int,int> mp;
-        for(int x : arr1) mp[x]++;
-        vector<int> ans;
-        for(int x : arr2){
-            while(mp[x]-- > 0) ans.push_back(x);
+    int findShortestSubArray(vector<int>& nums) {
+        unordered_map<int,int> cnt, first;
+        int degree = 0, res = nums.size();
+
+        for(int i = 0; i < nums.size(); i++){
+            if(!first.count(nums[i])) first[nums[i]] = i;
+            cnt[nums[i]]++;
+            if(cnt[nums[i]] > degree){
+                degree = cnt[nums[i]];
+                res = i - first[nums[i]] + 1;
+            }
+            else if(cnt[nums[i]] == degree){
+                res = min(res, i - first[nums[i]] + 1);
+            }
         }
-        for(auto &p : mp){
-            while(p.second-- > 0) ans.push_back(p.first);
-        }
-        sort(ans.begin() + arr2.size(), ans.end());
-        return ans;
+        return res;
     }
 };
