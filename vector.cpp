@@ -637,23 +637,36 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     int findShortestSubArray(vector<int>& nums) {
+//         unordered_map<int,int> cnt, first;
+//         int degree = 0, res = nums.size();
+
+//         for(int i = 0; i < nums.size(); i++){
+//             if(!first.count(nums[i])) first[nums[i]] = i;
+//             cnt[nums[i]]++;
+//             if(cnt[nums[i]] > degree){
+//                 degree = cnt[nums[i]];
+//                 res = i - first[nums[i]] + 1;
+//             }
+//             else if(cnt[nums[i]] == degree){
+//                 res = min(res, i - first[nums[i]] + 1);
+//             }
+//         }
+//         return res;
+//     }
+// };
+
 class Solution {
 public:
-    int findShortestSubArray(vector<int>& nums) {
-        unordered_map<int,int> cnt, first;
-        int degree = 0, res = nums.size();
-
-        for(int i = 0; i < nums.size(); i++){
-            if(!first.count(nums[i])) first[nums[i]] = i;
-            cnt[nums[i]]++;
-            if(cnt[nums[i]] > degree){
-                degree = cnt[nums[i]];
-                res = i - first[nums[i]] + 1;
-            }
-            else if(cnt[nums[i]] == degree){
-                res = min(res, i - first[nums[i]] + 1);
-            }
+    int findPeakElement(vector<int>& nums) {
+        int l = 0, r = nums.size() - 1;
+        while(l < r){
+            int mid = (l + r) / 2;
+            if(nums[mid] > nums[mid + 1]) r = mid;
+            else l = mid + 1;
         }
-        return res;
+        return l;
     }
 };
