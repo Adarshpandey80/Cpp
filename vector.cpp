@@ -671,22 +671,62 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     int maxSubarraySumCircular(vector<int>& nums) {
+//         int total = 0, maxSum = nums[0], curMax = 0;
+//         int minSum = nums[0], curMin = 0;
+
+//         for(int x : nums){
+//             curMax = max(x, curMax + x);
+//             maxSum = max(maxSum, curMax);
+
+//             curMin = min(x, curMin + x);
+//             minSum = min(minSum, curMin);
+
+//             total += x;
+//         }
+//         if(maxSum < 0) return maxSum;
+//         return max(maxSum, total - minSum);
+//     }
+// };
+
 class Solution {
 public:
-    int maxSubarraySumCircular(vector<int>& nums) {
-        int total = 0, maxSum = nums[0], curMax = 0;
-        int minSum = nums[0], curMin = 0;
+    vector<int> countSmaller(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n), idx(n);
+        for(int i = 0; i < n; i++) idx[i] = i;
 
-        for(int x : nums){
-            curMax = max(x, curMax + x);
-            maxSum = max(maxSum, curMax);
+        mergeSort(nums, idx, ans, 0, n - 1);
+        return ans;
+    }
 
-            curMin = min(x, curMin + x);
-            minSum = min(minSum, curMin);
+    void mergeSort(vector<int>& nums, vector<int>& idx, vector<int>& ans, int l, int r){
+        if(l >= r) return;
+        int mid = (l + r) / 2;
+        mergeSort(nums, idx, ans, l, mid);
+        mergeSort(nums, idx, ans, mid + 1, r);
 
-            total += x;
+        vector<int> temp;
+        int i = l, j = mid + 1, rightCount = 0;
+
+        while(i <= mid && j <= r){
+            if(nums[idx[j]] < nums[idx[i]]){
+                rightCount++;
+                temp.push_back(idx[j++]);
+            } else {
+                ans[idx[i]] += rightCount;
+                temp.push_back(idx[i++]);
+            }
         }
-        if(maxSum < 0) return maxSum;
-        return max(maxSum, total - minSum);
+        while(i <= mid){
+            ans[idx[i]] += rightCount;
+            temp.push_back(idx[i++]);
+        }
+        while(j <= r) temp.push_back(idx[j++]);
+
+        for(int k = l; k <= r; k++)
+            idx[k] = temp[k - l];
     }
 };
