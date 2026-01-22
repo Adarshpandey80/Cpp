@@ -691,42 +691,63 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     vector<int> countSmaller(vector<int>& nums) {
+//         int n = nums.size();
+//         vector<int> ans(n), idx(n);
+//         for(int i = 0; i < n; i++) idx[i] = i;
+
+//         mergeSort(nums, idx, ans, 0, n - 1);
+//         return ans;
+//     }
+
+//     void mergeSort(vector<int>& nums, vector<int>& idx, vector<int>& ans, int l, int r){
+//         if(l >= r) return;
+//         int mid = (l + r) / 2;
+//         mergeSort(nums, idx, ans, l, mid);
+//         mergeSort(nums, idx, ans, mid + 1, r);
+
+//         vector<int> temp;
+//         int i = l, j = mid + 1, rightCount = 0;
+
+//         while(i <= mid && j <= r){
+//             if(nums[idx[j]] < nums[idx[i]]){
+//                 rightCount++;
+//                 temp.push_back(idx[j++]);
+//             } else {
+//                 ans[idx[i]] += rightCount;
+//                 temp.push_back(idx[i++]);
+//             }
+//         }
+//         while(i <= mid){
+//             ans[idx[i]] += rightCount;
+//             temp.push_back(idx[i++]);
+//         }
+//         while(j <= r) temp.push_back(idx[j++]);
+
+//         for(int k = l; k <= r; k++)
+//             idx[k] = temp[k - l];
+//     }
+// };
+
+
 class Solution {
 public:
-    vector<int> countSmaller(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> ans(n), idx(n);
-        for(int i = 0; i < n; i++) idx[i] = i;
+    int longestMountain(vector<int>& arr) {
+        int n = arr.size(), ans = 0;
+        vector<int> up(n), down(n);
 
-        mergeSort(nums, idx, ans, 0, n - 1);
+        for(int i = 1; i < n; i++)
+            if(arr[i] > arr[i-1]) up[i] = up[i-1] + 1;
+
+        for(int i = n - 2; i >= 0; i--)
+            if(arr[i] > arr[i+1]) down[i] = down[i+1] + 1;
+
+        for(int i = 0; i < n; i++){
+            if(up[i] && down[i])
+                ans = max(ans, up[i] + down[i] + 1);
+        }
         return ans;
-    }
-
-    void mergeSort(vector<int>& nums, vector<int>& idx, vector<int>& ans, int l, int r){
-        if(l >= r) return;
-        int mid = (l + r) / 2;
-        mergeSort(nums, idx, ans, l, mid);
-        mergeSort(nums, idx, ans, mid + 1, r);
-
-        vector<int> temp;
-        int i = l, j = mid + 1, rightCount = 0;
-
-        while(i <= mid && j <= r){
-            if(nums[idx[j]] < nums[idx[i]]){
-                rightCount++;
-                temp.push_back(idx[j++]);
-            } else {
-                ans[idx[i]] += rightCount;
-                temp.push_back(idx[i++]);
-            }
-        }
-        while(i <= mid){
-            ans[idx[i]] += rightCount;
-            temp.push_back(idx[i++]);
-        }
-        while(j <= r) temp.push_back(idx[j++]);
-
-        for(int k = l; k <= r; k++)
-            idx[k] = temp[k - l];
     }
 };
