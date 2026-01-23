@@ -732,22 +732,43 @@
 // };
 
 
+// class Solution {
+// public:
+//     int longestMountain(vector<int>& arr) {
+//         int n = arr.size(), ans = 0;
+//         vector<int> up(n), down(n);
+
+//         for(int i = 1; i < n; i++)
+//             if(arr[i] > arr[i-1]) up[i] = up[i-1] + 1;
+
+//         for(int i = n - 2; i >= 0; i--)
+//             if(arr[i] > arr[i+1]) down[i] = down[i+1] + 1;
+
+//         for(int i = 0; i < n; i++){
+//             if(up[i] && down[i])
+//                 ans = max(ans, up[i] + down[i] + 1);
+//         }
+//         return ans;
+//     }
+// };
+
 class Solution {
 public:
-    int longestMountain(vector<int>& arr) {
-        int n = arr.size(), ans = 0;
-        vector<int> up(n), down(n);
-
-        for(int i = 1; i < n; i++)
-            if(arr[i] > arr[i-1]) up[i] = up[i-1] + 1;
-
-        for(int i = n - 2; i >= 0; i--)
-            if(arr[i] > arr[i+1]) down[i] = down[i+1] + 1;
+    int findUnsortedSubarray(vector<int>& nums) {
+        int n = nums.size();
+        int l = n, r = 0;
+        int mx = INT_MIN, mn = INT_MAX;
 
         for(int i = 0; i < n; i++){
-            if(up[i] && down[i])
-                ans = max(ans, up[i] + down[i] + 1);
+            mx = max(mx, nums[i]);
+            if(nums[i] < mx) r = i;
         }
-        return ans;
+
+        for(int i = n - 1; i >= 0; i--){
+            mn = min(mn, nums[i]);
+            if(nums[i] > mn) l = i;
+        }
+
+        return r > l ? r - l + 1 : 0;
     }
 };
