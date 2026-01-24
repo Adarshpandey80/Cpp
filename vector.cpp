@@ -752,23 +752,45 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     int findUnsortedSubarray(vector<int>& nums) {
+//         int n = nums.size();
+//         int l = n, r = 0;
+//         int mx = INT_MIN, mn = INT_MAX;
+
+//         for(int i = 0; i < n; i++){
+//             mx = max(mx, nums[i]);
+//             if(nums[i] < mx) r = i;
+//         }
+
+//         for(int i = n - 1; i >= 0; i--){
+//             mn = min(mn, nums[i]);
+//             if(nums[i] > mn) l = i;
+//         }
+
+//         return r > l ? r - l + 1 : 0;
+//     }
+// };
+
+
 class Solution {
 public:
-    int findUnsortedSubarray(vector<int>& nums) {
-        int n = nums.size();
-        int l = n, r = 0;
-        int mx = INT_MIN, mn = INT_MAX;
+    int findMinArrowShots(vector<vector<int>>& points) {
+        if(points.empty()) return 0;
+        sort(points.begin(), points.end(), [](auto &a, auto &b){
+            return a[1] < b[1];
+        });
 
-        for(int i = 0; i < n; i++){
-            mx = max(mx, nums[i]);
-            if(nums[i] < mx) r = i;
+        int arrows = 1;
+        long end = points[0][1];
+
+        for(auto &p : points){
+            if(p[0] > end){
+                arrows++;
+                end = p[1];
+            }
         }
-
-        for(int i = n - 1; i >= 0; i--){
-            mn = min(mn, nums[i]);
-            if(nums[i] > mn) l = i;
-        }
-
-        return r > l ? r - l + 1 : 0;
+        return arrows;
     }
 };
