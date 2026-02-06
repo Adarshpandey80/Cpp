@@ -84,18 +84,38 @@ int  fact(int n){
     if(n==0) return 1;
         return n * fact(n-1);
  }  
-   
+ 
+// reverse an array using recursion
+// method 1
+ void fun(int l,int r ,int arr[]){
+    if(l>=r) return;
+    swap(arr[l] , arr[r]);
+    fun(l+1 , r-1 , arr) ;
+ }
+// method 2
+ void fun2(int i , int n , int arr[]){
+    if(i>=n/2) return;
+    swap(arr[i] , arr[n-i-1]);
+    fun2(i+1 , n, arr);
+ }
 int main(){
     // print();
     // int n;
     // cout<<"enter the value of n"<<endl;
     // cin>>n;
     // print2(n,1);
-    int n;
-    cout<<"enter the value of n"<<endl;
-    cin>>n;
+    // int n;
+    // cout<<"enter the value of n"<<endl;
+    // cin>>n;
     // print3(n);
     // print4(n);
     // sum(n );
-   cout<< fact(n);
+//    cout<< fact(n);
+int arr[] = {1,2,3,4,5};
+int n = sizeof(arr)/sizeof(arr[0]);
+// fun(0 , n-1 , arr);
+fun2(0 , n , arr);
+for(int i =0 ; i<n ; i++){
+    cout<<arr[i]<<" ";
+} 
 }
