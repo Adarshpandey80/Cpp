@@ -98,7 +98,14 @@ int  fact(int n){
     swap(arr[i] , arr[n-i-1]);
     fun2(i+1 , n, arr);
  }
-int main(){
+
+ bool  pali(string s , int i ,int l){
+    if(i>=s.size()/2) return true;
+    if(s[i] != s[l-i-1])  return false ;
+    return pali(s,i+1 , l-1);
+}
+
+ int main(){
     // print();
     // int n;
     // cout<<"enter the value of n"<<endl;
@@ -111,11 +118,15 @@ int main(){
     // print4(n);
     // sum(n );
 //    cout<< fact(n);
-int arr[] = {1,2,3,4,5};
-int n = sizeof(arr)/sizeof(arr[0]);
+// int arr[] = {1,2,3,4,5};
+// int n = sizeof(arr)/sizeof(arr[0]);
 // fun(0 , n-1 , arr);
-fun2(0 , n , arr);
-for(int i =0 ; i<n ; i++){
-    cout<<arr[i]<<" ";
+// fun2(0 , n , arr);
+// for(int i =0 ; i<n ; i++){
+//     cout<<arr[i]<<" ";
+// }
+
+string s = "madam";
+int l = s.size();
+cout<<pali(s,0, l);
 } 
-}
