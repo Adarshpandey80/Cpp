@@ -104,6 +104,11 @@ int  fact(int n){
     if(s[i] != s[l-i-1])  return false ;
     return pali(s,i+1 , l-1);
 }
+ 
+int fibo(int n){
+    if(n<=1) return n;
+    return fibo(n-1) + fibo(n-2);
+}
 
  int main(){
     // print();
@@ -126,7 +131,9 @@ int  fact(int n){
 //     cout<<arr[i]<<" ";
 // }
 
-string s = "madam";
-int l = s.size();
-cout<<pali(s,0, l);
+// string s = "madam";
+// int l = s.size();
+// cout<<pali(s,0, l); 
+
+cout<<fibo(4);
 } 
