@@ -418,7 +418,7 @@ int main(){
     // }
     //  cout<<rowSum(arr,rows,cols);
     //  cout<<colSum(arr,rows,cols);
-     cout<<digSum(arr,3);
+    //  cout<<digSum(arr,3);
     }
    
     // subarray sum equal to k 
