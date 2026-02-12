@@ -109,8 +109,8 @@
 
 // find missing element
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 // int missing(int arr[], int n)
 // {
 //     int sum = (n +1)  * (n + 2) / 2;
@@ -132,18 +132,40 @@ using namespace std;
 
 #include <vector>
 
+// int main(){
+//     vector<int> arr = {1,1,0,1,1,1,0,1,1};
+//     int maxi = 0;
+//     int count =0;
+//     for(int i=0 ; i<arr.size();i++){
+//        if(arr[i] == 1){
+//         count ++;
+//         maxi = max(maxi , count );
+//        } else {
+//         count = 0;
+//        }
+//     } 
+//     cout<<maxi;
+// }
+
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
 int main(){
-    vector<int> arr = {1,1,0,1,1,1,0,1,1};
-    int maxi = 0;
-    int count =0;
-    for(int i=0 ; i<arr.size();i++){
-       if(arr[i] == 1){
-        count ++;
-        maxi = max(maxi , count );
-       } else {
-        count = 0;
-       }
-    } 
-    cout<<maxi;
+    int target = 12;
+    vector<int> arr = {1,2,5,2,3,5,8};
+    int left =0 ; int right = 6;
+    sort(arr.begin() , arr.end());
+   while(left<right){
+    int sum = arr[left]+arr[right];
+    if(sum==target) {
+       cout<<"yes";
+    } else if(sum<target) left++;
+    else right--;
+   }
+cout<<"no";
+
 }
+
 
