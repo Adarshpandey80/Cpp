@@ -95,9 +95,9 @@ int main(){
     for(char c : s){
         int freq = hash[c - 'a'];
 
-        if(freq % 2 == 0){  // even → +3
+        if(freq % 2 == 0){  
             ans += char((c - 'a' + 3) % 26 + 'a');
-        } else {            // odd → -3
+        } else {            
             ans += char((c - 'a' - 3 + 26) % 26 + 'a');
         }
     }
