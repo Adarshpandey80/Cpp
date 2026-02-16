@@ -49,32 +49,58 @@
 
 //using map if array size is so big and we do not know the range of number 
 
+// #include<iostream>
+// #include<map>
+// #include <vector>
+// using namespace std;
+// int main(){
+//     int n;
+//     cin>>n;
+//    vector<int> arr(n);
+//     for(int i=0;i<n;i++){
+//         cin>>arr[i];
+//     }
+
+//     // precomputing
+//     map<int , int> mpp;
+//     for(int i=0;i<n;i++){
+//         mpp[arr[i]]++;
+//     }
+//     //irerator to print the map
+//     for(auto it : mpp){
+//         cout<<it.first<<" "<<it.second<<endl;
+//     }
+//     int q; 
+//     cin>>q;
+//     while(q--){
+//         int num;
+//         cin>>num;
+//         cout<<mpp[num]<<endl;
+//     }
+// } 
+
 #include<iostream>
-#include<map>
-#include <vector>
 using namespace std;
+#include <vector>
+#include <algorithm>
 int main(){
-    int n;
-    cin>>n;
-   vector<int> arr(n);
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
+    string s;
+    cin>>s;
+   string ans = "";
+    int hash[26] = {0};
+    for(int i=0;i<s.size();i++){
+        hash[s[i]-'a']++; 
     }
 
-    // precomputing
-    map<int , int> mpp;
-    for(int i=0;i<n;i++){
-        mpp[arr[i]]++;
+    for(char c : s){
+        int freq = hash[c - 'a'];
+
+        if(freq % 2 == 0){  // even → +3
+            ans += char((c - 'a' + 3) % 26 + 'a');
+        } else {            // odd → -3
+            ans += char((c - 'a' - 3 + 26) % 26 + 'a');
+        }
     }
-    //irerator to print the map
-    for(auto it : mpp){
-        cout<<it.first<<" "<<it.second<<endl;
-    }
-    int q; 
-    cin>>q;
-    while(q--){
-        int num;
-        cin>>num;
-        cout<<mpp[num]<<endl;
-    }
-} 
+
+    cout << ans;
+}
