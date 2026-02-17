@@ -147,25 +147,47 @@
 //     cout<<maxi;
 // }
 
-#include <iostream>
-#include<vector>
-#include<algorithm>
-using namespace std;
+// #include <iostream>
+// #include<vector>
+// #include<algorithm>
+// using namespace std;
 
-int main(){
-    int target = 12;
-    vector<int> arr = {1,2,5,2,3,5,8};
-    int left =0 ; int right = 6;
-    sort(arr.begin() , arr.end());
-   while(left<right){
-    int sum = arr[left]+arr[right];
-    if(sum==target) {
-       cout<<"yes";
-    } else if(sum<target) left++;
-    else right--;
-   }
-cout<<"no";
+// int main(){
+//     int target = 12;
+//     vector<int> arr = {1,2,5,2,3,5,8};
+//     int left =0 ; int right = 6;
+//     sort(arr.begin() , arr.end());
+//    while(left<right){
+//     int sum = arr[left]+arr[right];
+//     if(sum==target) {
+//        cout<<"yes";
+//     } else if(sum<target) left++;
+//     else right--;
+//    }
+// cout<<"no";
 
-}
+// }
 
+// longest consecutive sequence
+// int longestSuccessiveElement(vector<int> &a){
+//    int n - a.size();
+//    if(n==0 ) return 0;
+//    int longest = 1;
+//    unorder_set<int> st;
+//    for(int i=0;i<n;i++){
+//       st.insert(arr[i]);
 
+//    }
+//    for(auto if : st){
+//       if(st.find(it - 1) == st.end()){
+//          int cnt = 1;
+//          int x = it;
+//          while(st.finf(x+1) != st.end()){
+//             x = x+1;
+//             cnt = cnt+1;
+//          }
+//          longest = max(longest , cnt);
+//       }
+//    }
+//    return longest;
+// }

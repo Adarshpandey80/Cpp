@@ -79,28 +79,28 @@
 //     }
 // } 
 
-#include<iostream>
-using namespace std;
-#include <vector>
-#include <algorithm>
-int main(){
-    string s;
-    cin>>s;
-   string ans = "";
-    int hash[26] = {0};
-    for(int i=0;i<s.size();i++){
-        hash[s[i]-'a']++; 
-    }
+// #include<iostream>
+// using namespace std;
+// #include <vector>
+// #include <algorithm>
+// int main(){
+//     string s;
+//     cin>>s;
+//    string ans = "";
+//     int hash[26] = {0};
+//     for(int i=0;i<s.size();i++){
+//         hash[s[i]-'a']++; 
+//     }
 
-    for(char c : s){
-        int freq = hash[c - 'a'];
+//     for(char c : s){
+//         int freq = hash[c - 'a'];
 
-        if(freq % 2 == 0){  
-            ans += char((c - 'a' + 3) % 26 + 'a');
-        } else {            
-            ans += char((c - 'a' - 3 + 26) % 26 + 'a');
-        }
-    }
+//         if(freq % 2 == 0){  
+//             ans += char((c - 'a' + 3) % 26 + 'a');
+//         } else {            
+//             ans += char((c - 'a' - 3 + 26) % 26 + 'a');
+//         }
+//     }
 
-    cout << ans;
-}
+//     cout << ans;
+// }
