@@ -191,3 +191,24 @@
 //    }
 //    return longest;
 // }
+
+// find subarray sum for element
+
+// #include<iostream>
+// #include<vector>
+// using namespace std;
+// int main(){
+//     vector<int> arr = {1,2,4,3,5,-2,-1,1,3,2};
+//     int k = 5;
+//     int n = arr.size();
+//     int st = 0; int end = n-1;
+//     int count = 0;
+//     while(st<=end){
+//         if(arr[st]+arr[end] == k){
+//             count ++ ;
+//         }
+//         st++;
+//         end--;
+//     }
+//     cout<<count;
+// }
