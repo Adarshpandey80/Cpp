@@ -1,1 +1,2 @@
-cout<<i<<" "<<j<<endl;
+ // int n;
+    // cin>>n;

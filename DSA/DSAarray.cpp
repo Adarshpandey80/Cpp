@@ -130,7 +130,7 @@
 //     cout<<missing(arr , n);
 // }
 
-#include <vector>
+// #include <vector>
 
 // int main(){
 //     vector<int> arr = {1,1,0,1,1,1,0,1,1};
@@ -215,45 +215,119 @@
 
 // find all sub array with given sum k
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
-int findsubarray(vector<int> &arr, int k)
-{
-    unordered_map<int, int> mpp;
-    mpp[0] = 1;
-    int preSum = 0;
-    int cnt = 0;
-    for (int i = 0; i < arr.size(); i++)
-    {
-        preSum += arr[i];
-        int remove = preSum - k;
-        cnt += mpp[remove];
-        mpp[preSum] += 1;
-    }
-    return cnt;
-}
-#include <iostream>
-#include <vector>
-using namespace std;
-int main()
-{
-    vector<int> arr = {1, 2, 3, -3, 1, 1, 1, 4, 2, -3};
-    int k = 3;
-    int count = 0;
-    for (int i = 0; i < arr.size(); i++)
-    {
-        for (int j = i+1 ; j < arr.size(); j++)
-        {
-            if (arr[i] + arr[j] == k)
-            {
-                count++;
-              cout << arr[i] << " , " << arr[j] << endl;
-            }
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+// using namespace std;
+// int findsubarray(vector<int> &arr, int k)
+// {
+//     unordered_map<int, int> mpp;
+//     mpp[0] = 1;
+//     int preSum = 0;
+//     int cnt = 0;
+//     for (int i = 0; i < arr.size(); i++)
+//     {
+//         preSum += arr[i];
+//         int remove = preSum - k;
+//         cnt += mpp[remove];
+//         mpp[preSum] += 1;
+//     }
+//     return cnt;
+// }
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+// int main()
+// {
+//     vector<int> arr = {1, 2, 3, -3, 1, 1, 1, 4, 2, -3};
+//     int k = 3;
+//     int count = 0;
+//     for (int i = 0; i < arr.size(); i++)
+//     {
+//         for (int j = i+1 ; j < arr.size(); j++)
+//         {
+//             if (arr[i] + arr[j] == k)
+//             {
+//                 count++;
+//               cout << arr[i] << " , " << arr[j] << endl;
+//             }
            
-        }
+//         }
         
+//     }
+//     cout << count;
+// }
+// ===================================pascal trangel============================
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> generateTrangle(int row){
+    long long ans = 1;
+    vector<int> ansRow;
+    ansRow.push_back(1);
+    for(int col = 1; col<row ; col++){
+        ans = ans*(row-col);
+        ans = ans/col;
+        ansRow.push_back(ans);
     }
-    cout << count;
+    return ansRow;
+}
+vector<vector<int>> pascalTriangle(int n){
+    vector<vector<int>> ans;
+    for(int i=1;i<=n;i++){
+        ans.push_back(generateTrangle(i));
+    }
+    return ans;
+}
+
+// print any Nth Row of the pascal traingal
+
+int printPascalRow(int n){
+    vector<int> ansRow;
+    int ans = 1;
+    cout<<ans<<" ";
+    for(int i=1;i<n;++i){
+        ans = ans*(n-i);
+        ans = ans/(i);
+        cout<<ans<<" ";
+    }
+    
+}
+
+// Give row and col tell the element of that place r = 5 , col = 3 
+
+int nCr(int n, int r){
+    long long ans = 1;
+    for(int i=0 ;i<r ;i++){
+         ans = ans*(n-i);
+          ans = ans/(i+1);
+    }
+    return ans;
+}
+
+int main(){
+    // int n;
+    // cin>>n;
+    //  vector<vector<int>> result = pascalTriangle(n);
+
+    // for(auto row : result){
+    //     for(auto val : row){
+    //         cout << val << " ";
+    //     }
+    //     cout << endl;
+    // }
+
+
+    // print specific row
+
+    // printPascalRow(n);
+
+    // Print row nd col element
+
+    cout<<nCr(5-1,3-1);
+
+
 }
