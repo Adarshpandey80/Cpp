@@ -355,38 +355,77 @@
 // }
 
 
+// #include<iostream>
+// #include<vector>
+// #include<algorithm>
+// using namespace std;
+// int main(){
+//     vector<int> arr = {-1,0,1,2,-1,-4};
+//     vector<vector<int>> ans;
+//     sort(arr.begin() , arr.end());
+//     int n = arr.size();
+//     for(int i=0;i<n;i++){
+//         if(i>0 && arr[i] == arr[i-1] ) continue;
+//         int j= i + 1;
+//         int k = n - 1;
+
+//      while(j<k){
+//         int sum = arr[i] + arr[j] + arr[k];
+//         if(sum<0){
+//           j++;
+//         } else if(sum>0){
+//          k--;
+//         } else {
+//           vector<int> temp = {arr[i], arr[j] , arr[k]};
+//           ans.push_back(temp);
+//           j++;
+//           k--;
+//           while(j < k && arr[j]==arr[j-1]) j++; 
+//           while(j < k && arr[k]==arr[k+1]) k--; 
+//         }
+//      }
+         
+//     }
+//    for(auto it : ans){
+//       cout<<it[0]<<" "<<it[1]<<" "<<it[2]<<endl;
+//    }
+// }
+
+// ==========================4 sum (equal to the target)============
+
 #include<iostream>
 #include<vector>
 #include<algorithm>
 using namespace std;
 int main(){
-    vector<int> arr = {-1,0,1,2,-1,-4};
+    vector<int> arr = {1,1,1,2,2,2,3,3,3,4,4,4,5,5};
     vector<vector<int>> ans;
     sort(arr.begin() , arr.end());
     int n = arr.size();
-    for(int i=0;i<n;i++){
-        if(i>0 && arr[i] == arr[i-1] ) continue;
-        int j= i + 1;
-        int k = n - 1;
+    for(int i = 0 ; i<n;i++){
+        if(i>0  && arr[i] == arr[i-1]) continue;
+        for(int j=i+1 ;j<n;j++){
+            if(j !=  (i+1) && arr[j]==arr[j-1]) continue;
+            int k = j+1;
+            int l = n-1;
+            while(k<l){
+                long long sum = arr[i];
+                sum += arr[j];
+                sum += arr[k];
+                sum += arr[l];
+                if(sum == 8){
+                   vector<int > temp = {arr[i] , arr[j] , arr[k] , arr[l]};
+                   ans.push_back(temp);
+                   k++; l--;
+                   while(k<l && arr[k] == arr[k-1]) k++;
+                   while(k<l && arr[l] == arr[l+1]) l--;
 
-     while(j<k){
-        int sum = arr[i] + arr[j] + arr[k];
-        if(sum<0){
-          j++;
-        } else if(sum>0){
-         k--;
-        } else {
-          vector<int> temp = {arr[i], arr[j] , arr[k]};
-          ans.push_back(temp);
-          j++;
-          k--;
-          while(j < k && arr[j]==arr[j-1]) j++; 
-          while(j < k && arr[k]==arr[k+1]) k--; 
+                } else if (sum<0) k++;
+                else l--;
+            }
         }
-     }
-         
     }
-   for(auto it : ans){
-      cout<<it[0]<<" "<<it[1]<<" "<<it[2]<<endl;
-   }
+    for(auto it : ans){
+        cout<<it[0]<<" " <<it[1]<<" "<<it[3]<<" "<<it[4]<<endl;;
+    }
 }
