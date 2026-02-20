@@ -260,55 +260,55 @@
 // }
 // ===================================pascal trangel============================
 
-#include <iostream>
-#include <vector>
-using namespace std;
+// #include <iostream>
+// #include <vector>
+// using namespace std;
 
-vector<int> generateTrangle(int row){
-    long long ans = 1;
-    vector<int> ansRow;
-    ansRow.push_back(1);
-    for(int col = 1; col<row ; col++){
-        ans = ans*(row-col);
-        ans = ans/col;
-        ansRow.push_back(ans);
-    }
-    return ansRow;
-}
-vector<vector<int>> pascalTriangle(int n){
-    vector<vector<int>> ans;
-    for(int i=1;i<=n;i++){
-        ans.push_back(generateTrangle(i));
-    }
-    return ans;
-}
+// vector<int> generateTrangle(int row){
+//     long long ans = 1;
+//     vector<int> ansRow;
+//     ansRow.push_back(1);
+//     for(int col = 1; col<row ; col++){
+//         ans = ans*(row-col);
+//         ans = ans/col;
+//         ansRow.push_back(ans);
+//     }
+//     return ansRow;
+// }
+// vector<vector<int>> pascalTriangle(int n){
+//     vector<vector<int>> ans;
+//     for(int i=1;i<=n;i++){
+//         ans.push_back(generateTrangle(i));
+//     }
+//     return ans;
+// }
 
 // print any Nth Row of the pascal traingal
 
-int printPascalRow(int n){
-    vector<int> ansRow;
-    int ans = 1;
-    cout<<ans<<" ";
-    for(int i=1;i<n;++i){
-        ans = ans*(n-i);
-        ans = ans/(i);
-        cout<<ans<<" ";
-    }
+// int printPascalRow(int n){
+//     vector<int> ansRow;
+//     int ans = 1;
+//     cout<<ans<<" ";
+//     for(int i=1;i<n;++i){
+//         ans = ans*(n-i);
+//         ans = ans/(i);
+//         cout<<ans<<" ";
+//     }
     
-}
+// }
 
 // Give row and col tell the element of that place r = 5 , col = 3 
 
-int nCr(int n, int r){
-    long long ans = 1;
-    for(int i=0 ;i<r ;i++){
-         ans = ans*(n-i);
-          ans = ans/(i+1);
-    }
-    return ans;
-}
+// int nCr(int n, int r){
+//     long long ans = 1;
+//     for(int i=0 ;i<r ;i++){
+//          ans = ans*(n-i);
+//           ans = ans/(i+1);
+//     }
+//     return ans;
+// }
 
-int main(){
+// int main(){
     // int n;
     // cin>>n;
     //  vector<vector<int>> result = pascalTriangle(n);
@@ -327,7 +327,29 @@ int main(){
 
     // Print row nd col element
 
-    cout<<nCr(5-1,3-1);
+    // cout<<nCr(5-1,3-1);
 
 
+// }
+
+// ====================# 3 sum ==========================
+
+#include<iostream>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+int main(){
+    vector<int> arr = {-1,0,1,2,-1,-4};
+ 
+    int n = arr.size();
+    for(int i=0;i<n; i++){
+        for(int j=i+1;j<n;j++){
+            for(int k= j+1 ; k<n;k++){
+              if(arr[i]+arr[j]+arr[k] == 0){
+                cout<<arr[i]<<" "<<arr[j]<<" "<<arr[k]<<endl;
+              }
+            }
+        }
+    }
 }
