@@ -252,9 +252,9 @@
 //                 count++;
 //               cout << arr[i] << " , " << arr[j] << endl;
 //             }
-           
+
 //         }
-        
+
 //     }
 //     cout << count;
 // }
@@ -294,10 +294,10 @@
 //         ans = ans/(i);
 //         cout<<ans<<" ";
 //     }
-    
+
 // }
 
-// Give row and col tell the element of that place r = 5 , col = 3 
+// Give row and col tell the element of that place r = 5 , col = 3
 
 // int nCr(int n, int r){
 //     long long ans = 1;
@@ -309,26 +309,24 @@
 // }
 
 // int main(){
-    // int n;
-    // cin>>n;
-    //  vector<vector<int>> result = pascalTriangle(n);
+// int n;
+// cin>>n;
+//  vector<vector<int>> result = pascalTriangle(n);
 
-    // for(auto row : result){
-    //     for(auto val : row){
-    //         cout << val << " ";
-    //     }
-    //     cout << endl;
-    // }
+// for(auto row : result){
+//     for(auto val : row){
+//         cout << val << " ";
+//     }
+//     cout << endl;
+// }
 
+// print specific row
 
-    // print specific row
+// printPascalRow(n);
 
-    // printPascalRow(n);
+// Print row nd col element
 
-    // Print row nd col element
-
-    // cout<<nCr(5-1,3-1);
-
+// cout<<nCr(5-1,3-1);
 
 // }
 
@@ -341,7 +339,7 @@
 // using namespace std;
 // int main(){
 //     vector<int> arr = {-1,0,1,2,-1,-4};
- 
+
 //     int n = arr.size();
 //     for(int i=0;i<n; i++){
 //         for(int j=i+1;j<n;j++){
@@ -353,7 +351,6 @@
 //         }
 //     }
 // }
-
 
 // #include<iostream>
 // #include<vector>
@@ -380,11 +377,11 @@
 //           ans.push_back(temp);
 //           j++;
 //           k--;
-//           while(j < k && arr[j]==arr[j-1]) j++; 
-//           while(j < k && arr[k]==arr[k+1]) k--; 
+//           while(j < k && arr[j]==arr[j-1]) j++;
+//           while(j < k && arr[k]==arr[k+1]) k--;
 //         }
 //      }
-         
+
 //     }
 //    for(auto it : ans){
 //       cout<<it[0]<<" "<<it[1]<<" "<<it[2]<<endl;
@@ -393,39 +390,63 @@
 
 // ==========================4 sum (equal to the target)============
 
-#include<iostream>
-#include<vector>
-#include<algorithm>
-using namespace std;
-int main(){
-    vector<int> arr = {1,1,1,2,2,2,3,3,3,4,4,4,5,5};
-    vector<vector<int>> ans;
-    sort(arr.begin() , arr.end());
-    int n = arr.size();
-    for(int i = 0 ; i<n;i++){
-        if(i>0  && arr[i] == arr[i-1]) continue;
-        for(int j=i+1 ;j<n;j++){
-            if(j !=  (i+1) && arr[j]==arr[j-1]) continue;
-            int k = j+1;
-            int l = n-1;
-            while(k<l){
-                long long sum = arr[i];
-                sum += arr[j];
-                sum += arr[k];
-                sum += arr[l];
-                if(sum == 8){
-                   vector<int > temp = {arr[i] , arr[j] , arr[k] , arr[l]};
-                   ans.push_back(temp);
-                   k++; l--;
-                   while(k<l && arr[k] == arr[k-1]) k++;
-                   while(k<l && arr[l] == arr[l+1]) l--;
+// #include<iostream>
+// #include<vector>
+// #include<algorithm>
+// using namespace std;
+// int main(){
+//     vector<int> arr = {1,1,1,2,2,2,3,3,3,4,4,4,5,5};
+// int target = 8;
+//     vector<vector<int>> ans;
+//     sort(arr.begin() , arr.end());
+//     int n = arr.size();
+//     for(int i = 0 ; i<n;i++){
+//         if(i>0  && arr[i] == arr[i-1]) continue;
+//         for(int j=i+1 ;j<n;j++){
+//             if(j !=  (i+1) && arr[j]==arr[j-1]) continue;
+//             int k = j+1;
+//             int l = n-1;
+//             while(k<l){
+//                 long long sum = arr[i];
+//                 sum += arr[j];
+//                 sum += arr[k];
+//                 sum += arr[l];
+//                 if(sum == target){
+//                    vector<int > temp = {arr[i] , arr[j] , arr[k] , arr[l]};
+//                    ans.push_back(temp);
+//                    k++; l--;
+//                    while(k<l && arr[k] == arr[k-1]) k++;
+//                    while(k<l && arr[l] == arr[l+1]) l--;
 
-                } else if (sum<0) k++;
-                else l--;
-            }
-        }
-    }
-    for(auto it : ans){
-        cout<<it[0]<<" " <<it[1]<<" "<<it[3]<<" "<<it[4]<<endl;;
-    }
-}
+//                 } else if (sum<target) k++;
+//                 else l--;
+//             }
+//         }
+//     }
+//     for(auto it : ans){
+//         cout<<it[0]<<" " <<it[1]<<" "<<it[2]<<" "<<it[3]<<endl;;
+//     }
+// }
+
+// ==================count subarray with xor as k=================
+
+// #include<iostream>
+// #include<vector>
+// #include<algorithm>
+// using namespace std;
+
+// int main(){
+//     vector<int> arr = {4,2,2,6,4};
+//     int k =6;
+//     int count = 0;
+//       for(int i=0;i<arr.size();i++){
+//         int xr = 0;
+//         for(int j= i; j < arr.size() ; j++){
+//             xr = xr^arr[j];
+//             if(xr == k){
+//                 count ++;
+//             }
+//         }
+//       }
+//       cout<<count;
+// }
