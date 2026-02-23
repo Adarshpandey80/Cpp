@@ -523,19 +523,45 @@
 // }
 
 
-#include<iostream>
-#include<vector>
-using namespace std;
-int main(){
-    vector<int> arr = {40,25,19,12,9,6,2};
-    int n = arr.size();
-    int count = 0;
-    for(int i= 0;i<n;i++){
-        for(int j=i+1 ; j<n;j++){
-            if(arr[i]>2*(arr[j])){
-                count++;
-            }
-        }
-    }
-    cout<<count;
-}
+// #include<iostream>
+// #include<vector>
+// using namespace std;
+// int main(){
+//     vector<int> arr = {40,25,19,12,9,6,2};
+//     int n = arr.size();
+//     int count = 0;
+//     for(int i= 0;i<n;i++){
+//         for(int j=i+1 ; j<n;j++){
+//             if(arr[i]>2*(arr[j])){
+//                 count++;
+//             }
+//         }
+//     }
+//     cout<<count;
+// }
+
+// #include<iostream>
+// #include<vector>
+// using namespace std;
+// int main(){
+//     vector<int> arr = {1,2,3,4};
+//     int n = arr.size();
+//     int left = 0;
+//     int right = n-1;
+//     while(left<n && right >=0){
+//          if(arr[left]<arr[right]){
+//             cout<<1<<" ";
+//            left++;
+//          }
+//          if(arr[right]>arr[left]){
+//             cout<<2<<" ";
+//            right--;
+//          } 
+//          else {
+//             cout<<0<<" ";
+//             left++;
+//             right--;
+//          }
+//     }
+// }
+
