@@ -47,6 +47,63 @@ int checkValueinLl(Node* head , int val){
     }
     return 0;
 }
+
+// delete head
+
+Node* deletehead(Node* head){
+    if(head==NULL) return head;
+    Node* temp = head;
+    head = head->next;
+    delete temp;
+    return head;
+}
+
+// delete last node
+
+Node* deletelastnode(Node* head){
+    if(head == NULL || head->next == NULL) return NULL;
+    Node* temp = head;
+    while(temp->next->next != NULL){
+        temp = temp->next;
+    }
+    delete temp->next;
+    temp->next = nullptr;
+    return head;
+}
+
+// delte node specific K place
+
+Node* deleteknode(Node* head ,  int k){
+    if(head==NULL) return head;
+    if(k==1){
+        Node* temp = head;
+        head =  head->next;
+        delete temp;
+        return head;
+    }
+    int cnt = 0;
+    Node* temp = head;
+    Node* prev = NULL;
+    while(temp != NULL){
+        cnt++;
+        if(cnt == k){
+            prev->next = prev->next->next;
+        }
+        prev = temp;
+        temp = temp->next;
+    }
+    return head;
+}
+
+// print list
+
+void printlist(Node* head){
+   
+    while(head != NULL){ 
+        cout<<head->data<<" ";
+        head = head->next;
+    }
+}
 int main(){
     vector<int> arr = {2,3,4,5};
     // Node* y = new Node(arr[0]);
@@ -61,5 +118,15 @@ int main(){
     // }
     
     // cout<<lengthofLl(head); // length find;
-    cout<<checkValueinLl(head , 4);
+
+    // cout<<checkValueinLl(head , 4);
+
+    // head = deletehead(head);  // delte head;
+    printlist(head);
+    // head = deletelastnode(head);
+    // printlist(head);
+
+    head = deleteknode(head , 3);
+    printlist(head);
+    
 }
