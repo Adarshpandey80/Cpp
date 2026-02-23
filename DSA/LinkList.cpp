@@ -172,6 +172,30 @@ Node* insertTealNode(Node* head , int newNodeValue){
 //. insert node  in kth position  
 
 
+Node* insertinKthposition(Node* head ,int k , int value){
+    if(head==NULL){
+        Node* temp = new Node(value);
+        return temp;
+    }
+    if(k==1){
+        return new Node(value , head);
+    }
+
+    int cnt = 0;
+    Node* temp = head;
+    while(temp!=NULL){
+        cnt++;
+        if(cnt == (k-1)){
+            Node* newNode = new Node(value);
+            newNode->next = temp->next;
+            temp->next = newNode;
+            break;
+        }
+        temp = temp->next;
+    }
+    return head;
+
+}
 
 // print list
 
@@ -210,13 +234,15 @@ int main(){
     // head = deleteEle(head , 4); // delete elemet node;
     // printlist(head);
 
-    // head = addValueKnode(head , 3 , 14); // addValue int kth place 
+    // head = addValueKnode(head , 3 , 14); // update Value int kth place 
     // printlist(head);
 
     // head = insertnewhead(head , 10);
     // printlist(head);
      
-    head = insertTealNode(head , 16);
-    printlist(head);
+    // head = insertTealNode(head , 16);
+    // printlist(head);
 
+    head = insertinKthposition(head , 3,100);
+    printlist(head);
 }
