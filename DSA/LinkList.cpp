@@ -95,6 +95,84 @@ Node* deleteknode(Node* head ,  int k){
     return head;
 }
 
+// delete element node
+
+
+Node* deleteEle(Node* head ,  int el){
+    if(head==NULL) return head;
+    if(head->data == el){
+        Node* temp = head;
+        head =  head->next;
+        delete temp;
+        return head;
+    }
+
+    Node* temp = head;
+    Node* prev = NULL;
+    while(temp != NULL){
+     
+        if(head->data == el){
+            prev->next = prev->next->next;
+            free(temp);
+            break;
+        }
+        prev = temp;
+        temp = temp->next;
+    }
+    return head;
+}
+
+// update element in kth place with new value
+
+Node* addValueKnode(Node* head ,  int k , int val){
+    if(head==NULL) return head;
+    if(k==1){
+        head->data = val;
+        return head;
+    }
+    int cnt = 0;
+    Node* temp = head;
+    // Node* prev = NULL;
+    while(temp != NULL){
+        cnt++;
+        if(cnt == k){
+            temp->data = val;
+        }
+        temp = temp->next;
+    }
+    return head;
+}
+
+// ==========================================Insetion==================
+
+// insert new head ;
+Node* insertnewhead(Node* head , int newNode){
+    Node* temp = new Node(newNode);
+    temp->next = head;
+    return temp;
+}
+
+// insert new teal node 
+
+Node* insertTealNode(Node* head , int newNodeValue){
+    if(head==NULL) {
+        Node* head = new Node(newNodeValue);
+        return head;
+    }
+    Node* temp = head;
+    while (temp->next != NULL)
+    {
+       temp = temp->next;
+    }
+    Node* newNode = new Node(newNodeValue);
+    temp->next = newNode;
+    return head;
+}
+
+//. insert node  in kth position  
+
+
+
 // print list
 
 void printlist(Node* head){
@@ -121,12 +199,24 @@ int main(){
 
     // cout<<checkValueinLl(head , 4);
 
-    // head = deletehead(head);  // delte head;
+    // head = deletehead(head);  // delete head;
     printlist(head);
-    // head = deletelastnode(head);
+    // head = deletelastnode(head); // delete last node 
     // printlist(head);
 
-    head = deleteknode(head , 3);
+    // head = deleteknode(head , 3); // delete kth node
+    // printlist(head);
+
+    // head = deleteEle(head , 4); // delete elemet node;
+    // printlist(head);
+
+    // head = addValueKnode(head , 3 , 14); // addValue int kth place 
+    // printlist(head);
+
+    // head = insertnewhead(head , 10);
+    // printlist(head);
+     
+    head = insertTealNode(head , 16);
     printlist(head);
-    
+
 }
