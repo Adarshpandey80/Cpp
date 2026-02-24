@@ -95,6 +95,70 @@ Node* deletekthelement(Node* head , int k){
     return head;
 }
 
+// ====================insert in DLL =============================
+
+Node* inserthead(Node* head , int val){
+
+//  Node* newhead = new Node(val);  // manual set 
+//  newhead->next = head;
+//   head->back = newhead; 
+//   return newhead;
+   
+    Node* newhead = new Node(val , head , nullptr); // constructor use 
+    head->back = newhead;
+    return newhead;
+}
+
+Node* insertail(Node* head , int val){
+    if(head == NULL) {
+        return inserthead(head , val);
+    }
+  
+    Node* temp = head;
+    while(temp->next != NULL){
+          temp = temp->next;
+    }
+    Node* newNode = new Node(val);
+    newNode->back = temp;
+    temp->next = newNode;
+    return head;
+}
+
+Node* insertbeforetail(Node* head , int val){
+     if(head == NULL) {
+        return inserthead(head , val);
+    }
+  
+    Node* temp = head;
+    while(temp->next != NULL){
+          temp = temp->next;
+    }
+   Node* prev = temp->back;
+   Node* newNode = new Node (val , temp , prev);
+   prev->next = newNode;
+   temp->back = newNode;
+    return head;
+}
+
+Node* insertkthelemet(Node* head , int k , int val){
+    if(k==1){
+        return inserthead(head , val);
+    }
+    int cnt = 0;
+    Node* temp = head;
+    while(temp!=NULL){
+        cnt++;
+        if(cnt==k) break;
+        temp = temp->next;
+    }
+    Node* prev = temp->back;
+    Node* newNode = new Node(val , temp , prev);
+    prev->next = newNode;
+    temp->back = newNode;
+    return head;
+
+}
+
 
 int main(){
     vector<int> arr = {2,3,4,5};
@@ -104,6 +168,14 @@ int main(){
 
     //  head = deletetail(head);
 
-     head = deletekthelement(head , 4);
+    //  head = deletekthelement(head , 4);
+
+    //  head = inserthead(head , 10);
+
+    //  head = insertail(head , 22);
+
+    //  head = insertbeforetail(head , 33);
+
+     head = insertkthelemet(head , 3 , 17);
     printDLL(head);
 }
