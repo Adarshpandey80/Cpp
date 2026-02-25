@@ -160,6 +160,54 @@ Node* insertkthelemet(Node* head , int k , int val){
 }
 
 
+// =====================================DSA Problems=================
+
+
+//reverse DLL;
+
+Node* reverseDLL(Node* head){
+    stack<int> st;
+    Node* temp = head;
+    while(temp!=NULL){
+        st.push(temp->data);
+        temp = temp->next;
+    }
+    temp = head;
+    while(temp!=NULL){
+        temp->data = st.top();
+        st.pop();
+        temp = temp->next;
+    }
+    return head;
+}
+
+////===================method 2 
+Node* reverseDLL2(Node* head){
+
+    if(head == NULL || head->next == NULL)
+        return head;
+
+    Node* temp = NULL;
+    Node* current = head;
+
+    while(current != NULL){
+        // Swap next and back
+        temp = current->back;
+        current->back = current->next;
+        current->next = temp;
+
+        // Move to next node (which is previous originally)
+        current = current->back;
+    }
+
+    // After loop, temp is pointing to node before NULL
+    if(temp != NULL)
+        head = temp->back;
+
+    return head;
+}
+
+
 int main(){
     vector<int> arr = {2,3,4,5};
     Node* head = convertArray2DLL(arr);
@@ -176,6 +224,9 @@ int main(){
 
     //  head = insertbeforetail(head , 33);
 
-     head = insertkthelemet(head , 3 , 17);
+    //  head = insertkthelemet(head , 3 , 17);
+
+    //  head = reverseDLL(head);
+     head = reverseDLL2(head);
     printDLL(head);
 }
