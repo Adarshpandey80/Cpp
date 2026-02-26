@@ -197,6 +197,55 @@ Node* insertinKthposition(Node* head ,int k , int value){
 
 }
 
+// add two LL 
+
+Node* addTwoLL(Node* num1 , Node* num2){
+    Node* dummyhead = new Node(-1);
+    Node* curr = dummyhead;
+    Node* t1 = num1;
+    Node* t2 = num2;
+    int carry = 0;
+    while(t1!=NULL || t2!=NULL){
+        int sum = carry;
+        if(t1) sum += t1->data;
+        if(t2) sum += t2->data;
+        Node* newnode = new Node(sum%10);
+        carry = sum/10;
+        curr->next = newnode;
+        curr = curr->next;
+        if(t1) t1 = t1->next;
+        if(t2) t2 = t2->next;
+
+    }
+
+    if(carry){
+        Node* newNode = new Node(carry);
+        curr = curr->next;
+    }
+    return dummyhead->next;
+}
+
+///.  odd & event Linked list
+
+Node* oddeven(Node* head){
+    if(head==NULL ||  head->next == NULL){
+        return head;
+    }
+    Node* odd = head;
+    Node* even = head->next;
+    Node* evenhead = head->next;
+    while(even!=NULL && even->next != NULL){
+        odd->next = odd->next->next;
+        even->next = even->next->next;
+       
+        odd = odd->next;
+        even = even->next;
+
+    }
+    odd->next = evenhead;
+    return head;
+}
+
 // print list
 
 void printlist(Node* head){
@@ -207,11 +256,12 @@ void printlist(Node* head){
     }
 }
 int main(){
-    vector<int> arr = {2,3,4,5};
+    vector<int> arr = {1,3,4,2,5,6};
     // Node* y = new Node(arr[0]);
     // cout<<y->data;
 
     Node* head = convertArr2LL(arr); // convert array into LL
+   
     // cout<<head->data;
     // Node* temp = head;
     // while(temp){
@@ -224,7 +274,7 @@ int main(){
     // cout<<checkValueinLl(head , 4);
 
     // head = deletehead(head);  // delete head;
-    printlist(head);
+    // printlist(head);
     // head = deletelastnode(head); // delete last node 
     // printlist(head);
 
@@ -243,6 +293,12 @@ int main(){
     // head = insertTealNode(head , 16);
     // printlist(head);
 
-    head = insertinKthposition(head , 3,100);
+    // head = insertinKthposition(head , 3,100);
+    // printlist(head);
+
+    // head =  addTwoLL(head , head); // add two LL
+    // printlist(head);
+
+    head = oddeven(head); // odd even 
     printlist(head);
 }
