@@ -246,6 +246,106 @@ Node* oddeven(Node* head){
     return head;
 }
 
+///.   arrange Linkedlist 0s , 1s and 2s ;
+
+Node* arrangezerosonestwos(Node* head){
+    if(head==NULL || head->next==NULL) return head;
+    Node* zerohead = new Node(-1);
+    Node* onehead = new Node(-1);
+    Node* twohead = new Node(-1);
+    Node* zero = zerohead;
+    Node* one = onehead;
+    Node* two = twohead;
+    Node* temp = head;
+    while(temp!=NULL){
+        if(temp->data == 0){
+            zero->next =temp;
+            zero = zero->next;
+        } else if(temp->data == 1){
+            one->next = temp;
+            one = one->next;
+        } else {
+            two->next = temp;
+            two = two->next;
+        }
+        temp = temp->next;
+    }
+    zero->next = (onehead->next)? (onehead->next): (twohead->next);
+    one->next = twohead->next;
+    two->next = NULL;
+    Node* newHead = zerohead->next;
+
+    delete(zerohead);
+    delete(onehead);
+    delete(twohead);
+    return newHead;
+}
+
+// delete kth node fron last node of the linkedlist
+
+Node* deletekthelemetfromlast(Node* head, int k){
+
+    if(head == NULL) 
+        return NULL;
+
+    int cnt = 0;
+    Node* temp = head;
+
+    // Count nodes
+    while(temp != NULL){
+        cnt++;
+        temp = temp->next;
+    }
+
+    // If deleting head
+    if(cnt == k){
+        Node* newhead = head->next;
+        delete head;
+        return newhead;
+    }
+
+    int pos = cnt - k;  // node before deletion
+
+    temp = head;
+
+    for(int i = 1; i < pos; i++){
+        temp = temp->next;
+    }
+
+    Node* deletenode = temp->next;
+    temp->next = deletenode->next;
+    delete deletenode;
+
+    return head;
+}
+
+//  Better Method (One-Pass )
+Node* deleteKthFromEnd(Node* head, int k){
+
+    Node* fast = head;
+    Node* slow = head;
+
+    for(int i = 0; i < k; i++){
+        fast = fast->next;
+    }
+
+    if(fast == NULL){
+        Node* newhead = head->next;
+        delete head;
+        return newhead;
+    }
+
+    while(fast->next != NULL){
+        fast = fast->next;
+        slow = slow->next;
+    }
+
+    Node* deletenode = slow->next;
+    slow->next = deletenode->next;
+    delete deletenode;
+
+    return head;
+}
 // print list
 
 void printlist(Node* head){
@@ -257,6 +357,7 @@ void printlist(Node* head){
 }
 int main(){
     vector<int> arr = {1,3,4,2,5,6};
+    // vector<int> arr = {1,2,0,2,0,1,0,2,1,0}; // only for arrangezerosonestwos function
     // Node* y = new Node(arr[0]);
     // cout<<y->data;
 
@@ -299,6 +400,9 @@ int main(){
     // head =  addTwoLL(head , head); // add two LL
     // printlist(head);
 
-    head = oddeven(head); // odd even 
+    // head = oddeven(head); // odd even 
+    // printlist(head);
+
+    head = arrangezerosonestwos(head);
     printlist(head);
 }
