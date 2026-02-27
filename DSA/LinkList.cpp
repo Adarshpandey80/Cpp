@@ -346,6 +346,42 @@ Node* deleteKthFromEnd(Node* head, int k){
 
     return head;
 }
+
+// reverse a linkedlist 
+
+Node* reverseLL(Node* head){
+    Node* temp  = head;
+    stack<int> st;
+
+    while(temp!=NULL){
+      st.push(temp->data);
+      temp = temp->next;
+    }
+   temp = head;
+    while(temp != NULL){
+         temp->data = st.top();
+         st.pop();
+         temp = temp->next;
+    }
+    return head;
+}
+
+// mthod second 
+
+Node* reverseLLM2(Node* head){
+    Node* temp = head;
+    Node* prev = NULL;
+    while(temp!= NULL){
+        Node* front = temp->next;  // store next
+        temp->next = prev;         // reverse link
+        prev = temp;               // move prev
+        temp = front; 
+   
+    }
+    return prev;
+}
+
+
 // print list
 
 void printlist(Node* head){
@@ -403,6 +439,10 @@ int main(){
     // head = oddeven(head); // odd even 
     // printlist(head);
 
-    head = arrangezerosonestwos(head);
+    // head = arrangezerosonestwos(head);
+     
+    // head = reverseLL(head); // reverse LL 
+    head = reverseLLM2(head); // reverse LL M2
+
     printlist(head);
 }
