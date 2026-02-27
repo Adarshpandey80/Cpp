@@ -381,6 +381,26 @@ Node* reverseLLM2(Node* head){
     return prev;
 }
 
+// check palindrom or not 
+
+bool palindrom(Node* head){
+    if(head==NULL || head->next == NULL) return true;
+    Node* temp = head;
+    stack<int> st;
+    while(temp!=NULL){
+        st.push(temp->data);
+        temp  = temp->next;
+    }
+    temp = head;
+    while(temp!=NULL){
+        if(temp->data != st.top()) {
+             return false ;
+        }
+         temp = temp->next;
+         st.pop();
+    }
+    return true;
+}
 
 // print list
 
@@ -392,8 +412,9 @@ void printlist(Node* head){
     }
 }
 int main(){
-    vector<int> arr = {1,3,4,2,5,6};
+    // vector<int> arr = {1,3,4,2,5,6};
     // vector<int> arr = {1,2,0,2,0,1,0,2,1,0}; // only for arrangezerosonestwos function
+    vector<int> arr = {1,2,3,2,3 };  // only for palindrom check
     // Node* y = new Node(arr[0]);
     // cout<<y->data;
 
@@ -442,7 +463,7 @@ int main(){
     // head = arrangezerosonestwos(head);
      
     // head = reverseLL(head); // reverse LL 
-    head = reverseLLM2(head); // reverse LL M2
-
-    printlist(head);
+    // head = reverseLLM2(head); // reverse LL M2
+    cout<<palindrom(head); // check palinrom
+    // printlist(head);
 }
