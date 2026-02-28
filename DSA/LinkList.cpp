@@ -426,7 +426,52 @@ Node* intersection(Node* head1 ,  Node* head2){
 
 // method 2
 
-Node* find
+Node* findintersection(Node* fristhead , Node* seconhead){
+    if(fristhead == NULL || seconhead == NULL) return NULL;
+    Node* temp1 = fristhead;
+    Node* temp2 = seconhead;
+    while(temp1 != temp2){
+        temp1 = temp1->next;
+        temp2 = temp2->next;
+        if(temp1 == temp2 ) return temp1;
+        if(temp1 == NULL ) temp1 = seconhead;
+        if(temp2 == NULL) temp2 = fristhead;
+    }
+    return temp1;
+}
+
+// find middle of the Ll;
+
+// method 1
+
+Node* findmiddle(Node* head){
+    if(head==NULL || head->next==NULL) return head;
+    Node* temp = head;
+    int cnt= 0;
+    while(temp!=NULL){
+      cnt++;
+      temp = temp->next;
+    }
+   int middle = (cnt/2) ;
+   temp =  head;
+   while(middle--){
+    temp = temp->next;
+   }
+   return temp;
+}
+
+// method2;
+
+Node* findmiddle2(Node* head){
+    Node* slow = head;
+    Node* fast = head;
+    while(fast!=NULL && fast->next != NULL){
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    return slow;
+}
+
 
 // print list
 
@@ -438,15 +483,15 @@ void printlist(Node* head){
     }
 }
 int main(){
-    vector<int> arr = {3,1,4,6,2};
-    vector<int> arr1 = { 1,2,4,5,4,6,2};
+    vector<int> arr = {3,1,4,6,2,5};
+    // vector<int> arr1 = { 1,2,4,5,4,6,2}; // used for find intersection ;
     // vector<int> arr = {1,2,0,2,0,1,0,2,1,0}; // only for arrangezerosonestwos function
     // vector<int> arr = {1,2,3,2,3 };  // only for palindrom check
     // Node* y = new Node(arr[0]);
     // cout<<y->data;
 
     Node* head = convertArr2LL(arr); // convert array into LL
-    Node* head1 = convertArr2LL(arr1); // convert array into LL
+    // Node* head1 = convertArr2LL(arr1); // convert array into LL
    
     // cout<<head->data;
     // Node* temp = head;
@@ -498,14 +543,19 @@ int main(){
     // head = intersection(head, head1);  // OLD - WRONG
     
     // Find intersection point
-    Node* intersectNode = intersection(head, head1);
+    // Node* intersectNode = intersection(head, head1);
     
-    if(intersectNode != NULL){
-        cout << "Intersection point data: " << intersectNode->data << endl;
-    } else {
-        cout << "No intersection found" << endl;
-    }
+    // if(intersectNode != NULL){
+    //     cout << "Intersection point data: " << intersectNode->data << endl;
+    // } else {
+    //     cout << "No intersection found" << endl;
+    // }
     
     // If you want to print from intersection point onwards:
-    printlist(intersectNode);
+    // printlist(intersectNode);
+
+    // head = findmiddle(head); // find middle method 1;
+    head = findmiddle2(head); //  find middle method 2
+    cout<<head->data;
+    // printlist(head);
 }
