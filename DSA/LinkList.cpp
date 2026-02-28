@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<map>
 using namespace std;
 
 class Node{
@@ -402,6 +403,31 @@ bool palindrom(Node* head){
     return true;
 }
 
+//. find the intersection point of y ll;
+
+// method1
+
+Node* intersection(Node* head1 ,  Node* head2){
+   map<Node* , int > mpp;
+   Node* temp = head1;
+   while(temp!=NULL){
+      mpp[temp] = 1;
+      temp = temp->next;
+   }
+   temp = head2;
+   while(temp!=NULL){
+    if(mpp.find(temp) != mpp.end()){
+        return temp;
+    }
+    temp = temp->next;
+   }
+   return NULL;
+}
+
+// method 2
+
+Node* find
+
 // print list
 
 void printlist(Node* head){
@@ -412,13 +438,15 @@ void printlist(Node* head){
     }
 }
 int main(){
-    // vector<int> arr = {1,3,4,2,5,6};
+    vector<int> arr = {3,1,4,6,2};
+    vector<int> arr1 = { 1,2,4,5,4,6,2};
     // vector<int> arr = {1,2,0,2,0,1,0,2,1,0}; // only for arrangezerosonestwos function
-    vector<int> arr = {1,2,3,2,3 };  // only for palindrom check
+    // vector<int> arr = {1,2,3,2,3 };  // only for palindrom check
     // Node* y = new Node(arr[0]);
     // cout<<y->data;
 
     Node* head = convertArr2LL(arr); // convert array into LL
+    Node* head1 = convertArr2LL(arr1); // convert array into LL
    
     // cout<<head->data;
     // Node* temp = head;
@@ -464,6 +492,20 @@ int main(){
      
     // head = reverseLL(head); // reverse LL 
     // head = reverseLLM2(head); // reverse LL M2
-    cout<<palindrom(head); // check palinrom
-    // printlist(head);
+    // cout<<palindrom(head); // check palinrom
+
+
+    // head = intersection(head, head1);  // OLD - WRONG
+    
+    // Find intersection point
+    Node* intersectNode = intersection(head, head1);
+    
+    if(intersectNode != NULL){
+        cout << "Intersection point data: " << intersectNode->data << endl;
+    } else {
+        cout << "No intersection found" << endl;
+    }
+    
+    // If you want to print from intersection point onwards:
+    printlist(intersectNode);
 }
