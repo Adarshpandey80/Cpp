@@ -472,6 +472,34 @@ Node* findmiddle2(Node* head){
     return slow;
 }
 
+// Delete a loop i the ll
+// method 1 hashing
+bool findloop(Node* head){
+    map<Node* , int> mpp;
+    Node*temp = head;
+    while(temp != NULL){
+        if(mpp.find(temp) != mpp.end()){
+            return true;
+        }
+        mpp[temp] = 1;
+        temp = temp->next;
+
+    }
+    return false;
+}
+
+// method 2 tontoise and hare
+
+bool findloop2(Node* head){
+    Node* slow = head;
+    Node* fast = head;
+    while(fast!=NULL && fast->next != NULL){
+        slow = slow->next;
+        fast = fast->next->next;
+        if(slow == fast) return true;
+    }
+    return false;
+}
 
 // print list
 
