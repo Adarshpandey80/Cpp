@@ -501,6 +501,70 @@ bool findloop2(Node* head){
     return false;
 }
 
+// length of the loop in ll
+// method 1;
+int  findlength(Node* head){
+    Node* temp = head;
+  int  timer = 1;
+    map<Node* , int> mpp;
+ while(temp!= NULL){
+    if(mpp.find(temp)!= mpp.end()){
+       int  value = mpp[temp];
+        return (timer-value);
+
+    }
+    mpp[temp] = timer;
+    timer++;
+    temp = temp->next;
+ }
+ return 0;
+
+}
+
+// method 2 tontoise and head;
+
+// int findlength(slow, fast){
+//     int cnt = 1;
+//     fast = fast->next;
+//     while(slow!=fast){
+//         cnt++;
+//         fast = fast->next;
+//     }
+//     return cnt;
+// }
+
+// int finflengthofloop(Node* head){
+//     Node* slow = head;
+//     Node*fast = head;
+//     while(fast!=NULL && fast->next!= NULL){
+//         slow = slow->next;
+//         fast = fast->next->next;
+//         if(slow == fast){
+//             return findlength(slow, fast);
+//         }
+//     }
+//     return 0;
+// }
+
+Node* deletemiddleNode(Node*head){
+    Node* next ;
+    Node* temp = head;
+    Node* slow = head;
+    Node* fast = head;
+    while(fast!= NULL && fast->next!=NULL){
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    Node* deletenode = slow;
+    next = slow->next;
+      while(temp!=NULL){
+        if(temp->next == slow) break;
+        temp = temp->next;
+      }
+      temp->next = next;
+      delete(deletenode);
+      return head;
+}
 // print list
 
 void printlist(Node* head){
@@ -511,7 +575,7 @@ void printlist(Node* head){
     }
 }
 int main(){
-    vector<int> arr = {3,1,4,6,2,5};
+    vector<int> arr = {3,1,4,6,2};
     // vector<int> arr1 = { 1,2,4,5,4,6,2}; // used for find intersection ;
     // vector<int> arr = {1,2,0,2,0,1,0,2,1,0}; // only for arrangezerosonestwos function
     // vector<int> arr = {1,2,3,2,3 };  // only for palindrom check
@@ -583,7 +647,9 @@ int main(){
     // printlist(intersectNode);
 
     // head = findmiddle(head); // find middle method 1;
-    head = findmiddle2(head); //  find middle method 2
-    cout<<head->data;
-    // printlist(head);
+    // head = findmiddle2(head); //  find middle method 2
+    // cout<<head->data;
+
+    head = deletemiddleNode(head);
+    printlist(head);
 }
