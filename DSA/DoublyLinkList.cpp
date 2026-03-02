@@ -208,13 +208,33 @@ Node* reverseDLL2(Node* head){
 }
 
 
+// Delete all occurance key
 
+Node* deleteoccurance(Node* head, int key){
+    Node* temp = head;
+    while(temp!=NULL){
+        if(temp->data == key){
+            if(temp == head){
+                head = temp->next;
+            }
+            Node* prevNode = temp->back;
+            Node* nextNode = temp->next;
+            if(nextNode!=NULL) nextNode->back = prevNode;
+            if(prevNode!= NULL) prevNode->next = nextNode;
+            delete(temp);
+            temp = nextNode;
+        } else {
+            temp= temp->next;
+        }
+    }
+    return head;
+}
 
 
   
 
 int main(){
-    vector<int> arr = {2,3,4,5};
+    vector<int> arr = {2,3,4,5,3,6,7,3};
     Node* head = convertArray2DLL(arr);
     // printDLL(head);
     // head = deletehead(head);
@@ -232,6 +252,10 @@ int main(){
     //  head = insertkthelemet(head , 3 , 17);
 
     //  head = reverseDLL(head);
-     head = reverseDLL2(head);
+
+   
+    //  head = reverseDLL2(head);
+   int key = 3;
+     head = deleteoccurance(head , key);
     printDLL(head);
 }
