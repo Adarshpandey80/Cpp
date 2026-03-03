@@ -720,6 +720,30 @@ Node* rotate(Node *head, int k)
     return head;
 }
 
+// merge two sorted linkedlist
+
+Node* merge(Node* head1, Node* head2){
+    Node* t1 = head1;
+    Node* t2 = head2;
+    Node* dummyNode = new Node(-1);
+    Node* temp = dummyNode;
+    while(t1 != NULL && t2!= NULL){
+        if(t1->data < t2->data){
+            temp->next = t1;
+            temp = t1;
+            t1 = t1->next;
+        } else {
+            temp->next = t2;
+            temp = t2;
+            t2 = t2->next;
+        }
+    }
+    if(t1) temp->next = t1;
+    else temp->next = t2;
+
+    return dummyNode->next;
+}
+
 // print list
 
 void printlist(Node *head)
@@ -737,6 +761,11 @@ int main()
     // vector<int> arr1 = { 1,2,4,5,4,6,2}; // used for find intersection ;
     // vector<int> arr = {1,2,0,2,0,1,0,2,1,0}; // only for arrangezerosonestwos function
     // vector<int> arr = {1,2,3,2,3 };  // only for palindrom check
+
+    //    vector<int> arr = {2,3,4,7}; // only for merge two sorted array , (both array)
+    //    vector<int> arr1 = {1,5,6,8};
+
+
     // Node* y = new Node(arr[0]);
     // cout<<y->data;
 
@@ -809,6 +838,8 @@ int main()
 
     // head = deletemiddleNode(head);
 
-    head= rotate(head , 2); // rotate a linkedlist
+    // head= rotate(head , 2); // rotate a linkedlist
+
+    // head = merge(head, head1);  // merge two sorder array
     printlist(head);
 }
