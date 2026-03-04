@@ -452,7 +452,7 @@
 // }
 
 
-// =====================merce 2 sorted array without extra space============
+// =====================merge 2 sorted array without extra space============
 
 // #include<iostream>
 // #include<vector>
@@ -489,7 +489,7 @@
 //    }
 // }
 
-// =====================merce 2 sorted array without extra space(optimal)============
+// =====================merge 2 sorted array without extra space(optimal)============
 
 // #include<iostream>
 // #include <algorithm>
@@ -565,3 +565,33 @@
 //     }
 // }
 
+
+// ============================== find the pair with given sum in sorted array==================
+
+// #include<iostream>
+// #include<vector>
+// using namespace std;
+// int main(){
+//     vector<int> arr = {1,2,3,4,5};
+//     int target = 5;
+//     int left = 0;    
+//     int right = arr.size() - 1;
+//     vector<int> ans;
+//     while(left<right){   
+//         int sum = arr[left] + arr[right];
+//         if(sum == target){
+//             ans.push_back(arr[left]);    
+//             ans.push_back(arr[right]);
+//             break;
+//         } else if(sum<target){
+//             left++;  
+//         } else {
+//             right--;         
+//         }
+//     }
+//     if(ans.size() == 0){
+//         cout<<"no pair found with sum "<<target<<endl;
+//     } else {
+//         cout<<"pair with sum "<<target<<" is "<<ans[0]<<" and "<<ans[1]<<endl;
+//     }        
+// }
