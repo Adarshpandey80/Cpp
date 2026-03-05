@@ -69,6 +69,74 @@ int peek()
     return r;
 }
 
+
+
+// implementing queue using stack
+
+// method 1
+
+class Q {
+    public:
+    stack<int> s1,s2;
+    void push(int x){
+        while(s1.size()){
+            s2.push(s1.top());
+            s1.pop();
+        }
+        s1.push(x);
+        while(s2.size()){
+            s1.push(s2.top());
+            s2.pop();
+        }
+    }
+    int  top(){
+       return s1.top();
+     }
+     void pop(){
+        s1.pop();
+     }
+};
+
+// method 2 (when lops of push operation done);
+
+class Q{
+public:
+    stack<int> s1, s2;
+
+    void push(int x){
+        s1.push(x);
+    }
+
+    void pop(){
+        if(!s2.empty()){
+            s2.pop();
+        }
+        else{
+            while(s1.size() > 1){
+                s2.push(s1.top());
+                s1.pop();
+            }
+            s1.pop();
+        }
+    }
+
+    int top(){
+        if(!s2.empty()){
+            return s2.top();
+        }
+        else{
+            while(s1.size() > 1){
+                s2.push(s1.top());
+                s1.pop();
+            }
+            int x = s1.top();
+            s2.push(x);
+            s1.pop();
+            return x;
+        }
+    }
+};
+
 int main()
 {
   enqu(10);
