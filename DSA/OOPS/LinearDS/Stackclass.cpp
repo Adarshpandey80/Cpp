@@ -1,6 +1,7 @@
 // stack implementation using array
 #include<iostream>
 using namespace std;
+
 int st[4];
 int top =-1;
 void push(int data){
@@ -36,6 +37,35 @@ int peek(){
 
 }
 
+// implimenting stack using queue
+
+#include<iostream>
+#include<queue>
+using namespace std;
+
+class st{
+    queue<int> q;
+
+public:
+
+    void push(int x){
+        int s = q.size();
+        q.push(x);
+
+        for(int i=0;i<s;i++){
+            q.push(q.front());
+            q.pop();
+        }
+    }
+
+    void pop(){
+        q.pop();
+    }
+
+    int top(){
+        return q.front();
+    }
+};
 
 int main(){
     push(10);
