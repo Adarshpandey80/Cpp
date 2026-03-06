@@ -89,7 +89,47 @@ bool isBalanced(string s){
     return st.empty();
 }
 
-int main(){
+
+// prefix to postfix conversion using stack
+string prefix2postfix(string s){
+    stack<string> st;
+    for(int i=s.length()-1;i>=0;i--){
+        char ch = s[i];
+        if(ch=='+'||ch=='-'||ch=='*'||ch=='/'){
+            string op1 = st.top();
+            st.pop();
+            string op2 = st.top();
+            st.pop();
+            string temp = op1+op2+ch;
+            st.push(temp);
+        }else {
+            st.push(string(1,ch));
+        }
+    }
+    return st.top();
+}   
+
+// postfix to prefix conversion using stack
+string postfix2prefix(string s){
+    stack<string> st;
+    for(int i=0;i<s.length();i++){
+        char ch = s[i];         
+        if(ch=='+'||ch=='-'||ch=='*'||ch=='/'){
+            string op2 = st.top();
+            st.pop();
+            string op1 = st.top();
+            st.pop();
+            string temp = ch+op1+op2;
+            st.push(temp);
+        }else {
+            st.push(string(1,ch));
+        }
+    }
+    return st.top();
+}
+
+
+int main(){ 
     push(10);
     push(20);
     push(30);
