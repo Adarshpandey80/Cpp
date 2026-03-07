@@ -148,37 +148,64 @@ string postfix2prefix(string s){
 
 // method 2 using list
 
-list<int> findnge(int arr[], int n) {
-    list<int> nge(n);
+#include <iostream>
+#include <vector>
+#include <stack>
+using namespace std;
+
+vector<int> findnge(int arr[], int n) {
+
+    vector<int> nge(n);
     stack<int> st;
-    for (int i = 0; i < n; i++) {
-        while (!st.empty() && arr[st.top()] < arr[i]) {
+
+    for(int i = n-1; i >= 0; i--) {
+
+        while(!st.empty() && st.top() <= arr[i]) {
             st.pop();
         }
-        if(st.empty()){
+
+        if(st.empty()) {
             nge[i] = -1;
-        } else {
-            nge[i] = arr[st.top()];
         }
-        st.push(arr[i]); 
+        else {
+            nge[i] = st.top();
+        }
+
+        st.push(arr[i]);
     }
+
     return nge;
 }
 
 // Nearest smaller element using stack
-list<int> findnsg(int arr[] , int n)
+#include <iostream>
+#include <vector>
+#include <stack>
+using namespace std;
+
+vector<int> findnsg(int arr[], int n)
 {
-    list<int> nse[n] ; 
+    vector<int> nse(n);
     stack<int> st;
-    for(int i=0;i<n;i++){
-        while(!st.empty()&& st.top()>=arr[i]){
+
+    for(int i = 0; i < n; i++)
+    {
+        while(!st.empty() && st.top() >= arr[i])
+        {
             st.pop();
         }
-        nse[i] = st.empty() ? -1 : st.top();
+
+        if(st.empty())
+            nse[i] = -1;
+        else
+            nse[i] = st.top();
+
         st.push(arr[i]);
     }
+
     return nse;
 }
+
 int main(){ 
     push(10);
     push(20);
