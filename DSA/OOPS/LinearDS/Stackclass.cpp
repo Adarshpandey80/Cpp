@@ -1,5 +1,8 @@
 // stack implementation using array
 #include<iostream>
+#include<stack>
+#include<list>
+
 using namespace std;
 
 int st[4];
@@ -128,6 +131,20 @@ string postfix2prefix(string s){
     return st.top();
 }
 
+//Next greater element using stack(Monotonic stack)
+
+ vector<int> findnge(int arr[], int n) {
+    vector<int> nge(n, -1);
+    stack<int> st;
+    for (int i = 0; i < n; i++) {
+        while (!st.empty() && arr[st.top()] < arr[i]) {
+            nge[st.top()] = arr[i];
+            st.pop();
+        }
+        st.push(i); 
+    }
+    return nge;
+}
 
 int main(){ 
     push(10);
