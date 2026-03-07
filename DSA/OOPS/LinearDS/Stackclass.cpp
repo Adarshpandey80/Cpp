@@ -133,19 +133,52 @@ string postfix2prefix(string s){
 
 //Next greater element using stack(Monotonic stack)
 
- vector<int> findnge(int arr[], int n) {
-    vector<int> nge(n, -1);
+//  vector<int> findnge(int arr[], int n) {
+//     vector<int> nge(n, -1);
+//     stack<int> st;
+//     for (int i = 0; i < n; i++) {
+//         while (!st.empty() && arr[st.top()] < arr[i]) {
+//             nge[st.top()] = arr[i];
+//             st.pop();
+//         }
+//         st.push(i); 
+//     }
+//     return nge;
+// }
+
+// method 2 using list
+
+list<int> findnge(int arr[], int n) {
+    list<int> nge(n);
     stack<int> st;
     for (int i = 0; i < n; i++) {
         while (!st.empty() && arr[st.top()] < arr[i]) {
-            nge[st.top()] = arr[i];
             st.pop();
         }
-        st.push(i); 
+        if(st.empty()){
+            nge[i] = -1;
+        } else {
+            nge[i] = arr[st.top()];
+        }
+        st.push(arr[i]); 
     }
     return nge;
 }
 
+// Nearest smaller element using stack
+list<int> findnsg(int arr[] , int n)
+{
+    list<int> nse[n] ; 
+    stack<int> st;
+    for(int i=0;i<n;i++){
+        while(!st.empty()&& st.top()>=arr[i]){
+            st.pop();
+        }
+        nse[i] = st.empty() ? -1 : st.top();
+        st.push(arr[i]);
+    }
+    return nse;
+}
 int main(){ 
     push(10);
     push(20);
