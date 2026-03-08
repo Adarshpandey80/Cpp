@@ -234,15 +234,35 @@ int findtotal(int arr[] , int n){
     return total;
 }
 
-int main(){ 
-    // push(10);
-    // push(20);
-    // push(30);
-    // push(40);
-    // push(50);
-    // cout<<"\n poped element is :"<<pop();
-    // cout<<"\n peek element is :"<<peek();
-    int arr[] = {0,1,0,2,1,0,1,3,2,1,2,1};
+// sum of subarray minimums
+
+int main(){
+    int arr[] = {3,1,2,4};
     int n = sizeof(arr)/sizeof(arr[0]);
-    cout<<"\n Total water trapped is :"<<findtotal(arr,n);
+    int sum = 0;
+    int  mod = 1e9 + 7;
+    for(int i = 0; i < n; i++){
+        int mini = arr[i];
+        for(int j = i; j < n; j++){
+            mini = min(mini, arr[j]);
+            sum = (sum + mini) % mod;
+        }
+    }
+   
+
+ cout<<"\n Total sum is :"<<sum<<endl;
 }
+
+
+// int main(){ 
+//     // push(10);
+//     // push(20);
+//     // push(30);
+//     // push(40);
+//     // push(50);
+//     // cout<<"\n poped element is :"<<pop();
+//     // cout<<"\n peek element is :"<<peek();
+//     int arr[] = {0,1,0,2,1,0,1,3,2,1,2,1};
+//     int n = sizeof(arr)/sizeof(arr[0]);
+//     cout<<"\n Total water trapped is :"<<findtotal(arr,n);
+// }
