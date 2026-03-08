@@ -206,12 +206,43 @@ vector<int> findnsg(int arr[], int n)
     return nse;
 }
 
+// Trapping rain water 
+
+int findtotal(int arr[] , int n){
+    int lMax = 0;
+    int rMax = 0;
+    int total = 0;
+    int L = 0;
+    int r = n - 1;
+    while(L < r){
+        if(arr[L] <= arr[r]){
+            if(arr[L] >= lMax){
+                lMax = arr[L];
+            }else {
+                total += lMax - arr[L];
+            }
+            L++;
+        } else {
+            if(arr[r] >= rMax){
+                rMax = arr[r];
+            }else {
+                total += rMax - arr[r];
+            }
+            r--;
+        }
+    }
+    return total;
+}
+
 int main(){ 
-    push(10);
-    push(20);
-    push(30);
-    push(40);
-    push(50);
-    cout<<"\n poped element is :"<<pop();
-    cout<<"\n peek element is :"<<peek();
+    // push(10);
+    // push(20);
+    // push(30);
+    // push(40);
+    // push(50);
+    // cout<<"\n poped element is :"<<pop();
+    // cout<<"\n peek element is :"<<peek();
+    int arr[] = {0,1,0,2,1,0,1,3,2,1,2,1};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    cout<<"\n Total water trapped is :"<<findtotal(arr,n);
 }
