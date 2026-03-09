@@ -236,33 +236,60 @@ int findtotal(int arr[] , int n){
 
 // sum of subarray minimums
 
-int main(){
-    int arr[] = {3,1,2,4};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    int sum = 0;
-    int  mod = 1e9 + 7;
-    for(int i = 0; i < n; i++){
-        int mini = arr[i];
-        for(int j = i; j < n; j++){
-            mini = min(mini, arr[j]);
-            sum = (sum + mini) % mod;
+// int main(){
+//     int arr[] = {3,1,2,4};
+//     int n = sizeof(arr)/sizeof(arr[0]);
+//     int sum = 0;
+//     int  mod = 1e9 + 7;
+//     for(int i = 0; i < n; i++){
+//         int mini = arr[i];
+//         for(int j = i; j < n; j++){
+//             mini = min(mini, arr[j]);
+//             sum = (sum + mini) % mod;
+//         }
+//     }
+   
+//  cout<<"\n Total sum is :"<<sum<<endl;
+// }
+
+// Astroid collision
+
+vector<int>  collision(int arr[] , int n){
+    list<int> lst;
+    for(int i=0;i<n;i++){
+        if(arr[i]>0){
+            lst.push_back(arr[i]);
+        } else {
+            while(!lst.empty() && lst.back()>0 && lst.back() < -arr[i]){
+                lst.pop_back();
+            }
+            if(!lst.empty() && lst.back() == -arr[i]){
+                lst.pop_back();
+            } else if(lst.empty() || lst.back() < 0){
+                lst.push_back(arr[i]);  
         }
     }
-   
-
- cout<<"\n Total sum is :"<<sum<<endl;
+    }
+    return vector<int>(lst.begin(), lst.end());
 }
 
+int main(){ 
+    // push(10);
+    // push(20);
+    // push(30);
+    // push(40);
+    // push(50);
+    // cout<<"\n poped element is :"<<pop();
+    // cout<<"\n peek element is :"<<peek();
+    // int arr[] = {0,1,0,2,1,0,1,3,2,1,2,1};
+    // int n = sizeof(arr)/sizeof(arr[0]);
+    // cout<<"\n Total water trapped is :"<<findtotal(arr,n);
 
-// int main(){ 
-//     // push(10);
-//     // push(20);
-//     // push(30);
-//     // push(40);
-//     // push(50);
-//     // cout<<"\n poped element is :"<<pop();
-//     // cout<<"\n peek element is :"<<peek();
-//     int arr[] = {0,1,0,2,1,0,1,3,2,1,2,1};
-//     int n = sizeof(arr)/sizeof(arr[0]);
-//     cout<<"\n Total water trapped is :"<<findtotal(arr,n);
-// }
+    int arr[] = {4,7,1,1,2,-3,-7,17,-1,2,3,-4};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    vector<int> result = collision(arr,n);
+    cout<<"\n Total astroid left is :";
+    for(int i : result){
+        cout<<i<<" ";
+    }
+}
