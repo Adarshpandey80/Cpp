@@ -110,6 +110,12 @@ int fibo(int n){
     return fibo(n-1) + fibo(n-2);
 }
 
+int reverse(int n , int ans){
+    if(n==0) return ans;
+    int rem = n%10;
+    ans = ans*10 + rem;
+    return reverse(n/10 , ans);
+}
  int main(){
     // print();
     // int n;
