@@ -273,6 +273,8 @@ vector<int>  collision(int arr[] , int n){
     return vector<int>(lst.begin(), lst.end());
 }
 
+
+
 int main(){ 
     // push(10);
     // push(20);
