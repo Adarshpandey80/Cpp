@@ -300,13 +300,13 @@ int upperbound ( vector<int> arr , int n,  int tar){
 
 // Using STL
 
-int main(){
-    vector<int> arr = {1,2,3,4,6,7,8,9};
-    int tar = 5;
-    // cout<<"Upper bound of "<<tar<<" is at index : " <<upperbound(arr , arr.size() , tar) << endl;
-    cout<<"Upper bound using STL for "<<tar<<" is at index : " <<upper_bound(arr.begin() , arr.end() , tar) - arr.begin() << endl;
-    return 0;
-}
+// int main(){
+//     vector<int> arr = {1,2,3,4,5,6,7,8,9};
+//     int tar = 5;
+//     // cout<<"Upper bound of "<<tar<<" is at index : " <<upperbound(arr , arr.size() , tar) << endl;
+//     cout<<"Upper bound using STL for "<<tar<<" is at index : " <<upper_bound(arr.begin() , arr.end() , tar) - arr.begin() << endl;
+//     return 0;
+// }
 
 
 // int main(){
@@ -316,3 +316,46 @@ int main(){
 //     cout<<"Upper bound of "<<tar<<" is at index : " <<upperbound(arr , arr.size() , tar) << endl;
 //     return 0;
 // }
+
+
+                            //  Floor and Ceil 
+
+int floor(vector<int> arr, int n , int tar){
+    int ans = -1;
+    int low = 0;
+    int high = n-1;
+    while(low<=high){
+        int mid = (low+high)/2;
+        if(arr[mid]<=tar){
+            ans = arr[mid];
+            low = mid+1;
+        } else {
+            high = mid-1;
+        }
+    }
+    return ans;
+}                            
+
+int ceil(vector<int> arr , int n,int tar){
+    int ans = -1;
+    int low = 0;
+    int high = n-1;
+    while(low<=high){
+        int mid = (low+high)/2;
+        if(arr[mid]>= tar){
+            ans = arr[mid];
+            high = mid-1;
+        } else {
+            low = mid+1;
+        }
+    }
+    return ans;
+}
+
+int main(){
+    vector<int> arr = {1,2,3,4,6,7,8,9};
+    int tar = 5;
+    cout<<"Floor of "<<tar<<" is : " <<floor(arr , arr.size() , tar) << endl;
+    cout<<"Ceil of "<<tar<<" is : " <<ceil(arr , arr.size() , tar) << endl;
+    return 0;
+}
