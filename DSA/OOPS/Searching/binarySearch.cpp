@@ -220,27 +220,99 @@
 // Given two arrays, find the minimum scalar product of the two arrays.
 // The scalar product is defined as the sum of the products of corresponding elements in the two arrays
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+// using namespace std;
+
+// int minimumScalarProduct(vector<int> arr1, vector<int> arr2) {
+//     sort(arr1.begin(), arr1.end());
+//     sort(arr2.begin(), arr2.end(), greater<int>());
+
+//     int n = arr1.size();
+//     int product = 0;
+
+//     for (int i = 0; i < n; i++) {
+//         product += arr1[i] * arr2[i];
+//     }
+//     return product;
+// }
+
+// int main() {
+//     vector<int> arr1 = {1, 3, -5};
+//     vector<int> arr2 = {-2, 4, 1};
+//     cout << "Minimum product is " << minimumScalarProduct(arr1, arr2);
+//     return 0;
+// }
+
+
+//. Lower Bound and upper bound;
+
+
+ #include <iostream>
+#include<vector>
+#include<algorithm>
 using namespace std;
 
-int minimumScalarProduct(vector<int> arr1, vector<int> arr2) {
-    sort(arr1.begin(), arr1.end());
-    sort(arr2.begin(), arr2.end(), greater<int>());
+int lowerbound ( vector<int> arr , int n,  int tar){
+        int ans = n;
+      int low =0;
+      int high = n-1;
+      while(low<=high){
+        int mid = (low+high)/2;
+        if(arr[mid]>=tar){
+            ans = mid;
+            high = mid-1;
+        } else {
+            low = mid+1;
+        }
+       
+      }
+       return ans;
+}
+// Using STL
+// int main(){
+//     vector<int> arr = {1,2,3,4,6,7,8,9};
+//     int tar = 5;
+//     // cout<<"Lower bound of "<<tar<<" is at index : " <<lowerbound(arr , arr.size() , tar) << endl;
+//     cout<<"Lower bound using STL for "<<tar<<" is at index : " <<lower_bound(arr.begin() , arr.end() , tar) - arr.begin() << endl;
+//     return 0;
+// }
 
-    int n = arr1.size();
-    int product = 0;
+// upper bound
 
-    for (int i = 0; i < n; i++) {
-        product += arr1[i] * arr2[i];
-    }
-    return product;
+int upperbound ( vector<int> arr , int n,  int tar){
+        int ans = n;
+      int low =0;
+      int high = n-1;
+      while(low<=high){
+        int mid = (low+high)/2;
+        if(arr[mid]>tar){
+            ans = mid;
+            high = mid-1;
+        } else {
+            low = mid+1;
+        }
+       
+      }
+       return ans;
 }
 
-int main() {
-    vector<int> arr1 = {1, 3, -5};
-    vector<int> arr2 = {-2, 4, 1};
-    cout << "Minimum product is " << minimumScalarProduct(arr1, arr2);
+// Using STL
+
+int main(){
+    vector<int> arr = {1,2,3,4,6,7,8,9};
+    int tar = 5;
+    // cout<<"Upper bound of "<<tar<<" is at index : " <<upperbound(arr , arr.size() , tar) << endl;
+    cout<<"Upper bound using STL for "<<tar<<" is at index : " <<upper_bound(arr.begin() , arr.end() , tar) - arr.begin() << endl;
     return 0;
 }
+
+
+// int main(){
+//     vector<int> arr = {1,2,3,4,6,7,8,9};
+//     int tar = 5;
+//     cout<<"Lower bound of "<<tar<<" is at index : " <<lowerbound(arr , arr.size() , tar) << endl;
+//     cout<<"Upper bound of "<<tar<<" is at index : " <<upperbound(arr , arr.size() , tar) << endl;
+//     return 0;
+// }
