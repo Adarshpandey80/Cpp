@@ -352,10 +352,54 @@ int ceil(vector<int> arr , int n,int tar){
     return ans;
 }
 
+
+// Frist and last occurrance 
+
+int fristoccurrence(vector<int> & arr , int n ,int k){
+    int frist = -1;
+    int low = 0; int high = n-1;
+    while(low<=high){
+        int mid = (low+high)/2;
+        if(arr[mid]==k) {
+            frist = mid;
+            high = mid-1;
+        } else if(arr[mid]<k) return low = mid+1;
+        else high = mid-1;
+    }
+    return frist;
+}
+
+int lastoccurance(vector<int> &arr, int n , int k){
+    int last = -1;
+    int low = 0;int high = n-1;
+    while(low<=high){
+        int mid = (low+high)/2;
+        if(arr[mid] == k){
+            last = mid;
+            low = mid+1;
+        } else if (arr[mid]<k) return low = mid+1;
+        else high = mid-1;
+    }
+    return last;
+}
+
+pair<int, int > fristandlast(vector<int> &arr, int n,int k){
+    int frist = fristoccurrence(arr,n,k);
+    if(frist==-1) return {-1,-1};
+    int last = lastoccurance(arr,n ,  k);
+  return {frist , last};
+}
+
 int main(){
-    vector<int> arr = {1,2,3,4,6,7,8,9};
-    int tar = 5;
-    cout<<"Floor of "<<tar<<" is : " <<floor(arr , arr.size() , tar) << endl;
-    cout<<"Ceil of "<<tar<<" is : " <<ceil(arr , arr.size() , tar) << endl;
-    return 0;
+    // vector<int> arr = {1,2,3,4,6,7,8,9};
+    // int tar = 5;
+    // cout<<"Floor of "<<tar<<" is : " <<floor(arr , arr.size() , tar) << endl;
+    // cout<<"Ceil of "<<tar<<" is : " <<ceil(arr , arr.size() , tar) << endl;
+    // return 0;
+   vector<int> arr = {2,4,6,8,8,8,11,13};
+   int n = arr.size();
+   int k =8;
+  pair<int ,int> result = fristandlast(arr,n,k);
+   cout<<"First and last occurrence of "<<k<<" are at indices : "<<result.first<<" and "<<result.second<<endl;
+
 }
