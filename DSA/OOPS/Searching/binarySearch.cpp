@@ -390,16 +390,78 @@ pair<int, int > fristandlast(vector<int> &arr, int n,int k){
   return {frist , last};
 }
 
+
+// Search in Roated Array (Unique element)
+
+int searchRoated(vector<int> & arr, int n , int k){
+    int low = 0;
+    int high = n-1;
+    while(low<=high){
+        int mid = (low+high)/2;
+        if(arr[mid]==k) return mid;
+        if(arr[low]<=arr[mid]){   // left array be sorted 
+        if(arr[low]<=k && k<= arr[mid]){
+          high = mid-1;
+        } else {
+            low = mid+1;
+        }
+        } else { // right arrray be sorted
+           if(arr[mid]<=k && k<=arr[high]){
+              low = mid+1;
+           } else {
+          high = mid-1;
+           }
+        }
+    }
+    return -1;
+}
+
+// Search in Roated Sorted Array (Duplicate element)
+bool searchRoated2(vector<int> & arr, int n , int k){
+    int low = 0;
+    int high = n-1;
+    while(low<=high){
+        int mid = (low+high)/2;
+        if(arr[mid]==k) return true;
+        if(arr[low] == arr[mid] && arr[mid] == arr[high]){
+            low++ ; high--;
+            continue;
+        }
+        if(arr[low]<=arr[mid]){   // left array be sorted 
+        if(arr[low]<=k && k<= arr[mid]){
+          high = mid-1;
+        } else {
+            low = mid+1;
+        }
+        } else { // right arrray be sorted
+           if(arr[mid]<=k && k<=arr[high]){
+              low = mid+1;
+           } else {
+          high = mid-1;
+           }
+        }
+    }
+    return false ;
+}
+
 int main(){
     // vector<int> arr = {1,2,3,4,6,7,8,9};
     // int tar = 5;
     // cout<<"Floor of "<<tar<<" is : " <<floor(arr , arr.size() , tar) << endl;
     // cout<<"Ceil of "<<tar<<" is : " <<ceil(arr , arr.size() , tar) << endl;
     // return 0;
-   vector<int> arr = {2,4,6,8,8,8,11,13};
-   int n = arr.size();
-   int k =8;
-  pair<int ,int> result = fristandlast(arr,n,k);
-   cout<<"First and last occurrence of "<<k<<" are at indices : "<<result.first<<" and "<<result.second<<endl;
 
+    // frist and last occurrance
+//    vector<int> arr = {2,4,6,8,8,8,11,13};
+//    int n = arr.size();
+//    int k =8;
+//   pair<int ,int> result = fristandlast(arr,n,k);
+//    cout<<"First and last occurrence of "<<k<<" are at indices : "<<result.first<<" and "<<result.second<<endl;
+
+  // Search in sorted array;
+
+   vector<int> arr = {7,8,9,1,2,3,4,5,6};
+   int n = arr.size();
+   int k =1;
+   cout<<"index of element " << searchRoated(arr,n,k);
 }
