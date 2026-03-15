@@ -50,9 +50,7 @@
 //     return 0;
 // }
 
-
 // =======================================================================
-
 
 //  Book Allocation Problem
 //  Given n books and m students, find the minimum number of pages that can be allocated
@@ -62,7 +60,6 @@
 // #include <iostream>
 // #include <vector>
 // using namespace std;
-
 
 // bool isValid(vector<int> &arr, int n,int m ,int amxAllowedPage){
 //     int student = 1, pages = 0;
@@ -107,9 +104,7 @@
 //     return 0;
 // }
 
-
 // =======================================================================
-
 
 // Painter's Partition Problem
 // Given n books and m painters, find the minimum time required to paint all the books such
@@ -125,7 +120,7 @@
 //     for(int i=0; i<n;i++){
 //         if(arr[i]> maxAllwoedTime){
 //             return false ; // If a single book requires more time than allowed, return false
-//         } 
+//         }
 //         if(time + arr[i] <= maxAllwoedTime){
 //             time += arr[i]; // Add time to current painter
 //         } else {
@@ -158,13 +153,12 @@
 //     return ans; // Return the minimum maximum time that can be allocated
 // }
 
-
 // int main(){
 //     vector<int> arr = {40,30,10,20};
 //     int n=4,m=2; // n is number of books, m is number of painters
 //     cout << "Minimum maximum time allocated: " << allocateTime(arr, n, m) << endl;
 //     return 0;
-// } 
+// }
 
 // =======================================================================
 
@@ -182,12 +176,12 @@
 //         if(arr[i]-lastStandPossition >= minAllowedDist){
 //             cows++; // Place a cow at the current position
 //             lastStandPossition = arr[i]; // Update the last position where a cow was placed
-//         } 
+//         }
 //         if(cows == c){ // If all cows are placed, return true
 //             return true;
 //         }
 //     }
-//     return false; // If not all cows could be placed, return false 
+//     return false; // If not all cows could be placed, return false
 // }
 
 // int getDistance(vector<int> &arr, int N, int C){
@@ -202,7 +196,7 @@
 //         } else {
 //             end = mid-1; // Reduce the distance
 //         }
-//     } 
+//     }
 //     return ans; // Return the maximum distance that can be maintained
 // }
 
@@ -214,7 +208,6 @@
 //     return 0;
 // }
 // =======================================================================
-
 
 // Minimum Scalar Product Problem
 // Given two arrays, find the minimum scalar product of the two arrays.
@@ -245,30 +238,32 @@
 //     return 0;
 // }
 
-
 //. Lower Bound and upper bound;
 
-
- #include <iostream>
-#include<vector>
-#include<algorithm>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-int lowerbound ( vector<int> arr , int n,  int tar){
-        int ans = n;
-      int low =0;
-      int high = n-1;
-      while(low<=high){
-        int mid = (low+high)/2;
-        if(arr[mid]>=tar){
+int lowerbound(vector<int> arr, int n, int tar)
+{
+    int ans = n;
+    int low = 0;
+    int high = n - 1;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[mid] >= tar)
+        {
             ans = mid;
-            high = mid-1;
-        } else {
-            low = mid+1;
+            high = mid - 1;
         }
-       
-      }
-       return ans;
+        else
+        {
+            low = mid + 1;
+        }
+    }
+    return ans;
 }
 // Using STL
 // int main(){
@@ -281,21 +276,25 @@ int lowerbound ( vector<int> arr , int n,  int tar){
 
 // upper bound
 
-int upperbound ( vector<int> arr , int n,  int tar){
-        int ans = n;
-      int low =0;
-      int high = n-1;
-      while(low<=high){
-        int mid = (low+high)/2;
-        if(arr[mid]>tar){
+int upperbound(vector<int> arr, int n, int tar)
+{
+    int ans = n;
+    int low = 0;
+    int high = n - 1;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[mid] > tar)
+        {
             ans = mid;
-            high = mid-1;
-        } else {
-            low = mid+1;
+            high = mid - 1;
         }
-       
-      }
-       return ans;
+        else
+        {
+            low = mid + 1;
+        }
+    }
+    return ans;
 }
 
 // Using STL
@@ -308,7 +307,6 @@ int upperbound ( vector<int> arr , int n,  int tar){
 //     return 0;
 // }
 
-
 // int main(){
 //     vector<int> arr = {1,2,3,4,6,7,8,9};
 //     int tar = 5;
@@ -317,134 +315,300 @@ int upperbound ( vector<int> arr , int n,  int tar){
 //     return 0;
 // }
 
+//  Floor and Ceil
 
-                            //  Floor and Ceil 
-
-int floor(vector<int> arr, int n , int tar){
+int floor(vector<int> arr, int n, int tar)
+{
     int ans = -1;
     int low = 0;
-    int high = n-1;
-    while(low<=high){
-        int mid = (low+high)/2;
-        if(arr[mid]<=tar){
+    int high = n - 1;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[mid] <= tar)
+        {
             ans = arr[mid];
-            low = mid+1;
-        } else {
-            high = mid-1;
+            low = mid + 1;
         }
-    }
-    return ans;
-}                            
-
-int ceil(vector<int> arr , int n,int tar){
-    int ans = -1;
-    int low = 0;
-    int high = n-1;
-    while(low<=high){
-        int mid = (low+high)/2;
-        if(arr[mid]>= tar){
-            ans = arr[mid];
-            high = mid-1;
-        } else {
-            low = mid+1;
+        else
+        {
+            high = mid - 1;
         }
     }
     return ans;
 }
 
+int ceil(vector<int> arr, int n, int tar)
+{
+    int ans = -1;
+    int low = 0;
+    int high = n - 1;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[mid] >= tar)
+        {
+            ans = arr[mid];
+            high = mid - 1;
+        }
+        else
+        {
+            low = mid + 1;
+        }
+    }
+    return ans;
+}
 
-// Frist and last occurrance 
+// Frist and last occurrance
 
-int fristoccurrence(vector<int> & arr , int n ,int k){
+int fristoccurrence(vector<int> &arr, int n, int k)
+{
     int frist = -1;
-    int low = 0; int high = n-1;
-    while(low<=high){
-        int mid = (low+high)/2;
-        if(arr[mid]==k) {
+    int low = 0;
+    int high = n - 1;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[mid] == k)
+        {
             frist = mid;
-            high = mid-1;
-        } else if(arr[mid]<k) return low = mid+1;
-        else high = mid-1;
+            high = mid - 1;
+        }
+        else if (arr[mid] < k)
+            return low = mid + 1;
+        else
+            high = mid - 1;
     }
     return frist;
 }
 
-int lastoccurance(vector<int> &arr, int n , int k){
+int lastoccurance(vector<int> &arr, int n, int k)
+{
     int last = -1;
-    int low = 0;int high = n-1;
-    while(low<=high){
-        int mid = (low+high)/2;
-        if(arr[mid] == k){
+    int low = 0;
+    int high = n - 1;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[mid] == k)
+        {
             last = mid;
-            low = mid+1;
-        } else if (arr[mid]<k) return low = mid+1;
-        else high = mid-1;
+            low = mid + 1;
+        }
+        else if (arr[mid] < k)
+            return low = mid + 1;
+        else
+            high = mid - 1;
     }
     return last;
 }
 
-pair<int, int > fristandlast(vector<int> &arr, int n,int k){
-    int frist = fristoccurrence(arr,n,k);
-    if(frist==-1) return {-1,-1};
-    int last = lastoccurance(arr,n ,  k);
-  return {frist , last};
+pair<int, int> fristandlast(vector<int> &arr, int n, int k)
+{
+    int frist = fristoccurrence(arr, n, k);
+    if (frist == -1)
+        return {-1, -1};
+    int last = lastoccurance(arr, n, k);
+    return {frist, last};
 }
-
 
 // Search in Roated Array (Unique element)
 
-int searchRoated(vector<int> & arr, int n , int k){
+int searchRoated(vector<int> &arr, int n, int k)
+{
     int low = 0;
-    int high = n-1;
-    while(low<=high){
-        int mid = (low+high)/2;
-        if(arr[mid]==k) return mid;
-        if(arr[low]<=arr[mid]){   // left array be sorted 
-        if(arr[low]<=k && k<= arr[mid]){
-          high = mid-1;
-        } else {
-            low = mid+1;
+    int high = n - 1;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[mid] == k)
+            return mid;
+        if (arr[low] <= arr[mid])
+        { // left array be sorted
+            if (arr[low] <= k && k <= arr[mid])
+            {
+                high = mid - 1;
+            }
+            else
+            {
+                low = mid + 1;
+            }
         }
-        } else { // right arrray be sorted
-           if(arr[mid]<=k && k<=arr[high]){
-              low = mid+1;
-           } else {
-          high = mid-1;
-           }
+        else
+        { // right arrray be sorted
+            if (arr[mid] <= k && k <= arr[high])
+            {
+                low = mid + 1;
+            }
+            else
+            {
+                high = mid - 1;
+            }
         }
     }
     return -1;
 }
 
 // Search in Roated Sorted Array (Duplicate element)
-bool searchRoated2(vector<int> & arr, int n , int k){
+bool searchRoated2(vector<int> &arr, int n, int k)
+{
     int low = 0;
-    int high = n-1;
-    while(low<=high){
-        int mid = (low+high)/2;
-        if(arr[mid]==k) return true;
-        if(arr[low] == arr[mid] && arr[mid] == arr[high]){
-            low++ ; high--;
+    int high = n - 1;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[mid] == k)
+            return true;
+        if (arr[low] == arr[mid] && arr[mid] == arr[high])
+        {
+            low++;
+            high--;
             continue;
         }
-        if(arr[low]<=arr[mid]){   // left array be sorted 
-        if(arr[low]<=k && k<= arr[mid]){
-          high = mid-1;
-        } else {
-            low = mid+1;
+        if (arr[low] <= arr[mid])
+        { // left array be sorted
+            if (arr[low] <= k && k <= arr[mid])
+            {
+                high = mid - 1;
+            }
+            else
+            {
+                low = mid + 1;
+            }
         }
-        } else { // right arrray be sorted
-           if(arr[mid]<=k && k<=arr[high]){
-              low = mid+1;
-           } else {
-          high = mid-1;
-           }
+        else
+        { // right arrray be sorted
+            if (arr[mid] <= k && k <= arr[high])
+            {
+                low = mid + 1;
+            }
+            else
+            {
+                high = mid - 1;
+            }
         }
     }
-    return false ;
+    return false;
 }
 
-int main(){
+// Minimum in ROated Sorted Array(Unique);
+
+int findMini(vector<int> &arr)
+{
+    int low = 0;
+    int high = arr.size() - 1;
+    int ans = INT_MAX;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[low] <= arr[mid])
+        {
+            ans = min(arr[mid], ans);
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+            ans = min(arr[mid], ans);
+        }
+    }
+    return ans;
+}
+// Minimum in ROated Sorted Array(Duplicate);
+
+int findMiniDup(vector<int> &arr)
+{
+    int low = 0;
+    int high = arr.size() - 1;
+    int ans = INT_MAX;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[low] == arr[mid] && arr[mid] == arr[high])
+        {
+            low++;
+            high--;
+            continue;
+        }
+        if (arr[low] <= arr[mid])
+        {
+            ans = min(arr[mid], ans);
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+            ans = min(arr[mid], ans);
+        }
+    }
+    return ans;
+}
+
+// Find out how many time array has been roated;
+
+int findTimeArrayRoted(vector<int> &arr)
+{
+    int low = 0;
+    int high = arr.size() - 1;
+    int ans = INT_MAX;
+    int index = -1;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[low] <= arr[high])
+        {
+            if (arr[low] < ans)
+            {
+                ans = arr[low];
+                index = low;
+            }
+            break;
+        }
+        if (arr[low] <= arr[mid])
+        {
+            if (arr[low] < ans)
+            {
+                ans = arr[low];
+                index = low;
+            }
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+            if (arr[mid] < ans)
+            {
+                ans = arr[mid];
+                index = mid;
+            }
+        }
+    }
+    return index;
+}
+
+// find Non Duplicate element 
+
+int findNonDuplicate(vector<int> &arr){
+    int n = arr.size();
+    if(n==1) return arr[0];
+    if(arr[n-1]!=arr[n-2]) return arr[n-1];
+    int low = 1; int high = n-2;
+    while(low<=high){
+        int mid = (low+high)/2;
+        if(arr[mid]!=arr[mid-1] && arr[mid]!=arr[mid+1]){
+            return arr[mid];
+        } 
+        if((mid%2==1 && arr[mid]== arr[mid-1]) || mid % 2 == 0 && arr[mid]==arr[mid+1]){
+            low = mid+1;
+        } else {
+            high = mid-1;
+        
+        }
+    }
+    return -1;
+}
+int main()
+{
     // vector<int> arr = {1,2,3,4,6,7,8,9};
     // int tar = 5;
     // cout<<"Floor of "<<tar<<" is : " <<floor(arr , arr.size() , tar) << endl;
@@ -452,16 +616,30 @@ int main(){
     // return 0;
 
     // frist and last occurrance
-//    vector<int> arr = {2,4,6,8,8,8,11,13};
-//    int n = arr.size();
-//    int k =8;
-//   pair<int ,int> result = fristandlast(arr,n,k);
-//    cout<<"First and last occurrence of "<<k<<" are at indices : "<<result.first<<" and "<<result.second<<endl;
+    //    vector<int> arr = {2,4,6,8,8,8,11,13};
+    //    int n = arr.size();
+    //    int k =8;
+    //   pair<int ,int> result = fristandlast(arr,n,k);
+    //    cout<<"First and last occurrence of "<<k<<" are at indices : "<<result.first<<" and "<<result.second<<endl;
 
-  // Search in sorted array;
+    // Search in sorted array;
 
-   vector<int> arr = {7,8,9,1,2,3,4,5,6};
-   int n = arr.size();
-   int k =1;
-   cout<<"index of element " << searchRoated(arr,n,k);
+    //    vector<int> arr = {7,8,9,1,2,3,4,5,6};
+    //    int n = arr.size();
+    //    int k =1;
+    //    cout<<"index of element " << searchRoated(arr,n,k);
+
+    //  find minimum in roated sorted array;
+
+    // vector<int> arr = {7,8,9,1,2,3,4,5,6};
+    // cout<<"find minimum "<<findMini(arr);
+
+    // find out how many time array has been sorted
+    // vector<int> arr = {3, 4, 5, 1, 2};
+    // cout << "find roated time " << findTimeArrayRoted(arr);
+
+    // find Non Duplicate element 
+
+    vector<int> arr = {1,1,2,2,3,3,4,5,5,6,6};
+    cout<<"Non duplicate element is "<<findNonDuplicate(arr);
 }
