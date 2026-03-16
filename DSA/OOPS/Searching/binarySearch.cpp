@@ -608,6 +608,8 @@ int findNonDuplicate(vector<int> &arr){
     return -1;
 }
 
+// find peak element 
+
 int findpeak(vector<int> & arr){
     int n= arr.size();
     if(n==1) return 0;
@@ -625,6 +627,21 @@ int findpeak(vector<int> & arr){
     return -1;
 }
 
+// find sqrt of an integer
+
+int floorsqrt(int n){
+    int low = 1;int high = n;
+    while(low<=high) {
+        long long mid = (low+high)/2;
+        long long val = (mid*mid);
+        if(val<=n){
+            low = mid+1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return high;
+}
 
 int main()
 {
@@ -661,6 +678,12 @@ int main()
 
     // vector<int> arr = {1,1,2,2,3,3,4,5,5,6,6};
     // cout<<"Non duplicate element is "<<findNonDuplicate(arr);
-        vector<int> arr = {1,2,3,4,5,6,7,8,5,1};
-        cout<<"peak elemt is "<<findpeak(arr);
+
+    // find preak element 
+        // vector<int> arr = {1,2,3,4,5,6,7,8,5,1};
+        // cout<<"peak elemt is "<<findpeak(arr);
+
+    // find sqrt 
+    
+        cout<<floorsqrt(26);
 }
