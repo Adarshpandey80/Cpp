@@ -643,6 +643,30 @@ int floorsqrt(int n){
     return high;
 }
 
+// Find the Nth Root of m
+int func(int mid , int n , int m){
+  long long ans = 1;
+  for(int i=1;i<=n;i++){
+    ans  = ans*mid;
+  } if(ans>m) return 2;
+  if(ans == m) return 1;
+  return 0;
+}
+
+int NthRoot(int n , int m){
+    int low = 1 ; int high = m;
+    while(low<=high){
+        int mid = (low+high)/2;
+        int midN = func(mid , n , m);
+        if(midN == 1){
+            return mid;
+        } else if(mid == 0) low = mid+1;
+        else high = mid-1;
+    }
+    return -1;
+}
+
+
 int main()
 {
     // vector<int> arr = {1,2,3,4,6,7,8,9};
@@ -684,6 +708,7 @@ int main()
         // cout<<"peak elemt is "<<findpeak(arr);
 
     // find sqrt 
-    
-        cout<<floorsqrt(26);
+        // cout<<floorsqrt(26);
+        // Find the Nth Root of m
+        cout<<NthRoot(3, 27);
 }
