@@ -701,6 +701,44 @@ int miniRateToEatBananas(vector<int> &v , int h){
 }
  
 
+//  Minimum No of days to make M bouquets
+
+bool possible(vector<int> &arr , int mid , int r, int b){
+    int cnt =0; int noOfB = 0;
+    for(int i=0;i<arr.size();i++){
+        if(arr[i]<= mid){
+            cnt++;
+        } else {
+            noOfB += cnt/r; // Calculate how many bouquets can be made from the current count of roses  
+            cnt =0; // Reset count for the next segment of roses
+        }
+    }
+    noOfB += cnt/r; // Account for any remaining roses after the loop
+    return noOfB >= b; // Check if the number of bouquets made is at least b
+}
+
+int roseGarden(vector<int> & arr , int r, int b){
+    long long val = r * 1LL *b * 1LL; // Calculate total roses needed to make b bouquets
+    if(val>arr.size()) return -1; // If total roses needed is more than available, return -1
+    int mini = INT_MAX; int maxi = INT_MIN;
+    for(int i=0;i<arr.size();i++){
+        mini = min(mini , arr[i]);
+        maxi = max(maxi , arr[i]);
+    }
+    int low = mini; int high = maxi;
+    while(low<=high){
+        int mid = (low+high)/2;
+        if(possible(arr, mid , r, b)){
+            high = mid - 1; // Try for a smaller number of days
+        } else {
+            low = mid + 1; // Increase the number of days
+        }
+}
+return low;
+}
+
+
+
 int main()
 {
     // vector<int> arr = {1,2,3,4,6,7,8,9};
@@ -744,5 +782,11 @@ int main()
     // find sqrt 
         // cout<<floorsqrt(26);
         // Find the Nth Root of m
-        cout<<NthRoot(3, 27);
+        // cout<<NthRoot(3, 27);
+
+     // Minimum No of days to make M bouquets
+        vector<int> arr = {1,10,3,10,2};
+        int r = 3; int b = 1;
+        cout<<"Minimum number of days to make "<<b<<" bouquets is : "<<roseGarden(arr,r,b);
+     return 0;
 }
