@@ -353,6 +353,7 @@
 
 #include<iostream>
 #include <utility>
+#include<algorithm>
 using namespace std;
 
 pair<int ,int> isLinear(int arr[][3],int rows, int cols, int key){
@@ -426,6 +427,14 @@ vector<int> findoccuranceandreplace(vector<int> & arr , int n , int m, int r){
     return arr;
 }
 
+unordered_map<int, int> countoccurance(vector<int> & arr , int n){
+
+       unordered_map<int,int> mpp;
+      for(auto fq : arr){
+        mpp[fq]++;
+      }
+      return mpp; 
+}
 
 int main(){
     // int arr [3][3] = {{1 ,2,3} ,{4,5,6},{6,7,8} };
@@ -444,15 +453,25 @@ int main(){
 
     // findoccurance 
 
-    vector<int> arr = {1,3,1,5,2,1,6,1};
-    int n = arr.size();
-    int m = 1;
-    int r = 9;
-    // cout<<"find occurance of element "<<findoccurance(arr, n , m);
-    vector<int> newarr = findoccuranceandreplace(arr,n,m,r);
-    for(int st : newarr){
-        cout<<st;
-    }
+    // vector<int> arr = {1,3,1,5,2,1,6,1};
+    // int n = arr.size();
+    // int m = 1;
+    // int r = 9;
+    // // cout<<"find occurance of element "<<findoccurance(arr, n , m);
+    // vector<int> newarr = findoccuranceandreplace(arr,n,m,r);
+    // for(int st : newarr){
+    //     cout<<st;
+    // }
+
+    // count  frequency
+    
+     vector<int> arr = {1,3,1,3,2,1,2,1};
+     int n = arr.size();
+     
+   auto frequency = countoccurance(arr, n);
+        for(auto frq : frequency){
+            cout << frq.first << " -> " << frq.second << endl;
+        }
     }
    
 
