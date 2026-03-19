@@ -406,10 +406,31 @@ int digSum (int mat[][3] ,int n){
     }
     return sum ;
 }
+
+int findoccurance(vector<int> & arr , int n , int m){
+    int count = 0;
+    for(int i = 0 ; i<=n; i++){
+      if(arr[i]==m){
+        count++;
+      }
+    }
+    return count;
+}
+vector<int> findoccuranceandreplace(vector<int> & arr , int n , int m, int r){
+    int count = 0;
+    for(int i = 0 ; i<=n; i++){
+      if(arr[i]==m){
+        arr[i] = r;
+      }
+    }
+    return arr;
+}
+
+
 int main(){
-    int arr [3][3] = {{1 ,2,3} ,{4,5,6},{6,7,8} };
-    int rows = 3;
-    int cols = 3;
+    // int arr [3][3] = {{1 ,2,3} ,{4,5,6},{6,7,8} };
+    // int rows = 3;
+    // int cols = 3;
     // int key = 8;
     // pair <int ,int> result = isLinear(arr ,rows,cols,key);
     // if(result.first == -1){
@@ -419,9 +440,24 @@ int main(){
     //  cout<<rowSum(arr,rows,cols);
     //  cout<<colSum(arr,rows,cols);
     //  cout<<digSum(arr,3);
+
+
+    // findoccurance 
+
+    vector<int> arr = {1,3,1,5,2,1,6,1};
+    int n = arr.size();
+    int m = 1;
+    int r = 9;
+    // cout<<"find occurance of element "<<findoccurance(arr, n , m);
+    vector<int> newarr = findoccuranceandreplace(arr,n,m,r);
+    for(int st : newarr){
+        cout<<st;
+    }
     }
    
-    // subarray sum equal to k 
+
+
+// subarray sum equal to k 
     
 // class Solution {
 // public:
