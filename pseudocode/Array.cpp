@@ -157,3 +157,92 @@ int main() {
     cout << sum;
     return 0;
 }
+// =========================================================
+
+// Program: Count Even and Odd in 3x3 Matrix
+
+DECLARE X : ARRAY[3][3] OF INTEGER
+DECLARE even : INTEGER
+DECLARE odd : INTEGER
+
+SET even = 0
+SET odd = 0
+
+FOR i = 0 TO 2
+    FOR j = 0 TO 2
+        READ X[i][j]
+        IF X[i][j] MOD 2 = 0 THEN
+            even = even + 1
+        ELSE
+            odd = odd + 1
+        END IF
+    END FOR
+END FOR
+
+PRINT even
+PRINT odd
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int X[3][3], even = 0, odd = 0;
+
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            cin >> X[i][j];
+            if(X[i][j] % 2 == 0)
+                even++;
+            else
+                odd++;
+        }
+    }
+
+    cout << "Even: " << even << endl;
+    cout << "Odd: " << odd << endl;
+
+    return 0;
+}
+
+// =========================================================
+
+// Program: Matrix Addition
+
+DECLARE X, Y, Z : ARRAY[3][3] OF INTEGER
+
+FOR i = 0 TO 2
+    FOR j = 0 TO 2
+        READ X[i][j]
+        READ Y[i][j]
+        Z[i][j] = X[i][j] + Y[i][j]
+    END FOR
+END FOR
+
+PRINT Z
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int X[3][3], Y[3][3], Z[3][3];
+
+    for(int i=0;i<3;i++) {
+        for(int j=0;j<3;j++) {
+            cin >> X[i][j] >> Y[i][j];
+            Z[i][j] = X[i][j] + Y[i][j];
+        }
+    }
+
+    cout << "Result Matrix:\n";
+    for(int i=0;i<3;i++) {
+        for(int j=0;j<3;j++) {
+            cout << Z[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
