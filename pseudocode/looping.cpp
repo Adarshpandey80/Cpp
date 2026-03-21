@@ -155,4 +155,117 @@ int main() {
 
     return 0;
 }
+// =================================================
 
+// Program: Sequence_Update
+
+DECLARE a, b, c : INTEGER
+SET b = 4
+SET c = 5
+
+FOR a = 2 TO 4
+    PRINT c
+    SET b = b - 1
+    SET c = c + b
+END FOR
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b = 4, c = 5;
+
+    for (a = 2; a <= 4; a++) {
+        cout << c << " ";
+        b = b - 1;
+        c = c + b;
+    }
+    return 0;
+}
+
+// =================================================
+// Program: Increment_Loop
+
+DECLARE a, b, c : INTEGER
+SET b = 0
+SET c = 0
+
+FOR a = 1 TO 5
+    PRINT c
+    SET b = b + 1
+    SET c = c + 1
+END FOR
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b = 0, c = 0;
+
+    for (a = 1; a <= 5; a++) {
+        cout << c << " ";
+        b = b + 1;
+        c = c + 1;
+    }
+    return 0;
+}
+
+// =================================================
+
+// Program: Divide_Until_Small
+
+DECLARE value, n : INTEGER
+SET value = 32
+SET n = 1
+
+WHILE value >= n
+    SET value = value / 2
+END WHILE
+
+PRINT value
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int value = 32, n = 1;
+
+    while (value >= n) {
+        value = value / 2;
+    }
+
+    cout << value;
+    return 0;
+}
+
+// =====================================================
+
+// Program: DoWhile_Increment
+
+DECLARE x, y : INTEGER
+SET x = 4
+SET y = 8
+
+DO
+    PRINT x
+    SET x = x + y + 1
+WHILE x < 15
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 4, y = 8;
+
+    do {
+        cout << x << " ";
+        x = x + y + 1;
+    } while (x < 15);
+
+    return 0;
+}

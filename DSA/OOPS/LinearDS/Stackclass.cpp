@@ -286,12 +286,12 @@ int stackqueue(vector<int> &arr, int n, int k) {
     stack<int> st;
     queue<int> qu;
 
-    // Build stack (top = arr[0])
+
     for(int i = n - 1; i >= 0; i--) {
         st.push(arr[i]);
     }
 
-    // Build queue (front = arr[n-1])
+   
     for(int i = n - 1; i >= 0; i--) {
         qu.push(arr[i]);
     }
@@ -304,13 +304,12 @@ int stackqueue(vector<int> &arr, int n, int k) {
         stack<int> tempst = st;
         queue<int> tempqu = qu;
 
-        // Take i elements from stack
+      
         for(int j = 0; j < i; j++) {
             sum += tempst.top();
             tempst.pop();
         }
 
-        // Take k-i elements from queue
         for(int j = 0; j < (k - i); j++) {
             sum += tempqu.front();
             tempqu.pop();

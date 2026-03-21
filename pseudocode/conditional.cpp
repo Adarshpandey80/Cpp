@@ -82,5 +82,30 @@ int main() {
     return 0;
 }
 
-// ================================================
+// =====================================================
 
+// Program: Arithmetic_Test 
+
+DECLARE a, b, c : INTEGER
+SET c = 12
+SET b = 4
+
+SET a = c / b
+SET c = b + a
+
+PRINT c
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b = 4, c = 12;
+
+    a = c / b;
+    c = b + a;
+
+    cout << c;
+    return 0;
+}
