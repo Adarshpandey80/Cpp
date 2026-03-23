@@ -13,5 +13,5 @@ float Avg(vector<int> &arr ,int n){
 int main(){
     vector<int> arr = {3,4,2,5,6,1};
     int n = arr.size();
-    cout<<"Sum of element is :"<<Avg(arr,n);
+    cout<<"Avg of element is :"<<Avg(arr,n);
 }
