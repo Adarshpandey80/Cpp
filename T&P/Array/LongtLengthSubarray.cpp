@@ -3,18 +3,19 @@
 #include<algorithm>
 using namespace std;
 
+// find longest subarray with same element
 int longestSubarray(vector<int> &arr , int n){
-    int longest = INT_MIN;
-    for(int i =0 ;i<n;i++){
-        int sum = 0;
-        for(int j =i ;i<n;j++){
-            if(arr[j]!=arr[j+1]){
-                sum +=arr[j];
-                longest = max(longest , sum);
-            }
+    int count = 1;
+    int maxi = 1;
+    for(int i = 1;i<n;i++){
+        if(arr[i] == arr[i-1]){
+            count++;
+        } else {
+            count = 1;
         }
+        maxi = max(maxi , count);
     }
-    return longest;
+    return maxi;
 }
 
 int main(){
