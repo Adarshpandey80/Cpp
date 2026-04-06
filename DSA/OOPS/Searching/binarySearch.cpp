@@ -738,6 +738,38 @@ return low;
 }
 
 
+// least capacity to ship packages within D days
+
+#include <numeric> 
+int findDays(vector<int> &weight , int cap){
+    int days = 1 ; int load = 0;
+    for(int i = 0 ; i<weight.size();i++){
+        if(weight[i]+load >cap){
+            days += 1;
+            load = weight[i];
+        } else {
+            load += weight[i];
+        }
+    }
+    return days;
+}
+
+int leastCapacity(vector<int> &weight , int days){
+    int low = *max_element(weight.begin() , weight.end());
+    int high = accumulate(weight.begin(), weight.end(), 0);
+    while(low<=high){
+        int mid = (low+high)/2;
+        int numberofdays = findDays(weight , mid);
+        if(numberofdays<=days){
+            high = mid-1;
+        } else {
+            low = mid+1;
+        }
+    }
+    return low;
+}
+
+
 
 int main()
 {
@@ -785,8 +817,13 @@ int main()
         // cout<<NthRoot(3, 27);
 
      // Minimum No of days to make M bouquets
-        vector<int> arr = {1,10,3,10,2};
-        int r = 3; int b = 1;
-        cout<<"Minimum number of days to make "<<b<<" bouquets is : "<<roseGarden(arr,r,b);
+        // vector<int> arr = {1,10,3,10,2};
+        // int r = 3; int b = 1;
+        // cout<<"Minimum number of days to make "<<b<<" bouquets is : "<<roseGarden(arr,r,b);
+
+    // LEast capacity to ship packages 
+     vector<int> weight = {1,2,3,4,5,6,7,8,9,10};
+     int days = 5;
+     cout<<"least capacity is: "<<leastCapacity(weight , days);    
      return 0;
 }
