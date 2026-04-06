@@ -586,57 +586,80 @@ int findTimeArrayRoted(vector<int> &arr)
     return index;
 }
 
-// find Non Duplicate element 
+// find Non Duplicate element
 
-int findNonDuplicate(vector<int> &arr){
+int findNonDuplicate(vector<int> &arr)
+{
     int n = arr.size();
-    if(n==1) return arr[0];
-    if(arr[n-1]!=arr[n-2]) return arr[n-1];
-    int low = 1; int high = n-2;
-    while(low<=high){
-        int mid = (low+high)/2;
-        if(arr[mid]!=arr[mid-1] && arr[mid]!=arr[mid+1]){
+    if (n == 1)
+        return arr[0];
+    if (arr[n - 1] != arr[n - 2])
+        return arr[n - 1];
+    int low = 1;
+    int high = n - 2;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[mid] != arr[mid - 1] && arr[mid] != arr[mid + 1])
+        {
             return arr[mid];
-        } 
-        if((mid%2==1 && arr[mid]== arr[mid-1]) || mid % 2 == 0 && arr[mid]==arr[mid+1]){
-            low = mid+1;
-        } else {
-            high = mid-1;
-        
+        }
+        if ((mid % 2 == 1 && arr[mid] == arr[mid - 1]) || mid % 2 == 0 && arr[mid] == arr[mid + 1])
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
         }
     }
     return -1;
 }
 
-// find peak element 
+// find peak element
 
-int findpeak(vector<int> & arr){
-    int n= arr.size();
-    if(n==1) return 0;
-    if(arr[0]>arr[1]) return 0;
-    if(arr[n-1]>arr[n-2]) return n-1;
-    int low=1; int high= n-2;
-    while(low<=high){
-        int mid = (low+high)/2;
-        if(arr[mid]>arr[mid-1] && arr[mid]>arr[mid+1]){
+int findpeak(vector<int> &arr)
+{
+    int n = arr.size();
+    if (n == 1)
+        return 0;
+    if (arr[0] > arr[1])
+        return 0;
+    if (arr[n - 1] > arr[n - 2])
+        return n - 1;
+    int low = 1;
+    int high = n - 2;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[mid] > arr[mid - 1] && arr[mid] > arr[mid + 1])
+        {
             return mid;
-        } else if(arr[mid]>arr[mid-1]) low = mid+1;
-         else high = mid-1;
-    
+        }
+        else if (arr[mid] > arr[mid - 1])
+            low = mid + 1;
+        else
+            high = mid - 1;
     }
     return -1;
 }
 
 // find sqrt of an integer
 
-int floorsqrt(int n){
-    int low = 1;int high = n;
-    while(low<=high) {
-        long long mid = (low+high)/2;
-        long long val = (mid*mid);
-        if(val<=n){
-            low = mid+1;
-        } else {
+int floorsqrt(int n)
+{
+    int low = 1;
+    int high = n;
+    while (low <= high)
+    {
+        long long mid = (low + high) / 2;
+        long long val = (mid * mid);
+        if (val <= n)
+        {
+            low = mid + 1;
+        }
+        else
+        {
             high = mid - 1;
         }
     }
@@ -644,132 +667,192 @@ int floorsqrt(int n){
 }
 
 // Find the Nth Root of m
-int func(int mid , int n , int m){
-  long long ans = 1;
-  for(int i=1;i<=n;i++){
-    ans  = ans*mid;
-  } if(ans>m) return 2;
-  if(ans == m) return 1;
-  return 0;
+int func(int mid, int n, int m)
+{
+    long long ans = 1;
+    for (int i = 1; i <= n; i++)
+    {
+        ans = ans * mid;
+    }
+    if (ans > m)
+        return 2;
+    if (ans == m)
+        return 1;
+    return 0;
 }
 
-int NthRoot(int n , int m){
-    int low = 1 ; int high = m;
-    while(low<=high){
-        int mid = (low+high)/2;
-        int midN = func(mid , n , m);
-        if(midN == 1){
+int NthRoot(int n, int m)
+{
+    int low = 1;
+    int high = m;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        int midN = func(mid, n, m);
+        if (midN == 1)
+        {
             return mid;
-        } else if(mid == 0) low = mid+1;
-        else high = mid-1;
+        }
+        else if (mid == 0)
+            low = mid + 1;
+        else
+            high = mid - 1;
     }
     return -1;
 }
 
-// KOKO eating Bananas 
+// KOKO eating Bananas
 
-int findMax(vector<int> &v){
+int findMax(vector<int> &v)
+{
     int mx = INT_MIN;
-    for(int i=1;i<v.size();i++){
-        mx = max(mx , v[i]);
+    for (int i = 1; i < v.size(); i++)
+    {
+        mx = max(mx, v[i]);
     }
     return mx;
 }
 
-int calculateTotalHours(vector<int> &v , int hourly){
-    int totalH =0;
-    for(int i=0;i<v.size();i++){
-        totalH += ceil((double)v[i]/(double)hourly); // Calculate hours needed to eat all bananas at speed hourly
+int calculateTotalHours(vector<int> &v, int hourly)
+{
+    int totalH = 0;
+    for (int i = 0; i < v.size(); i++)
+    {
+        totalH += ceil((double)v[i] / (double)hourly); // Calculate hours needed to eat all bananas at speed hourly
     }
     return totalH;
 }
 
-int miniRateToEatBananas(vector<int> &v , int h){ 
-    int low =1 ,  high = findMax(v);
-    while(low<=high){
-         int mid = (low+high)/2;
+int miniRateToEatBananas(vector<int> &v, int h)
+{
+    int low = 1, high = findMax(v);
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
         int totalH = calculateTotalHours(v, mid);
-       
-        if(totalH <= h){
+
+        if (totalH <= h)
+        {
             high = mid - 1;
-        } else {
-            low = mid + 1;  
+        }
+        else
+        {
+            low = mid + 1;
+        }
     }
-   
+    return low; // Return the minimum eating speed that allows Koko to finish all bananas within h hours
 }
- return low; // Return the minimum eating speed that allows Koko to finish all bananas within h hours
-}
- 
 
 //  Minimum No of days to make M bouquets
 
-bool possible(vector<int> &arr , int mid , int r, int b){
-    int cnt =0; int noOfB = 0;
-    for(int i=0;i<arr.size();i++){
-        if(arr[i]<= mid){
+bool possible(vector<int> &arr, int mid, int r, int b)
+{
+    int cnt = 0;
+    int noOfB = 0;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] <= mid)
+        {
             cnt++;
-        } else {
-            noOfB += cnt/r; // Calculate how many bouquets can be made from the current count of roses  
-            cnt =0; // Reset count for the next segment of roses
+        }
+        else
+        {
+            noOfB += cnt / r; // Calculate how many bouquets can be made from the current count of roses
+            cnt = 0;          // Reset count for the next segment of roses
         }
     }
-    noOfB += cnt/r; // Account for any remaining roses after the loop
+    noOfB += cnt / r;  // Account for any remaining roses after the loop
     return noOfB >= b; // Check if the number of bouquets made is at least b
 }
 
-int roseGarden(vector<int> & arr , int r, int b){
-    long long val = r * 1LL *b * 1LL; // Calculate total roses needed to make b bouquets
-    if(val>arr.size()) return -1; // If total roses needed is more than available, return -1
-    int mini = INT_MAX; int maxi = INT_MIN;
-    for(int i=0;i<arr.size();i++){
-        mini = min(mini , arr[i]);
-        maxi = max(maxi , arr[i]);
+int roseGarden(vector<int> &arr, int r, int b)
+{
+    long long val = r * 1LL * b * 1LL; // Calculate total roses needed to make b bouquets
+    if (val > arr.size())
+        return -1; // If total roses needed is more than available, return -1
+    int mini = INT_MAX;
+    int maxi = INT_MIN;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        mini = min(mini, arr[i]);
+        maxi = max(maxi, arr[i]);
     }
-    int low = mini; int high = maxi;
-    while(low<=high){
-        int mid = (low+high)/2;
-        if(possible(arr, mid , r, b)){
+    int low = mini;
+    int high = maxi;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (possible(arr, mid, r, b))
+        {
             high = mid - 1; // Try for a smaller number of days
-        } else {
+        }
+        else
+        {
             low = mid + 1; // Increase the number of days
         }
+    }
+    return low;
 }
-return low;
-}
-
 
 // least capacity to ship packages within D days
 
-#include <numeric> 
-int findDays(vector<int> &weight , int cap){
-    int days = 1 ; int load = 0;
-    for(int i = 0 ; i<weight.size();i++){
-        if(weight[i]+load >cap){
+#include <numeric>
+int findDays(vector<int> &weight, int cap)
+{
+    int days = 1;
+    int load = 0;
+    for (int i = 0; i < weight.size(); i++)
+    {
+        if (weight[i] + load > cap)
+        {
             days += 1;
             load = weight[i];
-        } else {
+        }
+        else
+        {
             load += weight[i];
         }
     }
     return days;
 }
 
-int leastCapacity(vector<int> &weight , int days){
-    int low = *max_element(weight.begin() , weight.end());
+int leastCapacity(vector<int> &weight, int days)
+{
+    int low = *max_element(weight.begin(), weight.end());
     int high = accumulate(weight.begin(), weight.end(), 0);
-    while(low<=high){
-        int mid = (low+high)/2;
-        int numberofdays = findDays(weight , mid);
-        if(numberofdays<=days){
-            high = mid-1;
-        } else {
-            low = mid+1;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        int numberofdays = findDays(weight, mid);
+        if (numberofdays <= days)
+        {
+            high = mid - 1;
+        }
+        else
+        {
+            low = mid + 1;
         }
     }
     return low;
 }
 
+//  find Kth missing Number
 
+int missingNumber(vector<int> &arr, int k)
+{
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] <= k)
+        {
+            k++;
+        }
+        else
+        {
+            break;
+        }
+    }
+    return k;
+}
 
 int main()
 {
@@ -802,28 +885,33 @@ int main()
     // vector<int> arr = {3, 4, 5, 1, 2};
     // cout << "find roated time " << findTimeArrayRoted(arr);
 
-    // find Non Duplicate element 
+    // find Non Duplicate element
 
     // vector<int> arr = {1,1,2,2,3,3,4,5,5,6,6};
     // cout<<"Non duplicate element is "<<findNonDuplicate(arr);
 
-    // find preak element 
-        // vector<int> arr = {1,2,3,4,5,6,7,8,5,1};
-        // cout<<"peak elemt is "<<findpeak(arr);
+    // find preak element
+    // vector<int> arr = {1,2,3,4,5,6,7,8,5,1};
+    // cout<<"peak elemt is "<<findpeak(arr);
 
-    // find sqrt 
-        // cout<<floorsqrt(26);
-        // Find the Nth Root of m
-        // cout<<NthRoot(3, 27);
+    // find sqrt
+    // cout<<floorsqrt(26);
+    // Find the Nth Root of m
+    // cout<<NthRoot(3, 27);
 
-     // Minimum No of days to make M bouquets
-        // vector<int> arr = {1,10,3,10,2};
-        // int r = 3; int b = 1;
-        // cout<<"Minimum number of days to make "<<b<<" bouquets is : "<<roseGarden(arr,r,b);
+    // Minimum No of days to make M bouquets
+    // vector<int> arr = {1,10,3,10,2};
+    // int r = 3; int b = 1;
+    // cout<<"Minimum number of days to make "<<b<<" bouquets is : "<<roseGarden(arr,r,b);
 
-    // LEast capacity to ship packages 
-     vector<int> weight = {1,2,3,4,5,6,7,8,9,10};
-     int days = 5;
-     cout<<"least capacity is: "<<leastCapacity(weight , days);    
-     return 0;
+    // LEast capacity to ship packages
+      //  vector<int> weight = {1,2,3,4,5,6,7,8,9,10};
+      //  int days = 5;
+      //  cout<<"least capacity is: "<<leastCapacity(weight , days);
+
+    // find Kth missing Number
+    vector<int> arr = {2,3,4,7,11};
+    int k = 5;
+    cout<<"Kth missing number is : "<<missingNumber(arr,k);  
+    return 0;
 }
