@@ -1,4 +1,5 @@
 #include<iostream>
+#include<stack>
 using namespace std;
 
  struct Node{
@@ -57,6 +58,30 @@ class Solution{
 };
 
 
+// recursive preorder 
+
+class Solution{
+    public:
+    vector<int> preorderTraversal(Node* root){
+        vector<int> preorder;
+        stack<Node*> st;
+        st.push(root);
+        while(!st.empty()){
+            root = st.top();
+            st.pop();
+            preorder.push_back(root->data);
+            if(root->right!= NULL){
+                st.push(root->right);
+            }
+            if(root->left!= NULL){
+                st.push(root->left);
+            }
+        }
+    return preorder;
+
+    }
+};
+
 int main(){
     Node* root = new Node(1);
    root->left = new Node(3);
@@ -74,11 +99,14 @@ int main(){
 
 // level order traversal
     Solution s;
-    vector<vector<int>> ans = s.levelOrder(root);
-    for(auto i : ans){
-        for(auto j : i){
-            cout<<j<<" ";
-        }
-        cout<<endl;
-    }
+    // vector<vector<int>> ans = s.levelOrder(root);
+    // for(auto i : ans){
+    //     for(auto j : i){
+    //         cout<<j<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+
+    
+    
 }
