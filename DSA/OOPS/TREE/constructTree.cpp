@@ -82,6 +82,30 @@ class Solution{
     }
 };
 
+
+class Solution2{
+    public:
+    vector<int> Inorder(Node* root){
+        vector<int> inorder;
+        stack<Node*> st;
+        if(root == NULL) return inorder;
+        st.push(root);
+        while (!st.empty())
+        {
+             root = st.top();
+             st.pop();
+             if(root->left!= NULL){
+                st.push(root->left);
+             }
+             inorder.push_back(root->data);
+             if(root->right!=NULL){
+                st.push(root->right);
+             }
+        }
+        return inorder;
+    }
+};
+
 int main(){
     Node* root = new Node(1);
    root->left = new Node(3);
@@ -99,13 +123,11 @@ int main(){
 
 // level order traversal
     Solution s;
-    // vector<vector<int>> ans = s.levelOrder(root);
-    // for(auto i : ans){
-    //     for(auto j : i){
-    //         cout<<j<<" ";
-    //     }
-    //     cout<<endl;
-    // }
+    Solution2 s2;
+    vector<int> ans = s.preorderTraversal(root);
+    for(auto j : ans){
+        cout<<j<<" ";
+    }
 
     
     
