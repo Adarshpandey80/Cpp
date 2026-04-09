@@ -82,6 +82,7 @@ class Solution{
     }
 };
 
+// iterative inorder
 
 class Solution2{
     public:
@@ -106,6 +107,33 @@ class Solution2{
     }
 };
 
+// iterative postorder
+
+class Solution3{
+    public:
+    vector<int> postorder(Node* root){
+        vector<int> postorder;
+        stack<Node*> st;
+        if(root == NULL) return postorder;
+        st.push(root);
+        while (!st.empty())
+        {
+             root = st.top();
+             st.pop();
+             if(root->left!= NULL){
+                st.push(root->left);
+             }
+             if(root->right!=NULL){
+                st.push(root->right);
+             }
+             postorder.push_back(root->data);
+        }
+        reverse(postorder.begin(), postorder.end());
+        return postorder;
+    }
+};
+
+
 int main(){
     Node* root = new Node(1);
    root->left = new Node(3);
@@ -129,6 +157,16 @@ int main(){
         cout<<j<<" ";
     }
 
+    // iterative inorder
+    vector<int> ans2 = s2.Inorder(root);
+    for(auto j : ans2){
+        cout<<j<<" ";       
+    }
     
-    
+    // iterative postorder
+    Solution3 s3;
+    vector<int> ans3 = s3.postorder(root);
+    for(auto j : ans3){
+        cout<<j<<" ";
+    }
 }
