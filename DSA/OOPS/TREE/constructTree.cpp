@@ -144,6 +144,34 @@ int maxDepth(Node* root){
      return 1+ max(lh , rh);
 }
 
+// cleck for Balanced Tree
+
+class checkBalance{
+    public:
+
+bool isBalanced(Node* root){
+    return dfsHeight(root) != -1;
+}
+int dfsHeight(Node* root){
+    if(root == NULL) return 0;
+    int lh = dfsHeight(root->left);
+    if(lh == -1) return -1;
+    int rh = dfsHeight(root->right);
+    if(rh == -1) return -1;
+    if(abs(lh-rh)>1) return -1;
+    return 1+ max(lh , rh);
+}
+};
+
+// diameter of binary tree
+
+int diameter(Node* root, int &diameter){
+    if(root == NULL) return 0;
+    int lh = diameter(root->left, diameter);
+    int rh = diameter(root->right, diameter);
+    diameter = max(diameter, lh+rh);
+    return 1+ max(lh , rh);
+}
 
 int main(){
     Node* root = new Node(1);
@@ -182,5 +210,16 @@ int main(){
     //     cout<<j<<" ";
     // }
 
-    cout<<maxDepth(root);   // maximum Depth of Binary Tree
+    // cout<<maxDepth(root);   // maximum Depth of Binary Tree
+
+    // check for Balanced Tree
+    // checkBalance cb;
+    // if(cb.isBalanced(root)){
+    //     cout<<"Balanced Tree";
+    // }
+    // else{
+    //     cout<<"Not Balanced Tree";
+    // }
+
+    cout<<diameter(root, diameter);  // diameter of binary tree
 }
