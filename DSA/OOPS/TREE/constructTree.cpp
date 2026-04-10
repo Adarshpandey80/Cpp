@@ -1,5 +1,6 @@
 #include<iostream>
 #include<stack>
+#include<algorithm>
 using namespace std;
 
  struct Node{
@@ -60,7 +61,7 @@ class Solution{
 
 // recursive preorder 
 
-class Solution{
+class Solution0{
     public:
     vector<int> preorderTraversal(Node* root){
         vector<int> preorder;
@@ -133,6 +134,16 @@ class Solution3{
     }
 };
 
+// maximum Depth of Binary Tree
+
+int maxDepth(Node* root){
+    if(root ==NULL) return 0;
+     int lh = maxDepth(root->left);
+     int rh = maxDepth(root->right);
+
+     return 1+ max(lh , rh);
+}
+
 
 int main(){
     Node* root = new Node(1);
@@ -142,6 +153,7 @@ int main(){
    root->left->left = new Node(6);
    root->right->right = new Node(2);
    root->right->left = new Node(7);
+   root->right->right->left = new Node(8);
 
 //    Node* temp;
 //    temp->preorder(root);
@@ -150,23 +162,25 @@ int main(){
 
 
 // level order traversal
-    Solution s;
-    Solution2 s2;
-    vector<int> ans = s.preorderTraversal(root);
-    for(auto j : ans){
-        cout<<j<<" ";
-    }
+    // Solution s;
+    // Solution2 s2;
+    // vector<int> ans = s.preorderTraversal(root);
+    // for(auto j : ans){
+    //     cout<<j<<" ";
+    // }
 
     // iterative inorder
-    vector<int> ans2 = s2.Inorder(root);
-    for(auto j : ans2){
-        cout<<j<<" ";       
-    }
+    // vector<int> ans2 = s2.Inorder(root);
+    // for(auto j : ans2){
+    //     cout<<j<<" ";       
+    // }
     
     // iterative postorder
-    Solution3 s3;
-    vector<int> ans3 = s3.postorder(root);
-    for(auto j : ans3){
-        cout<<j<<" ";
-    }
+    // Solution3 s3;
+    // vector<int> ans3 = s3.postorder(root);
+    // for(auto j : ans3){
+    //     cout<<j<<" ";
+    // }
+
+    cout<<maxDepth(root);   // maximum Depth of Binary Tree
 }
