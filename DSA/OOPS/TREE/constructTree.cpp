@@ -165,12 +165,18 @@ int dfsHeight(Node* root){
 
 // diameter of binary tree
 
-int diameter(Node* root, int &diameter){
+int diameterHelper(Node* root, int &diameter){
     if(root == NULL) return 0;
-    int lh = diameter(root->left, diameter);
-    int rh = diameter(root->right, diameter);
+    int lh = diameterHelper(root->left, diameter);
+    int rh = diameterHelper(root->right, diameter);
     diameter = max(diameter, lh+rh);
     return 1+ max(lh , rh);
+}
+
+int diameter(Node* root) {
+    int d = 0;
+    diameterHelper(root, d);
+    return d;
 }
 
 int main(){
