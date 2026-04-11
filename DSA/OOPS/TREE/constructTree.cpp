@@ -239,5 +239,6 @@ int main(){
 
     cout<<diameter(root);  // diameter of binary tree
 
-    cout<<diameterOptimized(root, diameter);  // diameter of binary tree optimized
+    int d2 = 0;
+    cout<<diameterOptimized(root, d2);  // diameter of binary tree optimized
 }
