@@ -179,6 +179,16 @@ int diameter(Node* root) {
     return d;
 }
 
+// diameter of binary tree optimized
+
+int diameterOptimized(Node* root, int &diameter){
+    if(root == NULL) return 0;
+    int lh = diameterOptimized(root->left, diameter);
+    int rh = diameterOptimized(root->right, diameter);
+    diameter = max(diameter, lh+rh);
+    return 1+ max(lh , rh);
+}   
+
 int main(){
     Node* root = new Node(1);
    root->left = new Node(3);
@@ -227,5 +237,7 @@ int main(){
     //     cout<<"Not Balanced Tree";
     // }
 
-    cout<<diameter(root, diameter);  // diameter of binary tree
+    cout<<diameter(root);  // diameter of binary tree
+
+    cout<<diameterOptimized(root, diameter);  // diameter of binary tree optimized
 }
