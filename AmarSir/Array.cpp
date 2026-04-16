@@ -17,88 +17,103 @@ public:
         while (an)
         {
             string ans;
-            cout << "If you want to traverse array press (y) or (n) press (d) for delete : ";
-            cout << " For searching press (s) :";
+            cout << "Traverse (t) Exit (e)  deletion (d)  sesrching (s) :  " ;
+   
             cin >> ans;
-            if (ans == "y")
+            if (ans == "t")
             {
                 for (int i = 0; i < n; i++)
                 {
                     cout << i + 1 << " element is: " << arr[i] << endl;
                 }
             }
-            else if (ans == "n")
+          else if (ans == "d") {
+                int del;
+                cout << "Enter value to delete: ";
+                cin >> del;
+
+                bool found = false;
+
+                for (int i = 0; i < n; i++) {
+                    if (arr[i] == del) {
+                        for (int j = i; j < n - 1; j++) {
+                            arr[j] = arr[j + 1];
+                        }
+                         cout<<"element deleted : " <<endl;
+                        n--;
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found) cout << "Element not found\n";
+            }
+            else if (ans == "e")
             {
                 an = false;
                 break;
-            }
-            else if (ans == "d")
-            {
-                int del;
-                cout << "Enter the Value to delete: ";
-                cin >> del;
-                for (int i = 0; i < n; i++)
-                {
-                    if (arr[i] == del)
-                    {
-         
-                        break;
-                    }
-                    else
-                    {
-                        cout << " Element not found : ";
-                    }
-                }
-                else if (ans == "s")
-                {
+            } 
+           
+          else if(ans == "s"){
+    string op;
+    cout<<"linearSearch (l) or binarySearch (b): ";
+    cin>>op;
 
-                    string op;
-                    cout << " Choose option for searching : " << endl;
-                    cout << " Binary press (b) : " << endl;
-                    cout << "Linear press (l) :" << endl;
-                    if (op == "b")
-                    {
-                        int ele;
-                        cout << " Enter the element : ";
-                        cin >> ele;
-                        int low = 0;
-                        int high = arr.size();
-                        while (low <= high)
-                        {
-                            int mid = (low + high) / 2;
-                            if (mid == ele)
-                            {
-                                cout << " Element found :" << i;
-                                break;
-                            }
-                            else if (mid < ele)
-                            {
-                                high = mid - 1;
-                            }
-                            else if (mid > ele)
-                            {
-                                low = mid + 1;
-                            }
-                        }
-                        else if (ans == "l")
-                        {
-                             for (int i = 0; i < n; i++)
-                            {
-                                if (arr[i] == ele)
-                                {
-                                    cout << "Element found : " << i;
-                                }
-                            }
-                        }
-                    }
-                }
+    if(op == "l"){
+        int ele;
+        cout<<"Enter element: ";
+        cin>>ele;
+
+        bool found = false;
+
+        for(int i = 0; i < n; i++){
+            if(arr[i] == ele){
+                cout<<"Element found at index: "<<i<<endl;
+                found = true;
+                break;
             }
+        }
+
+        if(!found) cout<<"Element not found"<<endl;
+    }
+
+    else if(op == "b"){
+        sort(arr, arr + n);  // important
+
+        int elt;
+        cout<<"Enter element: ";
+        cin>>elt;
+
+        int low = 0, high = n-1;
+        bool found = false;
+
+        while(low <= high){
+            int mid = (low + high)/2;
+
+            if(arr[mid] == elt){
+                cout<<"Element found at index: "<<mid<<endl;
+                found = true;
+                break;
+            }
+            else if(arr[mid] < elt){
+                low = mid + 1;
+            }
+            else{
+                high = mid - 1;
+            }
+        }
+
+        if(!found) cout<<"Element not found"<<endl;
+    }
+                }
+            
             else
             {
-                cout << "Please press only (y) or (n) or press (d) for deletion" << endl;
+                cout << "Please press only (t) or (e) or (d) or (s)" << endl;
             }
         }
     }
+
 };
 
 int main()
