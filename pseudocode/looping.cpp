@@ -269,3 +269,30 @@ int main() {
 
     return 0;
 }
+
+// ==================================================
+
+// Program: DoWhile_Decrement
+DECLARE x, y : INTEGER
+SET x = 20
+SET y = 3       
+while x > 0
+    PRINT x
+    SET x = x - y - 1
+END WHILE
+
+#include <iostream>
+using namespace std;
+int main() {
+    int x = 20, y = 3;
+
+    while (x > 0) {
+        cout << x << " ";
+        x = x - y - 1;
+    }
+
+    return 0;
+}
+
+
+ 
