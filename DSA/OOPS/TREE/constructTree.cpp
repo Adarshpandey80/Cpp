@@ -189,6 +189,8 @@ int diameterOptimized(Node* root, int &diameter){
     return 1+ max(lh , rh);
 }   
 
+
+
 int main(){
     Node* root = new Node(1);
    root->left = new Node(3);
