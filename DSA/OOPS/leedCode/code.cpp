@@ -17,3 +17,36 @@ vector<int> twoSum(vector<int>& arr, int target){
     }
     return {};
 }
+
+
+// #include<iostream>
+// using namespace std;
+// class Rect{
+//     private:
+//     int l;
+//     int b;
+//     public:
+//     void getdata(){
+//         cout<<"\n enter the length and bredth of rectangel :";
+//         cin>>l>>b;
+//     }
+//     void showdata(){
+//         cout<<"\n length is : "<<l;
+//         cout<<"\n bredth is : "<<b;
+//     }
+//     void getarea(){  
+//         cout<<"\n the area of rectangel is : "<<(l*b);
+//     }
+//     void getpira(){  
+//         cout<<"\n the pairameter of rectangel is : "<<2*(l+b);
+//     }
+// };
+
+// int main(){
+//     Rect r1;
+//     r1.getdata();    
+//     r1.showdata();
+//     r1.getarea();
+//     r1.getpira();
+//     return 0;
+// }
