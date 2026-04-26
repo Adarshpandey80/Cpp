@@ -50,3 +50,18 @@ vector<int> twoSum(vector<int>& arr, int target){
 //     r1.getpira();
 //     return 0;
 // }
+
+
+Node* reverseLL(Node* head){
+    Node* prev = NULL;
+    Node* curr = head;
+
+    while(curr != NULL){
+        Node* next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+}
+
