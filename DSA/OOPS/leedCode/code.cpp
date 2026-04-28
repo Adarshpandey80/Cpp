@@ -109,3 +109,19 @@ int countSubarrays(vector<int>& arr, int k){
     }
     return count;
 }
+
+
+int longestDistinct(vector<int>& arr){
+    unordered_set<int> st;
+    int left = 0, maxLen = 0;
+
+    for(int right = 0; right < arr.size(); right++){
+        while(st.count(arr[right])){
+            st.erase(arr[left]);
+            left++;
+        }
+        st.insert(arr[right]);
+        maxLen = max(maxLen, right - left + 1);
+    }
+    return maxLen;
+}
