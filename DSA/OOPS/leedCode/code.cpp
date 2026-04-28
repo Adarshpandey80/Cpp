@@ -78,50 +78,64 @@ int maxSubArray(vector<int>& arr){
 }
 
 
-int binarySearch(vector<int>& arr, int target){
-    int low = 0, high = arr.size()-1;
+// int binarySearch(vector<int>& arr, int target){
+//     int low = 0, high = arr.size()-1;
 
-    while(low <= high){
-        int mid = (low + high)/2;
+//     while(low <= high){
+//         int mid = (low + high)/2;
 
-        if(arr[mid] == target) return mid;
-        else if(arr[mid] < target) low = mid + 1;
-        else high = mid - 1;
+//         if(arr[mid] == target) return mid;
+//         else if(arr[mid] < target) low = mid + 1;
+//         else high = mid - 1;
+//     }
+//     return -1;
+// }
+
+
+// int countSubarrays(vector<int>& arr, int k){
+//     unordered_map<int,int> mp;
+//     int sum = 0, count = 0;
+
+//     mp[0] = 1;
+
+//     for(int i = 0; i < arr.size(); i++){
+//         sum += arr[i];
+
+//         if(mp.find(sum - k) != mp.end()){
+//             count += mp[sum - k];
+//         }
+
+//         mp[sum]++;
+//     }
+//     return count;
+// }
+
+
+// int longestDistinct(vector<int>& arr){
+//     unordered_set<int> st;
+//     int left = 0, maxLen = 0;
+
+//     for(int right = 0; right < arr.size(); right++){
+//         while(st.count(arr[right])){
+//             st.erase(arr[left]);
+//             left++;
+//         }
+//         st.insert(arr[right]);
+//         maxLen = max(maxLen, right - left + 1);
+//     }
+//     return maxLen;
+// }
+
+
+bool hasCycle(Node* head){
+    Node* slow = head;
+    Node* fast = head;
+
+    while(fast && fast->next){
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if(slow == fast) return true;
     }
-    return -1;
-}
-
-
-int countSubarrays(vector<int>& arr, int k){
-    unordered_map<int,int> mp;
-    int sum = 0, count = 0;
-
-    mp[0] = 1;
-
-    for(int i = 0; i < arr.size(); i++){
-        sum += arr[i];
-
-        if(mp.find(sum - k) != mp.end()){
-            count += mp[sum - k];
-        }
-
-        mp[sum]++;
-    }
-    return count;
-}
-
-
-int longestDistinct(vector<int>& arr){
-    unordered_set<int> st;
-    int left = 0, maxLen = 0;
-
-    for(int right = 0; right < arr.size(); right++){
-        while(st.count(arr[right])){
-            st.erase(arr[left]);
-            left++;
-        }
-        st.insert(arr[right]);
-        maxLen = max(maxLen, right - left + 1);
-    }
-    return maxLen;
+    return false;
 }
