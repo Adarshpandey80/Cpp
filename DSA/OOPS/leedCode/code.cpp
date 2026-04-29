@@ -140,17 +140,31 @@ int maxSubArray(vector<int>& arr){
 //     return false;
 // }
 
-int longestDistinct(vector<int>& arr){
-    unordered_set<int> st;
-    int left = 0, maxLen = 0;
+// int longestDistinct(vector<int>& arr){
+//     unordered_set<int> st;
+//     int left = 0, maxLen = 0;
 
-    for(int right = 0; right < arr.size(); right++){
-        while(st.count(arr[right])){
-            st.erase(arr[left]);
-            left++;
-        }
-        st.insert(arr[right]);
-        maxLen = max(maxLen, right - left + 1);
+//     for(int right = 0; right < arr.size(); right++){
+//         while(st.count(arr[right])){
+//             st.erase(arr[left]);
+//             left++;
+//         }
+//         st.insert(arr[right]);
+//         maxLen = max(maxLen, right - left + 1);
+//     }
+//     return maxLen;
+// }
+
+
+bool hasCycle(Node* head){
+    Node* slow = head;
+    Node* fast = head;
+
+    while(fast && fast->next){
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if(slow == fast) return true;
     }
-    return maxLen;
+    return false;
 }
