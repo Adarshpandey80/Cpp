@@ -169,17 +169,36 @@ int maxSubArray(vector<int>& arr){
 //     return false;
 // }
 
-vector<int> merge(vector<int>& a, vector<int>& b){
-    vector<int> ans;
-    int i = 0, j = 0;
+// vector<int> merge(vector<int>& a, vector<int>& b){
+//     vector<int> ans;
+//     int i = 0, j = 0;
 
-    while(i < a.size() && j < b.size()){
-        if(a[i] < b[j]) ans.push_back(a[i++]);
-        else ans.push_back(b[j++]);
+//     while(i < a.size() && j < b.size()){
+//         if(a[i] < b[j]) ans.push_back(a[i++]);
+//         else ans.push_back(b[j++]);
+//     }
+
+//     while(i < a.size()) ans.push_back(a[i++]);
+//     while(j < b.size()) ans.push_back(b[j++]);
+
+//     return ans;
+// }
+
+bool isValid(string s){
+    stack<char> st;
+
+    for(char c : s){
+        if(c=='(' || c=='{' || c=='[') st.push(c);
+        else{
+            if(st.empty()) return false;
+
+            char top = st.top();
+            if((c==')' && top!='(') ||
+               (c=='}' && top!='{') ||
+               (c==']' && top!='[')) return false;
+
+            st.pop();
+        }
     }
-
-    while(i < a.size()) ans.push_back(a[i++]);
-    while(j < b.size()) ans.push_back(b[j++]);
-
-    return ans;
+    return st.empty();
 }
