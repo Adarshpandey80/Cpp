@@ -184,21 +184,33 @@ int maxSubArray(vector<int>& arr){
 //     return ans;
 // }
 
-bool isValid(string s){
-    stack<char> st;
+// bool isValid(string s){
+//     stack<char> st;
 
-    for(char c : s){
-        if(c=='(' || c=='{' || c=='[') st.push(c);
-        else{
-            if(st.empty()) return false;
+//     for(char c : s){
+//         if(c=='(' || c=='{' || c=='[') st.push(c);
+//         else{
+//             if(st.empty()) return false;
 
-            char top = st.top();
-            if((c==')' && top!='(') ||
-               (c=='}' && top!='{') ||
-               (c==']' && top!='[')) return false;
+//             char top = st.top();
+//             if((c==')' && top!='(') ||
+//                (c=='}' && top!='{') ||
+//                (c==']' && top!='[')) return false;
 
-            st.pop();
-        }
+//             st.pop();
+//         }
+//     }
+//     return st.empty();
+// }
+
+
+int maxProfit(vector<int>& prices) {
+    int minPrice = INT_MAX, profit = 0;
+
+    for (int price : prices) {
+        minPrice = min(minPrice, price);
+        profit = max(profit, price - minPrice);
     }
-    return st.empty();
+
+    return profit;
 }
