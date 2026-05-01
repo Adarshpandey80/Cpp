@@ -204,13 +204,24 @@ int maxSubArray(vector<int>& arr){
 // }
 
 
-int maxProfit(vector<int>& prices) {
-    int minPrice = INT_MAX, profit = 0;
+// int maxProfit(vector<int>& prices) {
+//     int minPrice = INT_MAX, profit = 0;
 
-    for (int price : prices) {
-        minPrice = min(minPrice, price);
-        profit = max(profit, price - minPrice);
+//     for (int price : prices) {
+//         minPrice = min(minPrice, price);
+//         profit = max(profit, price - minPrice);
+//     }
+
+//     return profit;
+// }
+
+void moveZeroes(vector<int>& nums) {
+    int j = 0;
+
+    for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] != 0) {
+            swap(nums[i], nums[j]);
+            j++;
+        }
     }
-
-    return profit;
 }
