@@ -227,31 +227,45 @@ int maxSubArray(vector<int>& arr){
 // }
 
 
-void dfs(vector<vector<char>>& grid, int i, int j) {
-    int m = grid.size(), n = grid[0].size();
+// void dfs(vector<vector<char>>& grid, int i, int j) {
+//     int m = grid.size(), n = grid[0].size();
 
-    if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] == '0')
-        return;
+//     if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] == '0')
+//         return;
 
-    grid[i][j] = '0';
+//     grid[i][j] = '0';
 
-    dfs(grid, i+1, j);
-    dfs(grid, i-1, j);
-    dfs(grid, i, j+1);
-    dfs(grid, i, j-1);
-}
+//     dfs(grid, i+1, j);
+//     dfs(grid, i-1, j);
+//     dfs(grid, i, j+1);
+//     dfs(grid, i, j-1);
+// }
 
-int numIslands(vector<vector<char>>& grid) {
-    int count = 0;
+// int numIslands(vector<vector<char>>& grid) {
+//     int count = 0;
 
-    for (int i = 0; i < grid.size(); i++) {
-        for (int j = 0; j < grid[0].size(); j++) {
-            if (grid[i][j] == '1') {
-                dfs(grid, i, j);
-                count++;
-            }
-        }
+//     for (int i = 0; i < grid.size(); i++) {
+//         for (int j = 0; j < grid[0].size(); j++) {
+//             if (grid[i][j] == '1') {
+//                 dfs(grid, i, j);
+//                 count++;
+//             }
+//         }
+//     }
+
+//     return count;
+// }
+
+
+
+int findKthLargest(vector<int>& nums, int k) {
+    priority_queue<int, vector<int>, greater<int>> pq;
+
+    for (int num : nums) {
+        pq.push(num);
+
+        if (pq.size() > k) pq.pop();
     }
 
-    return count;
+    return pq.top();
 }
