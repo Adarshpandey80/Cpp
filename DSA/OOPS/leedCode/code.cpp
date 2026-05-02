@@ -215,13 +215,43 @@ int maxSubArray(vector<int>& arr){
 //     return profit;
 // }
 
-void moveZeroes(vector<int>& nums) {
-    int j = 0;
+// void moveZeroes(vector<int>& nums) {
+//     int j = 0;
 
-    for (int i = 0; i < nums.size(); i++) {
-        if (nums[i] != 0) {
-            swap(nums[i], nums[j]);
-            j++;
+//     for (int i = 0; i < nums.size(); i++) {
+//         if (nums[i] != 0) {
+//             swap(nums[i], nums[j]);
+//             j++;
+//         }
+//     }
+// }
+
+
+void dfs(vector<vector<char>>& grid, int i, int j) {
+    int m = grid.size(), n = grid[0].size();
+
+    if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] == '0')
+        return;
+
+    grid[i][j] = '0';
+
+    dfs(grid, i+1, j);
+    dfs(grid, i-1, j);
+    dfs(grid, i, j+1);
+    dfs(grid, i, j-1);
+}
+
+int numIslands(vector<vector<char>>& grid) {
+    int count = 0;
+
+    for (int i = 0; i < grid.size(); i++) {
+        for (int j = 0; j < grid[0].size(); j++) {
+            if (grid[i][j] == '1') {
+                dfs(grid, i, j);
+                count++;
+            }
         }
     }
+
+    return count;
 }
