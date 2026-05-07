@@ -854,6 +854,29 @@ int missingNumber(vector<int> &arr, int k)
     return k;
 }
 
+// find Kth missing Number using binary search
+
+int missingNumberBinarySearch(vector<int> &arr, int k)
+{
+    int low = 0;
+    int high = arr.size() - 1;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        int missingCount = arr[mid] - (mid + 1); 
+        if (missingCount < k)
+        {
+            low = mid + 1; 
+        }
+        else
+        {
+            high = mid - 1; 
+        }
+    }
+    return low + k; 
+}
+
+
 int main()
 {
     // vector<int> arr = {1,2,3,4,6,7,8,9};
