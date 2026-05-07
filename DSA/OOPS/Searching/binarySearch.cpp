@@ -876,6 +876,27 @@ int missingNumberBinarySearch(vector<int> &arr, int k)
     return low + k; 
 }
 
+// wap to find the first and last occurrence of an element in a sorted array
+
+int firstOccurrence(vector<int> &arr, int n, int k)
+{
+    int first = -1;
+    int low = 0;
+    int high = n - 1;
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[mid] == k)
+        {
+            first = mid;
+            high = mid - 1; 
+        }
+        else if (arr[mid] < k)
+            low = mid + 1; 
+        else
+            high = mid - 1; 
+    return first;
+}
 
 int main()
 {
