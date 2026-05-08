@@ -321,6 +321,28 @@ int stackqueue(vector<int> &arr, int n, int k) {
     return maxSum;
 }
 
+// Using STL
+// int main(){
+//     vector<int> arr = {10, 9, 1, 2, 3, 4, 5, 6, 7, 8};
+//     cout<<"maxSum of the array"<<stackqueue(arr, 10 , 5);
+// }        
+
+// wap to stack of plates problem
+
+int plateStack(vector<int> &arr, int n, int k) {
+    stack<int> st;
+    for(int i = 0; i < n; i++) {
+        st.push(arr[i]);
+    }
+
+    int count = 0;
+    while(!st.empty() && count < k) {
+        st.pop();
+        count++;
+    }
+
+    return st.size();
+}
 
 int main(){ 
     // push(10);
