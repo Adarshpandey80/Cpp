@@ -51,6 +51,33 @@ class Tree{
             return search(root->right,value);
         }
     }   
+
+    // Function to delete a node in BST
+    Tree * deleteNode(Tree *root,int value){
+        if(root==NULL){
+            cout<<"\n Node Not Found";
+            return NULL;
+        }
+        if(value<root->data){
+            root->left=deleteNode(root->left,value);
+        }else if(value>root->data){
+            root->right=deleteNode(root->right,value);
+        }else{      
+            if(root->left==NULL){
+                Tree *temp=root->right;
+                delete root;
+                return temp;
+            }else if(root->right==NULL){
+                Tree *temp=root->left;
+                delete root;
+                return temp;
+            }
+            Tree *temp=minValueNode(root->right);
+            root->data=temp->data;
+            root->right=deleteNode(root->right,temp->data);
+        }
+        return root;
+    }
 };
 
 
