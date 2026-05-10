@@ -34,7 +34,30 @@ class Tree{
         cout<<"===>"<<root->data;
         inOrder(root->right);
     }
+
+    // Function to search a node in BST
+    Tree * search(Tree *root,int value){
+        if(root==NULL){
+            cout<<"\n Node Not Found";
+            return NULL;
+        }
+        if(root->data==value){
+            cout<<"\n Node Found";
+            return root;
+        }
+        if(value<root->data){   
+            return search(root->left,value);
+        }else if(value>root->data){
+            return search(root->right,value);
+        }
+    }   
 };
+
+
+
+
+
+
 
 int main(){
     Tree *root=NULL;
