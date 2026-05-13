@@ -78,11 +78,19 @@ class Tree{
         }
         return root;
     }
+
+    // function to update a node in BST
+    Tree * updateNode(Tree *root,int oldValue,int newValue){
+        root=deleteNode(root,oldValue);
+        root=insert(root,newValue); 
+        return root;
+    } 
+
 };
 
 
 
-
+   
 
 
 
@@ -97,5 +105,7 @@ int main(){
     root->insert(root,55);
     root->insert(root,70);
     root->inOrder(root);
+
+    
     return 0;
 }
