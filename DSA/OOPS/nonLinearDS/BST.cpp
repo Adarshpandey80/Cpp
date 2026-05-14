@@ -93,7 +93,15 @@ class Tree{
             current=current->left;  
         }
         return current; 
-
+    
+    // function to find the maximum value node in BST
+    Tree * maxValueNode(Tree *node){
+        Tree *current=node;
+        while(current && current->right!=NULL){
+            current=current->right;  
+        }
+        return current; 
+    }
 };
 
 
