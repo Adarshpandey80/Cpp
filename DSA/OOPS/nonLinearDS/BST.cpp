@@ -86,6 +86,14 @@ class Tree{
         return root;
     } 
 
+    // Function to find the minimum value node in BST
+    Tree * minValueNode(Tree *node){
+        Tree *current=node;
+        while(current && current->left!=NULL){
+            current=current->left;  
+        }
+        return current; 
+
 };
 
 
