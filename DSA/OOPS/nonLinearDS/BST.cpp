@@ -111,6 +111,15 @@ class Tree{
         int rightHeight=height(root->right);
         return max(leftHeight,rightHeight)+1;
     }
+
+    // Function to find the number of nodes in BST
+    int countNodes(Tree *root){
+        if(root==NULL){
+            return 0;
+        }
+        return countNodes(root->left)+countNodes(root->right)+1;
+    }
+    
 };
 
 
