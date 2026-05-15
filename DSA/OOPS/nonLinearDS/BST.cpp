@@ -102,6 +102,15 @@ class Tree{
         }
         return current; 
     }
+    // Function to find the height of BST
+    int height(Tree *root){
+        if(root==NULL){
+            return -1;
+        }
+        int leftHeight=height(root->left);
+        int rightHeight=height(root->right);
+        return max(leftHeight,rightHeight)+1;
+    }
 };
 
 
