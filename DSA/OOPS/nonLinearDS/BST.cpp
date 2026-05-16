@@ -119,6 +119,16 @@ class Tree{
         }
         return countNodes(root->left)+countNodes(root->right)+1;
     }
+    // Function to find the number of leaf nodes in BST
+    int countLeafNodes(Tree *root){
+        if(root==NULL){
+            return 0;
+        }
+        if(root->left==NULL && root->right==NULL){
+            return 1;
+        }
+        return countLeafNodes(root->left)+countLeafNodes(root->right);
+    }
     
 };
 
