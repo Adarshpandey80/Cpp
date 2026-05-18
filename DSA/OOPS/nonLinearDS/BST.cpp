@@ -151,6 +151,21 @@ class Tree{
         }
         return countNodesAtLevel(root->left,level-1)+countNodesAtLevel(root->right,level-1);
     }   
+
+    // Function to find the level of a given node in BST
+    int findLevel(Tree *root,int value,int level){
+        if(root==NULL){
+            return -1;
+        }
+        if(root->data==value){
+            return level;
+        }
+        int leftLevel=findLevel(root->left,value,level+1);
+        if(leftLevel!=-1){
+            return leftLevel;
+        }
+        return findLevel(root->right,value,level+1);
+    }
     
 };
 
