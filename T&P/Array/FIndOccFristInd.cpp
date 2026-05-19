@@ -54,8 +54,8 @@ int findlastindex(vector<int> arr , int m){
 int main(){
     vector<int> arr = { 3,4,1,3,1,5,2,1,6,1};
     int m = 1;
-    // cout<<" frist index of occurance  element "<<findfristindex(arr , m);
-    // cout<<" last index of occurance  element "<<findlastindex(arr , m);
-    cout<<" frist index of occurance  element  "<<findfristelementindex(arr );
+    cout<<" frist index of occurance  element "<<findfristindex(arr , m);
+    cout<<" last index of occurance  element "<<findlastindex(arr , m);
+    // cout<<" frist index of occurance  element  "<<findfristelementindex(arr );
 
 }
