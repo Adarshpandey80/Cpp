@@ -26,6 +26,18 @@ pair<int,int> first_last_occurrence(int arr[], int search_element,int size){
     }
     return p;
 }
+
+//  function to count the number of occurrences of an element in an array using linear search
+int count_occurrence(int arr[], int search_element,int size){
+    int count=0;
+    for(int i=0; i<size;i++){
+        if(arr[i]==search_element){
+            count++;
+        } 
+    }
+    return count;
+}
+
 int main(){
     int arr[] = {10,2,3,20,30,40,6};
     int search_element = 6;
