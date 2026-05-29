@@ -87,6 +87,22 @@ int longestIncreasing(vector<int> &arr){
     return maxlen;
 }
 
+// longest consicutive increasing subarray with k diffrence
+int longestIncreasingK(vector<int> &arr , int k){
+    int l = 0; int r = 0; int maxlen = 0;
+    while(r<arr.size()){
+        if(arr[r]-arr[r-1]<=k){
+            int len = r-l+1;
+             maxlen = max(maxlen , len);
+        } else {
+            l = r;
+             maxlen = max(maxlen , r-l+1);
+        }
+        r++;
+    }
+    return maxlen;
+}
+
 int main(){
     vector<int> arr = {3,4,-2,5,8,20,-10,8};
     cout<<isDevide(arr);
