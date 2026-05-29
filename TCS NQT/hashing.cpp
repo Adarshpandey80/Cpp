@@ -15,6 +15,18 @@ void removeDuplicate(vector<int>&arr ){
     }
 }
 
+// max diffrence btn two elements
+int diffrence(vector<int> &arr ){
+    int maxi = 0;   
+    int n = arr.size();
+    for(int i = 0;i<n;i++){
+        for(int j = i+1;j<n;j++){   
+            maxi = max(maxi , arr[j] - arr[i]);
+        }
+    }
+    return maxi;        
+}
+
 
 
 int main(){
