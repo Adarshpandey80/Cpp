@@ -33,6 +33,42 @@ void enq(int d)
     }
 }
 
+// method 1
+int dque()
+{
+    int r = 0;
+    if (front == NULL && rear == NULL)
+    {
+        cout << "\n Under flow condition";
+        return -1;
+    }
+    else
+    {
+        r = front->data;
+        Node *temp = front;
+        front = front->next;
+        delete temp;
+        return r;
+    }
+}
+
+int peek()
+{
+    int r = 0;
+    if (front == NULL && rear == NULL)
+    {
+        cout << "\n Under flow condition";
+        return -1;
+    }
+    else
+    {
+        r = front->data;
+        return r;
+    }
+}   
+
+
+
 int main()
 {
     enq(10);
