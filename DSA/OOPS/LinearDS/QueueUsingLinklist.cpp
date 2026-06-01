@@ -67,6 +67,40 @@ int peek()
     }
 }   
 
+// method 2 (when lops of pop operation done);
+
+int dque()
+{
+    int r = 0;
+    if (front == NULL && rear == NULL)
+    {
+        cout << "\n Under flow condition";
+        return -1;
+    }
+    else
+    {
+        r = front->data;
+        front = front->next;
+        return r;
+    }
+}
+
+int peek()
+{
+    int r = 0;
+    if (front == NULL && rear == NULL)
+    {
+        cout << "\n Under flow condition";
+        return -1;
+    }
+    else
+    {
+        r = front->data;
+        return r;
+    }
+}
+
+
 
 
 int main()
