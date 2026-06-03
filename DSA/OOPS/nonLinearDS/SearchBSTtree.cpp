@@ -104,6 +104,15 @@ class Tree{
             searchNode(root->right,key);
         }
     }
+
+    //Function to find the minimum value in a given BST
+    int minValue(Tree *root){
+        Tree *current=root;
+        while(current->left!=NULL){
+            current=current->left;
+        }
+        return current->data;
+    }   
     
 };
 
