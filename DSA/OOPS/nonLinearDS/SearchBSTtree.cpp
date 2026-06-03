@@ -88,9 +88,25 @@ class Tree{
             return search(root->right,key);
         }
     }
-
+  
+    //Function to search a node in BST
+    void searchNode(Tree *root,int key){
+        if(root==NULL){
+            cout<<"\n Element Not Found";
+            return;
+        }
+        if(root->data==key){
+            cout<<"\n Element Found";
+            return;
+        }else if(key<root->data){
+            searchNode(root->left,key);
+        }else{
+            searchNode(root->right,key);
+        }
+    }
     
 };
+
 
 
 int main(){
