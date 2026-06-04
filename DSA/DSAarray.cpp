@@ -623,3 +623,27 @@ int main(){
      }
 
 }
+
+
+// way to find the leader in the array
+
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main(){
+    vector<int> arr = {16,17,4,3,5,2};
+    int n = arr.size(); 
+    vector<int> ans;
+    int maxi = INT_MIN;
+    for(int i = n-1;i>=0;i--){
+        if(arr[i]> maxi){
+            ans.push_back(arr[i]);      
+        }
+        maxi = max(maxi , arr[i]);
+    }
+   sort(ans.begin() , ans.end());   
+    for(int i = 0 ;i<ans.size() ; i++){
+     cout<<ans[i]<<" ";
+    }   
+}
