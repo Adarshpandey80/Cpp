@@ -116,7 +116,17 @@ int reverse(int n , int ans){
     ans = ans*10 + rem;
     return reverse(n/10 , ans);
 }
- int main(){
+ 
+// reverse a number using recursion
+int reverse2(int n){
+    static int ans = 0;
+    if(n==0) return ans;
+    int rem = n%10;
+    ans = ans*10 + rem;
+    return reverse2(n/10);
+}   
+
+int main(){
     // print();
     // int n;
     // cout<<"enter the value of n"<<endl;
