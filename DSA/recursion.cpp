@@ -126,6 +126,11 @@ int reverse2(int n){
     return reverse2(n/10);
 }   
 
+// using recursion find the power of a number
+int power(int a , int b){
+    if(b==0) return 1;
+    return a*power(a , b-1);
+}
 int main(){
     // print();
     // int n;
