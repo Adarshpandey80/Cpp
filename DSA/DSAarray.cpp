@@ -670,3 +670,25 @@ int main(){
     }
 }   
 
+// leetcode 1380 (shifted array)
+
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main(){
+    vector<int> arr = {1,2,3,4};
+    int n = arr.size();
+    vector<int> ans(n);
+    int k = 2; // example shift value
+    for(int i=0;i<n;i++){
+        if(i+k < n){
+            ans[i] = arr[i+k];
+        } else {
+            ans[i] = -1;
+        }
+    }
+    for(int i = 0 ;i<ans.size() ; i++){ 
+     cout<<ans[i]<<" ";
+    }
+}
