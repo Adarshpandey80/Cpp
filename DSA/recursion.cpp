@@ -131,6 +131,18 @@ int power(int a , int b){
     if(b==0) return 1;
     return a*power(a , b-1);
 }
+
+// using recursion find the power of a number in logn time
+int power2(int a , int b){  
+    if(b==0) return 1;
+    int temp = power2(a , b/2);
+    temp = temp*temp;
+    if(b%2 == 1){
+        temp = temp*a;
+    }
+    return temp;
+}
+
 int main(){
     // print();
     // int n;
