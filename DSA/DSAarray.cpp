@@ -716,3 +716,18 @@ int main(){
     }
 }
 
+// leetcode 1212 (maximum product of three numbers)
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main(){     
+    vector<int> arr = {1,2,3,4};
+    int n = arr.size();
+    sort(arr.begin() , arr.end());
+    int product1 = arr[n-1] * arr[n-2] * arr[n-3];
+    int product2 = arr[0] * arr[1] * arr[n-1];
+    int ans = max(product1 , product2);
+    cout<<ans;
+}   
+
