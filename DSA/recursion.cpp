@@ -142,7 +142,11 @@ int power2(int a , int b){
     }
     return temp;
 }
-
+// using recursion find the gcd of 2 number
+int gcd(int a , int b){
+    if(b==0) return a;
+    return gcd(b , a%b);
+}   
 int main(){
     // print();
     // int n;
