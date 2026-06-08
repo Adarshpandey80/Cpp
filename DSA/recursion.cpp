@@ -147,6 +147,18 @@ int gcd(int a , int b){
     if(b==0) return a;
     return gcd(b , a%b);
 }   
+
+
+// using recursin write a function to find the first and last occurence of a number in an array
+void occurence(int arr[] , int n , int key , int i , int &first , int &last){
+    if(i==n) return;
+    if(arr[i] == key){
+        if(first == -1){
+            first = i;
+        } else {    
+            last = i;
+        }
+    }   
 int main(){
     // print();
     // int n;
