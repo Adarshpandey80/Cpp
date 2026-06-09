@@ -754,7 +754,41 @@ void printlist(Node *head)
         cout << head->data << " ";
         head = head->next;
     }
-}
+
+    // sort a linkedlist
+
+    int sort(Node* head){
+        if(head == NULL || head->next == NULL) return 0;
+        int count0 = 0;
+        int count1 = 0;
+        int count2 = 0;
+        Node* temp = head;
+        while(temp!= NULL){
+            if(temp->data == 0) count0++;
+            else if(temp->data == 1) count1++;
+            else count2++;
+            temp = temp->next;
+        }
+        temp = head;
+        while(temp!= NULL){
+            if(count0 != 0){
+                temp->data = 0;
+                count0--;
+            } else if(count1 != 0){
+                temp->data = 1;
+                count1--;
+            } else {
+                temp->data = 2;
+                count2--;
+            }
+            temp = temp->next;
+        
+        }
+        return 0;
+    }
+} 
+
+
 int main()
 {
     vector<int> arr = {3, 1, 4, 6, 2};
