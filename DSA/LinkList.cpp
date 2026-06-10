@@ -754,10 +754,10 @@ void printlist(Node *head)
         cout << head->data << " ";
         head = head->next;
     }
+}
+// sort 0s , 1s and 2s in a linkedlist
 
-    // sort a linkedlist
-
-    int sort(Node* head){
+ int sort(Node* head){
         if(head == NULL || head->next == NULL) return 0;
         int count0 = 0;
         int count1 = 0;
@@ -786,7 +786,9 @@ void printlist(Node *head)
         }
         return 0;
     }
-  // length of the loop in ll
+
+
+      // length of the loop in ll
     int lengthofloop(Node* head){
         if(head == NULL) return 0;
         Node* slow = head;
@@ -804,9 +806,8 @@ void printlist(Node *head)
                 return cnt;
             }
         }
-        return 0;
-} 
-
+     return 0;
+    }
 
 int main()
 {

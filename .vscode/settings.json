@@ -5,5 +5,5 @@
         "typeinfo": "cpp"
     },
     "github.copilot.nextEditSuggestions.enabled": true,
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "enabled"
 }

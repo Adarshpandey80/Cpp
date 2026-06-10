@@ -169,7 +169,23 @@ class Tree{
     
 };
 
-
+// find the inorder successor of a given node in BST
+Tree * inOrderSuccessor(Tree *root,Tree *node){
+    if(node->right!=NULL){
+        return minValueNode(node->right);
+    }   
+    Tree *successor=NULL;
+    Tree *ancestor=root;
+    while(ancestor!=node){  
+        if(node->data<ancestor->data){
+            successor=ancestor;
+            ancestor=ancestor->left;
+        }else{
+            ancestor=ancestor->right;
+        }
+    }
+    return successor;
+}
 
    
 
