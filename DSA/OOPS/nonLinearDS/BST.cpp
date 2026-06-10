@@ -187,7 +187,25 @@ Tree * inOrderSuccessor(Tree *root,Tree *node){
     return successor;
 }
 
+// find the inorder predecessor of a given node in BST
+Tree * inOrderPredecessor(Tree *root,Tree *node){
+    if(node->left!=NULL){
+        return maxValueNode(node->left);
+    }       
+    Tree *predecessor=NULL;
+    Tree *ancestor=root;
+    while(ancestor!=node){      
+        if(node->data>ancestor->data){
+            predecessor=ancestor;
+            ancestor=ancestor->right;
+        }else{
+            ancestor=ancestor->left;
+        }
+    }       
+    return predecessor;
+}
    
+ 
 
 
 
