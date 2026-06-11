@@ -219,6 +219,14 @@ Tree * lowestCommonAncestor(Tree *root,Tree *p,Tree *q){
     }
 }
 
+// find the distance between two nodes in BST
+int distanceBetweenNodes(Tree *root,Tree *p,Tree *q){
+    Tree *lca=lowestCommonAncestor(root,p,q);
+    int distanceLcaToP=findLevel(lca,p->data,0);
+    int distanceLcaToQ=findLevel(lca,q->data,0);
+    return distanceLcaToP+distanceLcaToQ;
+}   
+
 
 
 int main(){
