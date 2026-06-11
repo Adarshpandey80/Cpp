@@ -205,7 +205,19 @@ Tree * inOrderPredecessor(Tree *root,Tree *node){
     return predecessor;
 }
    
- 
+ // find the lowest common ancestor of two nodes in BST
+Tree * lowestCommonAncestor(Tree *root,Tree *p,Tree *q){
+    if(root==NULL){
+        return NULL;
+    }
+    if(p->data<root->data && q->data<root->data){
+        return lowestCommonAncestor(root->left,p,q);    
+    }else if(p->data>root->data && q->data>root->data){
+        return lowestCommonAncestor(root->right,p,q);
+    }else{        
+        return root;
+    }
+}
 
 
 
