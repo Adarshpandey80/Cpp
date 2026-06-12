@@ -764,3 +764,27 @@ int main(){
     int ans = max(product1 , product2);
     cout<<ans;
 }
+
+// wap to check if the array is monotonic or not
+#include <iostream>
+#include<vector>    
+using namespace std;
+int main(){
+    vector<int> arr = {1,2,3,4};
+    int n = arr.size();
+    bool increasing = true; 
+    bool decreasing = true;
+    for(int i=1;i<n;i++){       
+        if(arr[i] > arr[i-1]){
+            decreasing = false;
+        } else if(arr[i] < arr[i-1]){
+            increasing = false;
+        }
+    }
+    if(increasing || decreasing){   
+        cout<<"the array is monotonic"<<endl;
+    } else {
+        cout<<"the array is not monotonic"<<endl;
+    }   
+    return 0;
+}           
