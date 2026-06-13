@@ -714,12 +714,29 @@ int removeHash(vector<char> &chars){
 }
 // remove # in the front of the string
 
+vector<char> moveHashFront(vector<char> &chars){
+    int n = chars.size();
+   vector<char> ans;
+   for(int i = 0;i<n;i++){
+    if(chars[i] != '#'){
+        ans.push_back(chars[i]);
+    }
+   }
+   for(int i = 0;i<n;i++){
+    if(chars[i] == '#'){
+        ans.insert(ans.begin() , chars[i]);
+    }
+   }
+
+   return ans;
+}
 
 
 
 int main(){
     vector<char> chars = {'a','b','#','c','d','#','e'};
-    removeHash(chars);
+    // removeHash(chars);
+    chars = moveHashFront(chars);
     for(int i = 0 ;i<chars.size() ; i++){
         cout<<chars[i]<<" ";
     }
