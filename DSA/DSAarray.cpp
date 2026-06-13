@@ -598,193 +598,130 @@
 
 
 // Sliding Window Maximum
-#include <iostream>
-#include<vector>
-#include <algorithm>
-using namespace std;
-vector<int> Slidingwindow(vector<int> arr , int n,int k ){
-    int maxi = INT_MIN;
-    vector<int> ans;
-    for(int i =0 ;i<=n-k;i++ ){
-        for(int j=i ; j<=i+k-1 ;j++){
-            maxi  =  max(maxi , arr[j]); 
-        }
-        ans.push_back(maxi);
-    }
-   return ans;
-}
+// #include <iostream>
+// #include<vector>
+// #include <algorithm>
+// using namespace std;
+// vector<int> Slidingwindow(vector<int> arr , int n,int k ){
+//     int maxi = INT_MIN;
+//     vector<int> ans;
+//     for(int i =0 ;i<=n-k;i++ ){
+//         for(int j=i ; j<=i+k-1 ;j++){
+//             maxi  =  max(maxi , arr[j]); 
+//         }
+//         ans.push_back(maxi);
+//     }
+//    return ans;
+// }
 
-int main(){
-    vector<int> arr = {1,3,-1,-3,5,3,2,1,6};
-    int n = arr.size();
-    vector<int> ans =  Slidingwindow(arr , n ,3); 
-     for(int i=0 ;i<ans.size() ; i++){
-        cout<<ans[i];
-     }
+// int main(){
+//     vector<int> arr = {1,3,-1,-3,5,3,2,1,6};
+//     int n = arr.size();
+//     vector<int> ans =  Slidingwindow(arr , n ,3); 
+//      for(int i=0 ;i<ans.size() ; i++){
+//         cout<<ans[i];
+//      }
 
-}
+// }
 
 
 // way to find the leader in the array
 
-#include <iostream>
-#include<vector>
-#include<algorithm>
-using namespace std;
-int main(){
-    vector<int> arr = {16,17,4,3,5,2};
-    int n = arr.size(); 
-    vector<int> ans;
-    int maxi = INT_MIN;
-    for(int i = n-1;i>=0;i--){
-        if(arr[i]> maxi){
-            ans.push_back(arr[i]);      
-        }
-        maxi = max(maxi , arr[i]);
-    }
-   sort(ans.begin() , ans.end());   
-    for(int i = 0 ;i<ans.size() ; i++){
-     cout<<ans[i]<<" ";
-    }   
-}
+// #include <iostream>
+// #include<vector>
+// #include<algorithm>
+// using namespace std;
+// int main(){
+//     vector<int> arr = {16,17,4,3,5,2};
+//     int n = arr.size(); 
+//     vector<int> ans;
+//     int maxi = INT_MIN;
+//     for(int i = n-1;i>=0;i--){
+//         if(arr[i]> maxi){
+//             ans.push_back(arr[i]);      
+//         }
+//         maxi = max(maxi , arr[i]);
+//     }
+//    sort(ans.begin() , ans.end());   
+//     for(int i = 0 ;i<ans.size() ; i++){
+//      cout<<ans[i]<<" ";
+//     }   
+// }
 
 // wap to element which are greater than all the element to their right side in the array
- #include <iostream>
-#include<vector>
-#include<algorithm>     
-using namespace std;
-int main(){
-    vector<int> arr = {16,17,4,3,5,2};
-    int n = arr.size();
-    vector<int> ans;
-    int maxi = INT_MIN;
-    for(int i = n-1;i>=0;i--){
-        if(arr[i]> maxi){
-            ans.push_back(arr[i]);
-        }
-        maxi = max(maxi , arr[i]);
-    }
-   sort(ans.begin() , ans.end());       
-    for(int i = 0 ;i<ans.size() ; i++){
-     cout<<ans[i]<<" ";
-    }
-}   
-
-// leetcode 1380 (shifted array)
+//  #include <iostream>
+// #include<vector>
+// #include<algorithm>     
+// using namespace std;
+// int main(){
+//     vector<int> arr = {16,17,4,3,5,2};
+//     int n = arr.size();
+//     vector<int> ans;
+//     int maxi = INT_MIN;
+//     for(int i = n-1;i>=0;i--){
+//         if(arr[i]> maxi){
+//             ans.push_back(arr[i]);
+//         }
+//         maxi = max(maxi , arr[i]);
+//     }
+//    sort(ans.begin() , ans.end());       
+//     for(int i = 0 ;i<ans.size() ; i++){
+//      cout<<ans[i]<<" ";
+//     }
+// }   
 
 
-#include <iostream>
-#include<vector>
-#include<algorithm>
-using namespace std;
-int main(){
-    vector<int> arr = {1,2,3,4};
-    int n = arr.size();
-    vector<int> ans(n);
-    int k = 2; // example shift value
-    for(int i=0;i<n;i++){
-        if(i+k < n){
-            ans[i] = arr[i+k];
-        } else {
-            ans[i] = -1;
-        }
-    }
-    for(int i = 0 ;i<ans.size() ; i++){ 
-     cout<<ans[i]<<" ";
-    }
-}
-
-// leetcode 1380 (shifted array) optimal solution
-#include <iostream>
-#include<vector>
-#include<algorithm>
-using namespace std;
-int main(){     
-    vector<int> arr = {1,2,3,4};
-    int n = arr.size();
-    vector<int> ans(n);
-    int k = 2; // example shift value
-    for(int i=0;i<n;i++){
-        if(i+k < n){
-            ans[i] = arr[i+k];
-        } else {
-            ans[i] = -1;
-        }
-    }
-    for(int i = 0 ;i<ans.size() ; i++){ 
-     cout<<ans[i]<<" ";
-    }
-}
-
-// leetcode 1212 (maximum product of three numbers)
-#include <iostream>
-#include<vector>
-#include<algorithm>
-using namespace std;
-int main(){     
-    vector<int> arr = {1,2,3,4};
-    int n = arr.size();
-    sort(arr.begin() , arr.end());
-    int product1 = arr[n-1] * arr[n-2] * arr[n-3];
-    int product2 = arr[0] * arr[1] * arr[n-1];
-    int ans = max(product1 , product2);
-    cout<<ans;
-}   
-
- 
-// leetcode 1212 (maximum product of three numbers) optimal solution
-#include <iostream> 
-#include<vector>
-#include<algorithm>
-using namespace std;
-int main(){    
-    vector<int> arr = {1,2,3,4};    
-    int n = arr.size();
-    int max1 = INT_MIN , max2 = INT_MIN , max3 = INT_MIN   , min1 = INT_MAX , min2 = INT_MAX;
-    for(int i=0;i<n;i++){
-        if(arr[i] > max1){
-            max3 = max2;
-            max2 = max1;
-            max1 = arr[i];
-        } else if(arr[i] > max2){
-            max3 = max2;        
-            max2 = arr[i];
-        } else if(arr[i] > max3){
-            max3 = arr[i];
-        }
-        if(arr[i] < min1){
-            min2 = min1;
-            min1 = arr[i];
-        } else if(arr[i] < min2){
-            min2 = arr[i];
-        }
-    }
-    int product1 = max1 * max2 * max3;
-    int product2 = min1 * min2 * max1;
-    int ans = max(product1 , product2);
-    cout<<ans;
-}
 
 // wap to check if the array is monotonic or not
+// #include <iostream>
+// #include<vector>    
+// using namespace std;
+// int main(){
+//     vector<int> arr = {1,2,3,4};
+//     int n = arr.size();
+//     bool increasing = true; 
+//     bool decreasing = true;
+//     for(int i=1;i<n;i++){       
+//         if(arr[i] > arr[i-1]){
+//             decreasing = false;
+//         } else if(arr[i] < arr[i-1]){
+//             increasing = false;
+//         }
+//     }
+//     if(increasing || decreasing){   
+//         cout<<"the array is monotonic"<<endl;
+//     } else {
+//         cout<<"the array is not monotonic"<<endl;
+//     }   
+//     return 0;
+// }           
+
+// remove # from the string
+
 #include <iostream>
-#include<vector>    
+#include<vector>
+#include<algorithm>
 using namespace std;
-int main(){
-    vector<int> arr = {1,2,3,4};
-    int n = arr.size();
-    bool increasing = true; 
-    bool decreasing = true;
-    for(int i=1;i<n;i++){       
-        if(arr[i] > arr[i-1]){
-            decreasing = false;
-        } else if(arr[i] < arr[i-1]){
-            increasing = false;
+int removeHash(vector<char> &chars){
+    int n  =  chars.size();
+    for (int i =0 ;i<n;i++){
+        if(chars[i] == '#'){
+            chars.erase(chars.begin() +i);
+            i--; // Adjust the index after removal
         }
     }
-    if(increasing || decreasing){   
-        cout<<"the array is monotonic"<<endl;
-    } else {
-        cout<<"the array is not monotonic"<<endl;
-    }   
     return 0;
-}           
+}
+// remove # in the front of the string
+
+
+
+
+int main(){
+    vector<char> chars = {'a','b','#','c','d','#','e'};
+    removeHash(chars);
+    for(int i = 0 ;i<chars.size() ; i++){
+        cout<<chars[i]<<" ";
+    }
+    return 0;
+}
