@@ -701,6 +701,8 @@
 #include <iostream>
 #include<vector>
 #include<algorithm>
+#include<map>
+
 using namespace std;
 int removeHash(vector<char> &chars){
     int n  =  chars.size();
@@ -731,14 +733,33 @@ vector<char> moveHashFront(vector<char> &chars){
    return ans;
 }
 
+// count the frequency of the character in the string
 
+vector<string> charansfreq(vector<char> & chars){
+    int n = chars.size();
+     map<char,int> mpp;
+     vector<string> ans;
+    for(int  i = 0;i<n;i++){
+        mpp[chars[i]]++;
+    }
+    for(auto it : mpp){
+       ans.push_back(string(1, it.first) + to_string(it.second));
+        
+    }
+    return ans;
+}
 
 int main(){
-    vector<char> chars = {'a','b','#','c','d','#','e'};
+    // vector<char> chars = {'a','b','#','c','d','#','e'};
+    vector<char> chars = {'a','a','a','b','b','b' , 'g','g','g','c','c','c'};
     // removeHash(chars);
     chars = moveHashFront(chars);
-    for(int i = 0 ;i<chars.size() ; i++){
-        cout<<chars[i]<<" ";
+     vector<string> ans = charansfreq(chars);
+    for(int i = 0 ;i<ans.size() ; i++){
+        cout<<ans[i];
     }
+    // for(int i = 0 ;i<chars.size() ; i++){
+    //     cout<<chars[i]<<" ";
+    // }
     return 0;
 }
