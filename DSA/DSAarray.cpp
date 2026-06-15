@@ -769,7 +769,29 @@ vector<string> charansfreqsort(vector<char> & chars){
     return ans;
 }
 
+// wap to move the character with the highest frequency to the front of the string
 
+vector<char> moveHighFreqFront(vector<char> &chars){
+    int n = chars.size();
+     map<char,int> mpp;
+     vector<string> ans;
+    for(int  i = 0;i<n;i++){
+        mpp[chars[i]]++;
+    }
+    vector<pair<char,int>> freq(mpp.begin(), mpp.end());
+    sort(freq.begin() , freq.end() , [](const pair<char,int> &a , const pair<char,int> &b){
+        return a.second > b.second; // Sort in descending order of frequency
+    });
+    char highFreqChar = freq[0].first; 
+    vector<char> result;
+    result.push_back(highFreqChar); 
+    for(char c : chars){
+        if(c != highFreqChar){
+            result.push_back(c); 
+        }
+    }
+    return result;
+}
 
 
 int main(){
@@ -777,6 +799,7 @@ int main(){
     vector<char> chars = {'a','a','a','b','b','b' , 'g','g','g','c','c','c'};
     // removeHash(chars);
     chars = moveHashFront(chars);
+    chars = moveHighFreqFront(chars);
      vector<string> ans = charansfreq(chars);
     for(int i = 0 ;i<ans.size() ; i++){
         cout<<ans[i];
