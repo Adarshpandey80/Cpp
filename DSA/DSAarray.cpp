@@ -749,6 +749,29 @@ vector<string> charansfreq(vector<char> & chars){
     return ans;
 }
 
+
+// count the frequency of the character in the string and sort it according to the frequency
+vector<string> charansfreqsort(vector<char> & chars){
+    int n = chars.size();
+     map<char,int> mpp;
+     vector<string> ans;
+    for(int  i = 0;i<n;i++){
+        mpp[chars[i]]++;
+    }
+    vector<pair<char,int>> freq(mpp.begin(), mpp.end());
+    sort(freq.begin() , freq.end() , [](const pair<char,int> &a , const pair<char,int> &b){
+        return a.second > b.second; // Sort in descending order of frequency
+    });
+    for(auto it : freq){
+       ans.push_back(string(1, it.first) + to_string(it.second));
+        
+    }
+    return ans;
+}
+
+
+
+
 int main(){
     // vector<char> chars = {'a','b','#','c','d','#','e'};
     vector<char> chars = {'a','a','a','b','b','b' , 'g','g','g','c','c','c'};
