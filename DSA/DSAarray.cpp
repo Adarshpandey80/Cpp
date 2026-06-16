@@ -820,6 +820,20 @@ vector<char> moveHighFreqFrontSort(vector<char> &chars){
     return result;
 }
 
+// given array of int and a target find the pair with the given sum in the array
+vector<pair<int,int>> findPairWithSum(vector<int> &arr, int target){
+    vector<pair<int,int>> ans;
+    map<int,int> mpp;
+    for(int i = 0;i<arr.size();i++){
+        int complement = target - arr[i];
+        if(mpp.find(complement) != mpp.end()){
+            ans.push_back({complement, arr[i]});
+        }
+        mpp[arr[i]]++;
+    }
+    return ans;
+}
+
 int main(){
     // vector<char> chars = {'a','b','#','c','d','#','e'};
     vector<char> chars = {'a','a','a','b','b','b' , 'g','g','g','c','c','c'};
