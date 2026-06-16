@@ -793,6 +793,32 @@ vector<char> moveHighFreqFront(vector<char> &chars){
     return result;
 }
 
+// wap to move the character with the highest frequency to the front of the string and sort the rest of the character according to their frequency
+
+vector<char> moveHighFreqFrontSort(vector<char> &chars){
+    int n = chars.size();
+     map<char,int> mpp;
+     vector<string> ans;
+    for(int  i = 0;i<n;i++){
+        mpp[chars[i]]++;
+    }
+    vector<pair<char,int>> freq(mpp.begin(), mpp.end());
+    sort(freq.begin() , freq.end() , [](const pair<char,int> &a , const pair<char,int> &b){
+        return a.second > b.second; 
+    });
+    char highFreqChar = freq[0].first; 
+    vector<char> result;
+    result.push_back(highFreqChar); 
+    for(int i = 1; i < freq.size(); i++){
+        char c = freq[i].first;
+        for(char ch : chars){
+            if(ch == c){
+                result.push_back(ch); 
+            }
+        }
+    }
+    return result;
+}
 
 int main(){
     // vector<char> chars = {'a','b','#','c','d','#','e'};
