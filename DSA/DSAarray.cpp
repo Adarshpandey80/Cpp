@@ -834,6 +834,24 @@ vector<pair<int,int>> findPairWithSum(vector<int> &arr, int target){
     return ans;
 }
 
+// given array of int and a target find the pair with the given sum in the array and sort it according to the frequency of the element in the array
+vector<pair<int,int>> findPairWithSumFreqSort(vector<int> &arr, int target){
+    vector<pair<int,int>> ans;
+    map<int,int> mpp;
+    for(int i = 0;i<arr.size();i++){
+        int complement = target - arr[i];   
+        if(mpp.find(complement) != mpp.end()){
+            ans.push_back({complement, arr[i]});
+        }
+        mpp[arr[i]]++;
+    }
+    vector<pair<int,int>> freq(ans.begin(), ans.end());
+    sort(freq.begin() , freq.end() , [&mpp](const pair<int,int> &a , const pair<int,int> &b){
+        return mpp[a.first] + mpp[a.second] > mpp[b.first] + mpp[b.second]; 
+    });
+    return freq;
+}
+
 int main(){
     // vector<char> chars = {'a','b','#','c','d','#','e'};
     vector<char> chars = {'a','a','a','b','b','b' , 'g','g','g','c','c','c'};
