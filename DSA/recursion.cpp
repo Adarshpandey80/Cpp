@@ -159,6 +159,14 @@ void occurence(int arr[] , int n , int key , int i , int &first , int &last){
             last = i;
         }
     }   
+}
+
+// using recursion find the sum of digits of a number
+int sumofdigits(int n){
+    if(n==0) return 0;
+    return n%10 + sumofdigits(n/10);
+}   
+
 int main(){
     // print();
     // int n;
