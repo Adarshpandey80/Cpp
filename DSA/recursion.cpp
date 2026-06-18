@@ -167,6 +167,12 @@ int sumofdigits(int n){
     return n%10 + sumofdigits(n/10);
 }   
 
+// using recursion find the number of digits in a number
+int countdigits(int n){
+    if(n==0) return 0;
+    return 1 + countdigits(n/10);
+}
+
 int main(){
     // print();
     // int n;
