@@ -182,9 +182,14 @@ int reverse3(int n){
     return reverse3(n/10);
 }
 
+// using recursion find the sum of an array
+int sumofarray(int arr[] , int n , int i){
+    if(i==n) return 0;      
+    return arr[i] + sumofarray(arr, n, i+1);
+}
 
 int main(){
-    // print();
+    // print();                                                                                                                 
     // int n;
     // cout<<"enter the value of n"<<endl;
     // cin>>n;
