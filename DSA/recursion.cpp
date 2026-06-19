@@ -173,6 +173,16 @@ int countdigits(int n){
     return 1 + countdigits(n/10);
 }
 
+// using recursion find the reverse of a number
+int reverse3(int n){
+    static int ans = 0;
+    if(n==0) return ans;
+    int rem = n%10; 
+    ans = ans*10 + rem;
+    return reverse3(n/10);
+}
+
+
 int main(){
     // print();
     // int n;
