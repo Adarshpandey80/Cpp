@@ -195,6 +195,13 @@ int maxofarray(int arr[] , int n , int i , int max){
     return maxofarray(arr, n, i+1, max);
 }
 
+// using recursion find the minimum element in an array
+int minofarray(int arr[] , int n , int i , int min){
+    if(i==n) return min;
+    if(arr[i] < min) min = arr[i];
+    return minofarray(arr, n, i+1, min);
+}
+
 int main(){
     // print();                                                                                                                 
     // int n;
