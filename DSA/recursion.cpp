@@ -186,6 +186,13 @@ int reverse3(int n){
 int sumofarray(int arr[] , int n , int i){
     if(i==n) return 0;      
     return arr[i] + sumofarray(arr, n, i+1);
+}       
+
+// using recursion find the maximum element in an array
+int maxofarray(int arr[] , int n , int i , int max){
+    if(i==n) return max;
+    if(arr[i] > max) max = arr[i];
+    return maxofarray(arr, n, i+1, max);
 }
 
 int main(){
