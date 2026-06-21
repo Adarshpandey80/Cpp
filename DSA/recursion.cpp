@@ -202,6 +202,19 @@ int minofarray(int arr[] , int n , int i , int min){
     return minofarray(arr, n, i+1, min);
 }
 
+// using recursion find the first and last occurence of a number in an array
+void occurence2(int arr[] , int n , int key , int i , int &first , int &last){
+    if(i==n) return;
+    if(arr[i] == key){
+        if(first == -1){
+            first = i;
+        } else {
+            last = i;
+        }
+    }
+    occurence2(arr, n, key, i+1, first, last);
+}
+
 int main(){
     // print();                                                                                                                 
     // int n;
