@@ -809,6 +809,26 @@ void printlist(Node *head)
      return 0;
     }
 
+    // find the starting point of the loop in ll
+    Node* startingpointofloop(Node* head){
+        if(head == NULL) return NULL;
+        Node* slow = head;
+        Node* fast = head;
+        while(fast!= NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+            if(slow == fast){
+                slow = head;
+                while(slow != fast){
+                    slow = slow->next;
+                    fast = fast->next;
+                }
+                return slow;
+            }
+        }
+        return NULL;    
+    }
+
 int main()
 {
     vector<int> arr = {3, 1, 4, 6, 2};

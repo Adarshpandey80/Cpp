@@ -215,6 +215,8 @@ void occurence2(int arr[] , int n , int key , int i , int &first , int &last){
     occurence2(arr, n, key, i+1, first, last);
 }
 
+
+
 int main(){
     // print();                                                                                                                 
     // int n;
