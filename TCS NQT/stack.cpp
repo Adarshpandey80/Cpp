@@ -46,3 +46,26 @@ class Stack{
         return ll.front();
     }
 };
+
+
+// using stack wap to reverse a string
+
+class reverseString{
+    list<char> ll;
+    public:
+    void push(char val){
+        ll.push_front(val);
+    }
+    void pop(){
+        ll.pop_front();
+    }
+    char top(){
+        return ll.front();
+    }
+    void print(){
+        for(char ch : ll){
+            cout<<ch;
+        }
+    }
+};
+
