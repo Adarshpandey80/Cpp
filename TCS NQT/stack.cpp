@@ -104,4 +104,24 @@ class reverseString{
     }
 };
         
+// using stack to reverse an array
+
+class reverseArray{
+    list<int> ll;
+    public:
+    void push(int val){
+        ll.push_front(val);
+    }
+    void pop(){
+        ll.pop_front();
+    }
+    int top(){
+        return ll.front();
+    }
+    void print(){
+        for(int val : ll){
+            cout<<val<<" ";
+        }
+    }
+};
 
