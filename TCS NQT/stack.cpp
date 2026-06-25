@@ -69,3 +69,39 @@ class reverseString{
     }
 };
 
+ // using stack to check the valid paranthesis
+
+ class validParanthesis{
+    list<char> ll;
+    public:
+    void push(char val){
+        ll.push_front(val);
+    }
+    void pop(){
+        ll.pop_front();
+    }
+    char top(){
+        return ll.front();
+    }
+    bool isEmpty(){
+        return ll.empty();
+    }
+    bool isValid(string s){
+        for(char ch : s){
+            if(ch == '(' || ch == '{' || ch == '['){
+                push(ch);
+            } else {
+                if(isEmpty()) return false;
+                char topChar = top();
+                if((ch == ')' && topChar == '(') || (ch == '}' && topChar == '{') || (ch == ']' && topChar == '[')){
+                    pop();
+                } else {
+                    return false;
+                }
+            }
+        }
+        return isEmpty();   
+    }
+};
+        
+
