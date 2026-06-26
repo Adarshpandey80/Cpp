@@ -125,3 +125,33 @@ class reverseArray{
     }
 };
 
+// using stack to find the next greater element
+
+class nextGreaterElement{
+    list<int> ll;
+    public:
+    void push(int val){
+        ll.push_front(val);
+    }
+    void pop(){
+        ll.pop_front();
+    }
+    int top(){
+        return ll.front();
+    }
+    bool isEmpty(){
+        return ll.empty();
+    }
+    vector<int> findNextGreater(vector<int>& nums){
+        vector<int> result(nums.size(), -1);
+        for(int i = 0; i < nums.size(); i++){
+            while(!isEmpty() && nums[i] > top()){
+                result[ll.size() - 1] = nums[i];
+                pop();
+            }
+            push(nums[i]);
+        }
+        return result;
+    }
+};
+
