@@ -155,3 +155,38 @@ class nextGreaterElement{
     }
 };
 
+// using stack to evaluate postfix expression
+
+class evaluatePostfix{
+    list<int> ll;
+    public:
+    void push(int val){
+        ll.push_front(val);
+    }
+    void pop(){
+        ll.pop_front();
+    }
+    int top(){
+        return ll.front();
+    }
+    bool isEmpty(){
+        return ll.empty();
+    }
+    int evaluate(string s){
+        for(char ch : s){
+            if(isdigit(ch)){
+                push(ch - '0');
+            } else {
+                int val2 = top(); pop();
+                int val1 = top(); pop();
+                switch(ch){
+                    case '+': push(val1 + val2); break;
+                    case '-': push(val1 - val2); break;
+                    case '*': push(val1 * val2); break;
+                    case '/': push(val1 / val2); break;
+                }
+            }
+        }
+        return top();
+    }
+};
