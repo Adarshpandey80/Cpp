@@ -853,6 +853,23 @@ void printlist(Node *head)
         return slow;
     }
 
+
+    // delete the middle node of the linkedlist
+    Node* deletemiddlenode(Node* head){
+        if(head == NULL || head->next == NULL) return NULL;
+        Node* slow = head;
+        Node* fast = head;
+        Node* prev = NULL;
+        while(fast != NULL && fast->next != NULL){
+            prev = slow;
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        prev->next = slow->next;
+        delete slow;
+        return head;
+    }   
+
 int main()
 {
     vector<int> arr = {3, 1, 4, 6, 2};
