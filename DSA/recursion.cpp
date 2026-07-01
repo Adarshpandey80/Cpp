@@ -215,6 +215,12 @@ void occurence2(int arr[] , int n , int key , int i , int &first , int &last){
     occurence2(arr, n, key, i+1, first, last);
 }
 
+// using recursion find the number of occurence of a number in an array
+int countoccurence(int arr[] , int n , int key , int i){
+    if(i==n) return 0;
+    if(arr[i] == key) return 1 + countoccurence(arr, n, key, i+1);
+    return countoccurence(arr, n, key, i+1  );
+}
 
 
 int main(){
