@@ -69,18 +69,40 @@ using namespace std;
 //     }
 // }
 
-int mian(){
-    int n ;
-    cin>>n;
-    vector<string> st(n);
+// int main(){
+//     int n ;
+//     cin>>n;
+//     vector<string> st(n);
 
-    cin.ignore();
+//     cin.ignore();
 
-    for(int i=0;i<n;i++){
-        getline(cin, st[i]);
+//     for(int i=0;i<n;i++){
+//         getline(cin, st[i]);
+//     }
+
+//     for(auto s : st){
+//         cout<<s<< " ";
+//     }
+// }
+
+
+#include <sstream>
+int main()
+{
+    string s;
+    getline(cin, s);
+
+    stringstream ss(s);
+
+    vector<int> v;
+
+    int x;
+
+    while(ss >> x)
+    {
+        v.push_back(x);
     }
-
-    for(auto s : st){
-        cout<<s<< " ";
+    for(auto el : v){
+        cout<<el<<" ";
     }
 }
