@@ -87,22 +87,39 @@ using namespace std;
 
 
 #include <sstream>
-int main()
-{
+// int main()
+// {
+//     string s;
+//     getline(cin, s);
+
+//     stringstream ss(s);
+
+//     vector<int> v;
+
+//     int x;
+
+//     while(ss >> x)
+//     {
+//         v.push_back(x);
+//     }
+//     for(auto el : v){
+//         cout<<el<<" ";
+//     }
+// }
+
+int main(){
     string s;
     getline(cin, s);
-
     stringstream ss(s);
 
-    vector<int> v;
+    string word;
+    vector<string> st;
 
-    int x;
-
-    while(ss >> x)
-    {
-        v.push_back(x);
+    while(ss >> word){
+        st.push_back(word);
     }
-    for(auto el : v){
-        cout<<el<<" ";
-    }
+    // for(auto in : st){
+    //     cout<<in<<" ";
+    // }
+    cout<<st[0];
 }
